@@ -13,6 +13,36 @@
 		A87651C628B3D29E00AFC95D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87651B428B3D29C00AFC95D /* ContentView.swift */; };
 		A87651C728B3D29E00AFC95D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A87651B528B3D29E00AFC95D /* Assets.xcassets */; };
 		A87651C828B3D29E00AFC95D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A87651B528B3D29E00AFC95D /* Assets.xcassets */; };
+		A87651D228B3F06B00AFC95D /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87651D128B3F06B00AFC95D /* RegisterView.swift */; };
+		A87651D328B3F06B00AFC95D /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87651D128B3F06B00AFC95D /* RegisterView.swift */; };
+		A87651D528B3F8E100AFC95D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87651D428B3F8E100AFC95D /* HomeView.swift */; };
+		A87651D628B3F8E100AFC95D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87651D428B3F8E100AFC95D /* HomeView.swift */; };
+		A87651D828B420F400AFC95D /* AudioBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87651D728B420F400AFC95D /* AudioBookView.swift */; };
+		A87651D928B420F400AFC95D /* AudioBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87651D728B420F400AFC95D /* AudioBookView.swift */; };
+		A87651DB28B423AC00AFC95D /* ActionBarMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87651DA28B423AC00AFC95D /* ActionBarMenuView.swift */; };
+		A87651DC28B423AC00AFC95D /* ActionBarMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87651DA28B423AC00AFC95D /* ActionBarMenuView.swift */; };
+		A87651DE28B42E1E00AFC95D /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87651DD28B42E1E00AFC95D /* SplashScreenView.swift */; };
+		A87651DF28B42E1E00AFC95D /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87651DD28B42E1E00AFC95D /* SplashScreenView.swift */; };
+		A88DCB6F28B4342400E9CD8A /* ReproductorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88DCB6E28B4342400E9CD8A /* ReproductorView.swift */; };
+		A88DCB7028B4342400E9CD8A /* ReproductorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88DCB6E28B4342400E9CD8A /* ReproductorView.swift */; };
+		A88DCB7228B52AD500E9CD8A /* MoreInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88DCB7128B52AD500E9CD8A /* MoreInformationView.swift */; };
+		A88DCB7328B52AD500E9CD8A /* MoreInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88DCB7128B52AD500E9CD8A /* MoreInformationView.swift */; };
+		A88DCB7528B5D98200E9CD8A /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88DCB7428B5D98200E9CD8A /* ReviewView.swift */; };
+		A88DCB7628B5D98200E9CD8A /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88DCB7428B5D98200E9CD8A /* ReviewView.swift */; };
+		A88DCB7B28B5E30400E9CD8A /* StarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88DCB7A28B5E30400E9CD8A /* StarsView.swift */; };
+		A88DCB7C28B5E30400E9CD8A /* StarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88DCB7A28B5E30400E9CD8A /* StarsView.swift */; };
+		A88DCB7E28B5E4C900E9CD8A /* SplashReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88DCB7D28B5E4C900E9CD8A /* SplashReviewView.swift */; };
+		A88DCB7F28B5E4C900E9CD8A /* SplashReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88DCB7D28B5E4C900E9CD8A /* SplashReviewView.swift */; };
+		A88DCB8128B5E84900E9CD8A /* AddToPlayListReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88DCB8028B5E84900E9CD8A /* AddToPlayListReview.swift */; };
+		A88DCB8228B5E84900E9CD8A /* AddToPlayListReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88DCB8028B5E84900E9CD8A /* AddToPlayListReview.swift */; };
+		A88DCB8428B5EDA000E9CD8A /* PlayListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88DCB8328B5EDA000E9CD8A /* PlayListView.swift */; };
+		A88DCB8528B5EDA000E9CD8A /* PlayListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88DCB8328B5EDA000E9CD8A /* PlayListView.swift */; };
+		A88DCB8728B5F2BE00E9CD8A /* CreateNewPlayListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88DCB8628B5F2BE00E9CD8A /* CreateNewPlayListView.swift */; };
+		A88DCB8828B5F2BE00E9CD8A /* CreateNewPlayListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88DCB8628B5F2BE00E9CD8A /* CreateNewPlayListView.swift */; };
+		A88DCB8A28B5F9AF00E9CD8A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88DCB8928B5F9AF00E9CD8A /* SettingsView.swift */; };
+		A88DCB8B28B5F9AF00E9CD8A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88DCB8928B5F9AF00E9CD8A /* SettingsView.swift */; };
+		A88DCB8D28B6026900E9CD8A /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88DCB8C28B6026900E9CD8A /* EditProfileView.swift */; };
+		A88DCB8E28B6026900E9CD8A /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88DCB8C28B6026900E9CD8A /* EditProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +52,21 @@
 		A87651BA28B3D29E00AFC95D /* AudityAppMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudityAppMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A87651C028B3D29E00AFC95D /* AudityAppMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudityAppMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A87651C228B3D29E00AFC95D /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		A87651D128B3F06B00AFC95D /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		A87651D428B3F8E100AFC95D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		A87651D728B420F400AFC95D /* AudioBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioBookView.swift; sourceTree = "<group>"; };
+		A87651DA28B423AC00AFC95D /* ActionBarMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionBarMenuView.swift; sourceTree = "<group>"; };
+		A87651DD28B42E1E00AFC95D /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
+		A88DCB6E28B4342400E9CD8A /* ReproductorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReproductorView.swift; sourceTree = "<group>"; };
+		A88DCB7128B52AD500E9CD8A /* MoreInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreInformationView.swift; sourceTree = "<group>"; };
+		A88DCB7428B5D98200E9CD8A /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
+		A88DCB7A28B5E30400E9CD8A /* StarsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarsView.swift; sourceTree = "<group>"; };
+		A88DCB7D28B5E4C900E9CD8A /* SplashReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashReviewView.swift; sourceTree = "<group>"; };
+		A88DCB8028B5E84900E9CD8A /* AddToPlayListReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToPlayListReview.swift; sourceTree = "<group>"; };
+		A88DCB8328B5EDA000E9CD8A /* PlayListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayListView.swift; sourceTree = "<group>"; };
+		A88DCB8628B5F2BE00E9CD8A /* CreateNewPlayListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewPlayListView.swift; sourceTree = "<group>"; };
+		A88DCB8928B5F9AF00E9CD8A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		A88DCB8C28B6026900E9CD8A /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +101,22 @@
 			children = (
 				A87651B328B3D29C00AFC95D /* AudityAppMobileApp.swift */,
 				A87651B428B3D29C00AFC95D /* ContentView.swift */,
+				A87651D728B420F400AFC95D /* AudioBookView.swift */,
+				A87651D128B3F06B00AFC95D /* RegisterView.swift */,
+				A87651D428B3F8E100AFC95D /* HomeView.swift */,
+				A87651DA28B423AC00AFC95D /* ActionBarMenuView.swift */,
 				A87651B528B3D29E00AFC95D /* Assets.xcassets */,
+				A87651DD28B42E1E00AFC95D /* SplashScreenView.swift */,
+				A88DCB6E28B4342400E9CD8A /* ReproductorView.swift */,
+				A88DCB7128B52AD500E9CD8A /* MoreInformationView.swift */,
+				A88DCB7428B5D98200E9CD8A /* ReviewView.swift */,
+				A88DCB7A28B5E30400E9CD8A /* StarsView.swift */,
+				A88DCB7D28B5E4C900E9CD8A /* SplashReviewView.swift */,
+				A88DCB8028B5E84900E9CD8A /* AddToPlayListReview.swift */,
+				A88DCB8328B5EDA000E9CD8A /* PlayListView.swift */,
+				A88DCB8628B5F2BE00E9CD8A /* CreateNewPlayListView.swift */,
+				A88DCB8928B5F9AF00E9CD8A /* SettingsView.swift */,
+				A88DCB8C28B6026900E9CD8A /* EditProfileView.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -176,7 +236,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A88DCB7528B5D98200E9CD8A /* ReviewView.swift in Sources */,
+				A88DCB8D28B6026900E9CD8A /* EditProfileView.swift in Sources */,
+				A87651DE28B42E1E00AFC95D /* SplashScreenView.swift in Sources */,
+				A88DCB8728B5F2BE00E9CD8A /* CreateNewPlayListView.swift in Sources */,
+				A87651D228B3F06B00AFC95D /* RegisterView.swift in Sources */,
+				A88DCB7228B52AD500E9CD8A /* MoreInformationView.swift in Sources */,
+				A87651DB28B423AC00AFC95D /* ActionBarMenuView.swift in Sources */,
+				A88DCB7E28B5E4C900E9CD8A /* SplashReviewView.swift in Sources */,
+				A88DCB8428B5EDA000E9CD8A /* PlayListView.swift in Sources */,
+				A87651D528B3F8E100AFC95D /* HomeView.swift in Sources */,
+				A88DCB8A28B5F9AF00E9CD8A /* SettingsView.swift in Sources */,
+				A88DCB6F28B4342400E9CD8A /* ReproductorView.swift in Sources */,
 				A87651C528B3D29E00AFC95D /* ContentView.swift in Sources */,
+				A87651D828B420F400AFC95D /* AudioBookView.swift in Sources */,
+				A88DCB8128B5E84900E9CD8A /* AddToPlayListReview.swift in Sources */,
+				A88DCB7B28B5E30400E9CD8A /* StarsView.swift in Sources */,
 				A87651C328B3D29E00AFC95D /* AudityAppMobileApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -185,7 +260,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A88DCB7628B5D98200E9CD8A /* ReviewView.swift in Sources */,
+				A88DCB8E28B6026900E9CD8A /* EditProfileView.swift in Sources */,
+				A87651DF28B42E1E00AFC95D /* SplashScreenView.swift in Sources */,
+				A88DCB8828B5F2BE00E9CD8A /* CreateNewPlayListView.swift in Sources */,
+				A87651D328B3F06B00AFC95D /* RegisterView.swift in Sources */,
+				A88DCB7328B52AD500E9CD8A /* MoreInformationView.swift in Sources */,
+				A87651DC28B423AC00AFC95D /* ActionBarMenuView.swift in Sources */,
+				A88DCB7F28B5E4C900E9CD8A /* SplashReviewView.swift in Sources */,
+				A88DCB8528B5EDA000E9CD8A /* PlayListView.swift in Sources */,
+				A87651D628B3F8E100AFC95D /* HomeView.swift in Sources */,
+				A88DCB8B28B5F9AF00E9CD8A /* SettingsView.swift in Sources */,
+				A88DCB7028B4342400E9CD8A /* ReproductorView.swift in Sources */,
 				A87651C628B3D29E00AFC95D /* ContentView.swift in Sources */,
+				A87651D928B420F400AFC95D /* AudioBookView.swift in Sources */,
+				A88DCB8228B5E84900E9CD8A /* AddToPlayListReview.swift in Sources */,
+				A88DCB7C28B5E30400E9CD8A /* StarsView.swift in Sources */,
 				A87651C428B3D29E00AFC95D /* AudityAppMobileApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
