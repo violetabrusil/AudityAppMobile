@@ -9,6 +9,10 @@ import SwiftUI
 
 struct ContentView: View {
     
+   @StateObject private var vm = LoginViewModelImpl(
+        service: LoginFireBaseServiceImpl()
+   )
+    
     var body: some View {
         
         VStack {
@@ -23,7 +27,7 @@ struct ContentView: View {
                         .padding()
                         .foregroundColor(Color.green)
                         
-                    TextField("Email", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
+                    TextField("Email", text: $vm.credentials.email)
                 }
                 .frame(width: 370,height:50)
                 .background()
@@ -36,7 +40,7 @@ struct ContentView: View {
                         .padding()
                         .foregroundColor(Color.green)
                         
-                    TextField("Password", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
+                    TextField("Password", text: $vm.credentials.password)
                 }
                 .frame(width: 370,height:50)
                 .background()
@@ -47,7 +51,7 @@ struct ContentView: View {
             VStack{
                 
                 Button(action: {
-                       print("Ingresar")
+                    vm.login()
                    }, label: {
                        HStack{
                            Text("Ingresar")
@@ -83,8 +87,9 @@ struct ContentView: View {
             
                 
                 Button(action: {
-                       print("¿Es nuevo aquí? Cree una cuenta")
-                   }, label: {
+                    showRegisterView.toggle()
+                   }
+                       , label: {
                        Text("¿Es nuevo aquí? Cree una cuenta")
                      
                        

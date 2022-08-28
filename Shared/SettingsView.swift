@@ -12,6 +12,8 @@ struct SettingsView: View {
     @Binding var showSettings: Bool
     @Binding var showEditProfileView: Bool
     
+    @EnvironmentObject var sessionService: SessionServiceImpl
+    
     public init (showSettings: Binding<Bool>, showEditProfileView: Binding<Bool>) {
         self._showSettings = showSettings
         self._showEditProfileView = showEditProfileView
@@ -56,7 +58,7 @@ struct SettingsView: View {
                     
                 VStack{
                     
-                    Text("Nombre de usuario")
+                    Text(sessionService.userDetails?.userName ?? "N/A")
                     
                         .multilineTextAlignment(.leading)
                         .foregroundColor(Color.white)
@@ -96,7 +98,7 @@ struct SettingsView: View {
                     .padding(.trailing, 250.0)
                     
                 
-                Text("Nombre de usuario")
+                Text("Email")
                 
                     .multilineTextAlignment(.leading)
                     .foregroundColor(Color.white)
@@ -104,7 +106,7 @@ struct SettingsView: View {
                     .padding(.trailing, 215.0)
                     .padding(.top, 20)
                 
-                Text("Editar perfil")
+                Text(sessionService.userDetails?.email ?? "N/A")
          
                     .multilineTextAlignment(.leading)
                     .foregroundColor(Color.white)
@@ -120,7 +122,7 @@ struct SettingsView: View {
                     .padding(.trailing, 215.0)
                     .padding(.top, 10)
                 
-                Text("Editar perfil")
+                Text(sessionService.userDetails?.userName ?? "N/A")
          
                     .multilineTextAlignment(.leading)
                     .foregroundColor(Color.white)
@@ -133,7 +135,7 @@ struct SettingsView: View {
             VStack{
             
                 Button(action: {
-                       print("Salir")
+                    sessionService.logout()
                    }, label: {
                        HStack{
                            Text("Salir")
@@ -161,5 +163,6 @@ struct SettingsView: View {
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
         SettingsView(showSettings: .constant(false),showEditProfileView: .constant(false))
+            .environmentObject(SessionServiceImpl())
     }
 }

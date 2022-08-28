@@ -8,6 +8,12 @@
 import SwiftUI
 
 struct RegisterView: View {
+    
+    @StateObject private var vm = RegistrationViewModelImpl(
+        service: RegistrationFireBaseServiceImpl()
+    )
+    
+    
     var body: some View {
         VStack{
 //            Image()
@@ -19,19 +25,19 @@ struct RegisterView: View {
                     
                 
                 
-                TextField("Nombre de usuario", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
+                TextField("Nombre de usuario", text: $vm.userDetails.userName)
                     .frame(width: 370,height:50)
                     .background()
                     .cornerRadius(10)
                     .multilineTextAlignment(.leading)
                 
                    
-                TextField("Email", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
+                TextField("Email", text: $vm.userDetails.email)
                     .frame(width: 370,height:50)
                     .background()
                     .cornerRadius(10)
                 
-                TextField("Password", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
+                TextField("Password", text: $vm.userDetails.password)
                     .frame(width: 370,height:50)
                     .background()
                     .cornerRadius(10)
@@ -39,7 +45,7 @@ struct RegisterView: View {
             .padding(.top,80)
             VStack{
                 Button(action: {
-                       print("Registrar")
+                    vm.register()
                    }, label: {
                        HStack{
                            Text("Registrar")
