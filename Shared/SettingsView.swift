@@ -8,13 +8,24 @@
 import SwiftUI
 
 struct SettingsView: View {
+    
+    @Binding var showSettings: Bool
+    @Binding var showEditProfileView: Bool
+    
+    public init (showSettings: Binding<Bool>, showEditProfileView: Binding<Bool>) {
+        self._showSettings = showSettings
+        self._showEditProfileView = showEditProfileView
+    }
+    
+    
+    
     var body: some View {
         
         VStack (spacing: 30){
            
             HStack{
                 Button(action: {
-                       print("Arrow")
+                    showSettings.toggle()
                    }, label: {
                        HStack{
                            Image(systemName: "arrow.left")
@@ -59,7 +70,7 @@ struct SettingsView: View {
                 }
               
                 Button(action: {
-                       print("Arrow")
+                    showEditProfileView.toggle()
                    }, label: {
                        HStack{
                            Image(systemName: "pencil")
@@ -149,6 +160,6 @@ struct SettingsView: View {
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsView()
+        SettingsView(showSettings: .constant(false),showEditProfileView: .constant(false))
     }
 }

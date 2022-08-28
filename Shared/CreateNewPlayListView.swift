@@ -8,11 +8,20 @@
 import SwiftUI
 
 struct CreateNewPlayListView: View {
+    
+    @Binding var showCreateNewPlayListView: Bool
+    
+    public init (showCreateNewPlayListView:Binding<Bool>){
+        
+        self._showCreateNewPlayListView = showCreateNewPlayListView
+        
+    }
+    
     var body: some View {
         VStack{
             HStack{
                 Button(action: {
-                       print("Close")
+                    showCreateNewPlayListView.toggle()
                    }, label: {
                        HStack{
                            Image(systemName: "xmark")
@@ -32,7 +41,7 @@ struct CreateNewPlayListView: View {
                     .font(.system(size: 25, weight: .heavy, design: .default))
                     .padding(.top, 80)
                 
-                TextField("Escriba aqui su comentario", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
+                TextField("Nombre lista", text: .constant("Nombre de la lista"))
                     .frame(width: 380,height:50)
                     .multilineTextAlignment(.center)
                     .foregroundColor(Color.white)
@@ -68,6 +77,6 @@ struct CreateNewPlayListView: View {
 
 struct CreateNewPlayListView_Previews: PreviewProvider {
     static var previews: some View {
-        CreateNewPlayListView()
+        CreateNewPlayListView(showCreateNewPlayListView: .constant(true))
     }
 }

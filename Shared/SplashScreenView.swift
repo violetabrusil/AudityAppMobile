@@ -8,10 +8,26 @@
 import SwiftUI
 
 struct SplashScreenView: View {
+    
+    @ObservedObject var viewModel: SplashScreenViewModel = SplashScreenViewModel()
+    
     var body: some View {
         ZStack{
-            HomeView()
-            ActionBarMenuView()
+            if viewModel.showSearchPLayListView {
+                LibraryView()
+            }
+            if viewModel.showSearchView {
+                SearchView()
+            }
+            if viewModel.showHomeView {
+                HomeView(showSettings: $viewModel.showSettingsView, showEditProfileView: $viewModel.showEditProfileView)
+            }
+            
+            ActionBarMenuView(showHomeView: $viewModel.showHomeView, showSearchView: $viewModel.showSearchView, showSearchPLayListView: $viewModel.showSearchPLayListView)
+            
+            if viewModel.showEditProfileView {
+                EditProfileView(showEditProfileView: $viewModel.showEditProfileView)
+            }
         }
     }
 }

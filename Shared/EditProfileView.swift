@@ -8,11 +8,20 @@
 import SwiftUI
 
 struct EditProfileView: View {
+    
+    @Binding var showEditProfileView: Bool
+    
+    public init (showEditProfileView:Binding<Bool>){
+        
+        self._showEditProfileView = showEditProfileView
+        
+    }
+    
     var body: some View {
         VStack{
             HStack(spacing:100){
                 Button(action: {
-                       print("Close")
+                    showEditProfileView.toggle()
                    }, label: {
                        HStack{
                            Image(systemName: "xmark")
@@ -67,22 +76,24 @@ struct EditProfileView: View {
                     .cornerRadius(20)
                   
                     
-                Text("Nombre Autor")
+                Text("Nombre Usuario")
                     .foregroundColor(Color.white)
                     .multilineTextAlignment(.center)
-                    .padding(.trailing, 255.0)
+                    .frame(width: 250)
                 
             }
             .padding(.bottom, 300.0)
             Spacer()
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color(.black))
+//        .frame(maxWidth: .infinity, maxHeight: .infinity)
+
+        .cornerRadius(20)
+        .background(Color(.gray))
     }
 }
 
 struct EditProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        EditProfileView()
+        EditProfileView(showEditProfileView: .constant(true))
     }
 }

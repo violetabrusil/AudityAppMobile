@@ -8,6 +8,19 @@
 import SwiftUI
 
 struct ActionBarMenuView: View {
+    
+    @Binding var showHomeView: Bool
+    @Binding var showSearchView: Bool
+    @Binding var showSearchPLayListView: Bool
+
+    
+    public init (showHomeView:Binding<Bool>, showSearchView:Binding<Bool>, showSearchPLayListView:Binding<Bool> ){
+        
+        self._showHomeView = showHomeView
+        self._showSearchView = showSearchView
+        self._showSearchPLayListView = showSearchPLayListView
+        
+    }
     var body: some View {
     
         VStack {
@@ -15,7 +28,9 @@ struct ActionBarMenuView: View {
             HStack(alignment: .bottom){
                 VStack(spacing:-10.0){
                     Button(action: {
-                           print("Home")
+                        showHomeView = true
+                        showSearchView = false
+                        showSearchPLayListView = false
                        }, label: {
                            HStack{
                                Image(systemName: "house.fill")
@@ -34,7 +49,9 @@ struct ActionBarMenuView: View {
                 
                 VStack(spacing:-10.0){
                     Button(action: {
-                           print("Search")
+                        showHomeView = false
+                        showSearchView = true
+                        showSearchPLayListView = false
                        }, label: {
                            HStack{
                                Image(systemName: "magnifyingglass")
@@ -54,7 +71,9 @@ struct ActionBarMenuView: View {
                 
                 VStack(spacing:-10.0){
                     Button(action: {
-                           print("Library")
+                        showHomeView = false
+                        showSearchView = false
+                        showSearchPLayListView = true
                        }, label: {
                            HStack{
                                Image(systemName: "books.vertical.fill")
@@ -82,6 +101,6 @@ struct ActionBarMenuView: View {
 
 struct ActionBarMenuView_Previews: PreviewProvider {
     static var previews: some View {
-        ActionBarMenuView()
+        ActionBarMenuView(showHomeView: .constant(true), showSearchView: .constant(false), showSearchPLayListView: .constant(false))
     }
 }
