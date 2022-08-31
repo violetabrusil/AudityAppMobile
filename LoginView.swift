@@ -161,10 +161,38 @@ struct LoginView: View {
                 guard let user = result?.user else { return }
                 
                 print(user.displayName ?? "Success")
+                
+                var userGoogle = User()
+                
+                userGoogle.email = user.email ?? "."
+                userGoogle.photo = user.photoURL?.absoluteString ?? "."
+                userGoogle.userName = user.displayName ?? "."
+
+                self.storeUserInformation(user: userGoogle)
 
             }
         }
         
+    }
+    
+    private func storeUserInformation(user: User) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        let userData = ["access": user.access,
+                        "email": user.email,
+                        "photo": user.photo,
+                        "rol": user.rol,
+                        "userName": user.userName]
+        
+        Firestore.firestore().collection("users")
+            .document(uid)
+            .setData(userData) { err in
+                if let err = err {
+                    print(err)
+                    return
+            }
+            print("Success")
+    }
+    
     }
 
 }
