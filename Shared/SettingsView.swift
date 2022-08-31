@@ -12,7 +12,7 @@ struct SettingsView: View {
     @Binding var showSettings: Bool
     @Binding var showEditProfileView: Bool
     
-    @EnvironmentObject var sessionService: SessionServiceImpl
+    @EnvironmentObject var user: User
     
     public init (showSettings: Binding<Bool>, showEditProfileView: Binding<Bool>) {
         self._showSettings = showSettings
@@ -58,7 +58,7 @@ struct SettingsView: View {
                     
                 VStack{
                     
-                    Text(sessionService.userDetails?.userName ?? "N/A")
+                    Text("Nombre usuario")
                     
                         .multilineTextAlignment(.leading)
                         .foregroundColor(Color.white)
@@ -106,7 +106,7 @@ struct SettingsView: View {
                     .padding(.trailing, 215.0)
                     .padding(.top, 20)
                 
-                Text(sessionService.userDetails?.email ?? "N/A")
+//                Text(sessionService.userDetails?.email ?? "N/A")
          
                     .multilineTextAlignment(.leading)
                     .foregroundColor(Color.white)
@@ -114,7 +114,7 @@ struct SettingsView: View {
                     .padding(.trailing, 280.0)
                 
                 
-                Text("Nombre de usuario")
+//                Text("Nombre de usuario")
                 
                     .multilineTextAlignment(.leading)
                     .foregroundColor(Color.white)
@@ -122,7 +122,7 @@ struct SettingsView: View {
                     .padding(.trailing, 215.0)
                     .padding(.top, 10)
                 
-                Text(sessionService.userDetails?.userName ?? "N/A")
+//                Text(sessionService.userDetails?.userName ?? "N/A")
          
                     .multilineTextAlignment(.leading)
                     .foregroundColor(Color.white)
@@ -135,7 +135,8 @@ struct SettingsView: View {
             VStack{
             
                 Button(action: {
-                    sessionService.logout()
+                    self.user.isUserAuthenticated = .signedOut
+
                    }, label: {
                        HStack{
                            Text("Salir")
@@ -163,6 +164,5 @@ struct SettingsView: View {
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
         SettingsView(showSettings: .constant(false),showEditProfileView: .constant(false))
-            .environmentObject(SessionServiceImpl())
     }
 }
