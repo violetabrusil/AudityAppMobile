@@ -14,7 +14,6 @@
 		A87651C728B3D29E00AFC95D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A87651B528B3D29E00AFC95D /* Assets.xcassets */; };
 		A87651C828B3D29E00AFC95D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A87651B528B3D29E00AFC95D /* Assets.xcassets */; };
 		A87651D228B3F06B00AFC95D /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87651D128B3F06B00AFC95D /* RegisterView.swift */; };
-		A87651D328B3F06B00AFC95D /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87651D128B3F06B00AFC95D /* RegisterView.swift */; };
 		A87651D528B3F8E100AFC95D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87651D428B3F8E100AFC95D /* HomeView.swift */; };
 		A87651D628B3F8E100AFC95D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87651D428B3F8E100AFC95D /* HomeView.swift */; };
 		A87651D828B420F400AFC95D /* AudioBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87651D728B420F400AFC95D /* AudioBookView.swift */; };
@@ -66,9 +65,10 @@
 		A89748E428BAFDA6000EB6BC /* FirebaseInstallations in Frameworks */ = {isa = PBXBuildFile; productRef = A89748E328BAFDA6000EB6BC /* FirebaseInstallations */; };
 		A89748E628BAFDA6000EB6BC /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = A89748E528BAFDA6000EB6BC /* FirebaseStorage */; };
 		A89748E828BAFDA6000EB6BC /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = A89748E728BAFDA6000EB6BC /* FirebaseStorageCombine-Community */; };
-		A897490D28BE93BB000EB6BC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A897490C28BE93BB000EB6BC /* User.swift */; };
 		A897490F28BEC129000EB6BC /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A897490E28BEC129000EB6BC /* LoginView.swift */; };
 		A897491228BEC3E0000EB6BC /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A897491128BEC3E0000EB6BC /* UserViewModel.swift */; };
+		A897491A28BF151E000EB6BC /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A897491928BF151E000EB6BC /* ForgotPasswordView.swift */; };
+		A897492028BF2B0E000EB6BC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A897491F28BF2B0E000EB6BC /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,9 +98,10 @@
 		A89748A328B92B64000EB6BC /* SearchPlayListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlayListView.swift; sourceTree = "<group>"; };
 		A89748A628B92F58000EB6BC /* SplashScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewModel.swift; sourceTree = "<group>"; };
 		A89748B628BAEF41000EB6BC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		A897490C28BE93BB000EB6BC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A897490E28BEC129000EB6BC /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		A897491128BEC3E0000EB6BC /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		A897491928BF151E000EB6BC /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
+		A897491F28BF2B0E000EB6BC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,7 +138,7 @@
 		A87651AD28B3D29C00AFC95D = {
 			isa = PBXGroup;
 			children = (
-				A897491028BEC368000EB6BC /* ViewModel */,
+				A897491328BF11D4000EB6BC /* Firebase */,
 				A897490B28BE93A4000EB6BC /* Model */,
 				A87651B228B3D29C00AFC95D /* Shared */,
 				A87651C128B3D29E00AFC95D /* macOS */,
@@ -151,8 +152,6 @@
 				A89748B628BAEF41000EB6BC /* GoogleService-Info.plist */,
 				A87651B328B3D29C00AFC95D /* AudityAppMobileApp.swift */,
 				A87651B428B3D29C00AFC95D /* ContentView.swift */,
-				A897490E28BEC129000EB6BC /* LoginView.swift */,
-				A87651D128B3F06B00AFC95D /* RegisterView.swift */,
 				A87651D428B3F8E100AFC95D /* HomeView.swift */,
 				A87651D728B420F400AFC95D /* AudioBookView.swift */,
 				A87651DA28B423AC00AFC95D /* ActionBarMenuView.swift */,
@@ -196,17 +195,36 @@
 		A897490B28BE93A4000EB6BC /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A897490C28BE93BB000EB6BC /* User.swift */,
+				A897491F28BF2B0E000EB6BC /* User.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
 		};
-		A897491028BEC368000EB6BC /* ViewModel */ = {
+		A897491328BF11D4000EB6BC /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				A897491628BF1205000EB6BC /* Views */,
+				A897491428BF11E7000EB6BC /* Auth */,
+			);
+			name = Firebase;
+			sourceTree = "<group>";
+		};
+		A897491428BF11E7000EB6BC /* Auth */ = {
 			isa = PBXGroup;
 			children = (
 				A897491128BEC3E0000EB6BC /* UserViewModel.swift */,
 			);
-			name = ViewModel;
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		A897491628BF1205000EB6BC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A897490E28BEC129000EB6BC /* LoginView.swift */,
+				A87651D128B3F06B00AFC95D /* RegisterView.swift */,
+				A897491928BF151E000EB6BC /* ForgotPasswordView.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -330,16 +348,17 @@
 				A88DCB7528B5D98200E9CD8A /* ReviewView.swift in Sources */,
 				A897491228BEC3E0000EB6BC /* UserViewModel.swift in Sources */,
 				A88DCB8D28B6026900E9CD8A /* EditProfileView.swift in Sources */,
+				A897492028BF2B0E000EB6BC /* User.swift in Sources */,
 				A87651DE28B42E1E00AFC95D /* SplashScreenView.swift in Sources */,
 				A88DCB8728B5F2BE00E9CD8A /* CreateNewPlayListView.swift in Sources */,
 				A897490F28BEC129000EB6BC /* LoginView.swift in Sources */,
 				A87651D228B3F06B00AFC95D /* RegisterView.swift in Sources */,
 				A88DCB7228B52AD500E9CD8A /* MoreInformationView.swift in Sources */,
+				A897491A28BF151E000EB6BC /* ForgotPasswordView.swift in Sources */,
 				A87651DB28B423AC00AFC95D /* ActionBarMenuView.swift in Sources */,
 				A88DCB7E28B5E4C900E9CD8A /* SplashReviewView.swift in Sources */,
 				A88DCB8428B5EDA000E9CD8A /* PlayListView.swift in Sources */,
 				A87651D528B3F8E100AFC95D /* HomeView.swift in Sources */,
-				A897490D28BE93BB000EB6BC /* User.swift in Sources */,
 				A88DCB9028B68FE400E9CD8A /* SearchView.swift in Sources */,
 				A89748A728B92F58000EB6BC /* SplashScreenViewModel.swift in Sources */,
 				A88DCB8A28B5F9AF00E9CD8A /* SettingsView.swift in Sources */,
@@ -362,7 +381,6 @@
 				A88DCB8E28B6026900E9CD8A /* EditProfileView.swift in Sources */,
 				A87651DF28B42E1E00AFC95D /* SplashScreenView.swift in Sources */,
 				A88DCB8828B5F2BE00E9CD8A /* CreateNewPlayListView.swift in Sources */,
-				A87651D328B3F06B00AFC95D /* RegisterView.swift in Sources */,
 				A88DCB7328B52AD500E9CD8A /* MoreInformationView.swift in Sources */,
 				A87651DC28B423AC00AFC95D /* ActionBarMenuView.swift in Sources */,
 				A88DCB7F28B5E4C900E9CD8A /* SplashReviewView.swift in Sources */,

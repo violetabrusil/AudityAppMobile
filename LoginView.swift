@@ -6,10 +6,11 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct LoginView: View {
-    
-    @EnvironmentObject var user: User
+        
+    @State var userInfo: User
     
     var body: some View {
         
@@ -25,7 +26,7 @@ struct LoginView: View {
                         .padding()
                         .foregroundColor(Color.green)
                         
-//                    TextField("Email", text: $vm.credentials.email)
+                    TextField("Email", text: $userInfo.email)
                 }
                 .frame(width: 370,height:50)
                 .background()
@@ -38,7 +39,7 @@ struct LoginView: View {
                         .padding()
                         .foregroundColor(Color.green)
                         
-//                    TextField("Password", text: $vm.credentials.password)
+                    SecureField("Password", text: $userInfo.password)
                 }
                 .frame(width: 370,height:50)
                 .background()
@@ -46,10 +47,19 @@ struct LoginView: View {
             }
             .padding(.top,200)
             
+            HStack{
+                Spacer()
+                Button(action: {
+                    ForgotPasswordView()
+                }) {
+                    Text ("Olvido su contraseña")
+                }
+            }.padding(.bottom)
+            
             VStack{
                 
                 Button(action: {
-                    self.user.isUserAuthenticated = .signedIn
+                   
                    }, label: {
                        HStack{
                            Text("Ingresar")
@@ -85,6 +95,7 @@ struct LoginView: View {
             
                 
                 Button(action: {
+                    RegisterView(userInfo: User.init())
                    }
                        , label: {
                        Text("¿Es nuevo aquí? Cree una cuenta")
@@ -105,12 +116,22 @@ struct LoginView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(.black))
+        }
     
+    private func loginUser() {
+        Auth.auth().signIn(withEmail: userInfo.email, password: userInfo.password) { result, err in
+            if let err = err {
+                print("Failed to login user: \(err)")
+                return
+            }
+            print("Succesfully logged in as user")
+        }
     }
+
 }
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView()
+        LoginView(userInfo: User.init())
     }
 }

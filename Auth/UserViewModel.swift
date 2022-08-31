@@ -9,11 +9,8 @@ import Foundation
 
 struct UserViewModel {
     
-    var access: String = "true"
     var email: String = ""
     var password: String = ""
-    var photo: String = ""
-    var rol: String = "final"
     var userName: String = ""
     
     func isEmpty(_field:String) -> Bool {

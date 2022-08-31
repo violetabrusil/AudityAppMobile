@@ -12,8 +12,6 @@ struct SettingsView: View {
     @Binding var showSettings: Bool
     @Binding var showEditProfileView: Bool
     
-    @EnvironmentObject var user: User
-    
     public init (showSettings: Binding<Bool>, showEditProfileView: Binding<Bool>) {
         self._showSettings = showSettings
         self._showEditProfileView = showEditProfileView
@@ -135,7 +133,7 @@ struct SettingsView: View {
             VStack{
             
                 Button(action: {
-                    self.user.isUserAuthenticated = .signedOut
+                    
 
                    }, label: {
                        HStack{

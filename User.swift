@@ -2,22 +2,17 @@
 //  User.swift
 //  AudityAppMobile (iOS)
 //
-//  Created by Violeta on 8/30/22.
+//  Created by Violeta on 8/31/22.
 //
 
 import Foundation
 
-class User: ObservableObject {
+struct User {
     
-    enum FBAuthState {
-        case undefined, signedOut, signedIn
-    }
-    
-    @Published var isUserAuthenticated: FBAuthState = .undefined
-    
-    func configureFirebaseStateDidChange() {
-        self.isUserAuthenticated = .signedOut
-//        self.isUserAuthenticated = .signedIn
-    }
-    
+    var access: String = "true"
+    var email: String = ""
+    var password: String = ""
+    var photo: String = ""
+    var rol: String = "final"
+    var userName: String = ""
 }
