@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Firebase
+import GoogleSignIn
 
 struct LoginView: View {
         
@@ -59,7 +60,7 @@ struct LoginView: View {
             VStack{
                 
                 Button(action: {
-                   
+                   loginUser()
                    }, label: {
                        HStack{
                            Text("Ingresar")
@@ -75,7 +76,7 @@ struct LoginView: View {
                     .cornerRadius(20)
                 
                 Button(action: {
-                       print("Ingresa con Google")
+                    loginWithGoogle()
                    }, label: {
                        HStack(spacing:15){
                            Image("iconGoogle")
@@ -127,11 +128,67 @@ struct LoginView: View {
             print("Succesfully logged in as user")
         }
     }
+    
+    func loginWithGoogle() {
+        
+        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
+        let config = GIDConfiguration(clientID: clientID)
+        GIDSignIn.sharedInstance.signIn(with: config,
+                                        presenting: getRootViewController()) {
+            [self] user, error in
+            
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+            
+            guard
+                let autentication = user?.authentication,
+                    let idToken = autentication.idToken
+            else {
+                return
+            }
+            
+            let credential = GoogleAuthProvider.credential(withIDToken: idToken,
+                                                           accessToken: autentication.accessToken)
+            
+            //Firebase Auth
+            Auth.auth().signIn(with: credential) { result, err in
+                if let error = error {
+                    print(error.localizedDescription)
+                    return
+                }
+                guard let user = result?.user else { return }
+                
+                print(user.displayName ?? "Success")
+
+            }
+        }
+        
+    }
 
 }
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
         LoginView(userInfo: User.init())
+    }
+}
+
+extension View {
+    func getRect()->CGRect{
+        return UIScreen.main.bounds
+    }
+    
+    func getRootViewController()->UIViewController{
+        guard let screen = UIApplication.shared.connectedScenes.first as? UIWindowScene else{
+            return .init()
+        }
+        
+        guard let root = screen.windows.first?.rootViewController else{
+            return .init()
+        }
+        
+        return root
     }
 }

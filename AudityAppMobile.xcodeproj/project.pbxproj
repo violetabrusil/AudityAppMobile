@@ -69,6 +69,8 @@
 		A897491228BEC3E0000EB6BC /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A897491128BEC3E0000EB6BC /* UserViewModel.swift */; };
 		A897491A28BF151E000EB6BC /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A897491928BF151E000EB6BC /* ForgotPasswordView.swift */; };
 		A897492028BF2B0E000EB6BC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A897491F28BF2B0E000EB6BC /* User.swift */; };
+		A897492328BF3B1D000EB6BC /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = A897492228BF3B1D000EB6BC /* GoogleSignIn */; };
+		A897492528BF3B1D000EB6BC /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A897492428BF3B1D000EB6BC /* GoogleSignInSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -102,6 +104,7 @@
 		A897491128BEC3E0000EB6BC /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		A897491928BF151E000EB6BC /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
 		A897491F28BF2B0E000EB6BC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A897492628BF3F8B000EB6BC /* AudityAppMobile--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "AudityAppMobile--iOS--Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A897492528BF3B1D000EB6BC /* GoogleSignInSwift in Frameworks */,
 				A89748E428BAFDA6000EB6BC /* FirebaseInstallations in Frameworks */,
 				A89748DA28BAFDA6000EB6BC /* FirebaseDatabaseSwift in Frameworks */,
 				A89748DE28BAFDA6000EB6BC /* FirebaseFirestoreCombine-Community in Frameworks */,
@@ -122,6 +126,7 @@
 				A89748E228BAFDA6000EB6BC /* FirebaseFunctions in Frameworks */,
 				A89748DC28BAFDA6000EB6BC /* FirebaseFirestore in Frameworks */,
 				A89748E028BAFDA6000EB6BC /* FirebaseFirestoreSwift in Frameworks */,
+				A897492328BF3B1D000EB6BC /* GoogleSignIn in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,6 +143,7 @@
 		A87651AD28B3D29C00AFC95D = {
 			isa = PBXGroup;
 			children = (
+				A897492628BF3F8B000EB6BC /* AudityAppMobile--iOS--Info.plist */,
 				A897491328BF11D4000EB6BC /* Firebase */,
 				A897490B28BE93A4000EB6BC /* Model */,
 				A87651B228B3D29C00AFC95D /* Shared */,
@@ -257,6 +263,8 @@
 				A89748E328BAFDA6000EB6BC /* FirebaseInstallations */,
 				A89748E528BAFDA6000EB6BC /* FirebaseStorage */,
 				A89748E728BAFDA6000EB6BC /* FirebaseStorageCombine-Community */,
+				A897492228BF3B1D000EB6BC /* GoogleSignIn */,
+				A897492428BF3B1D000EB6BC /* GoogleSignInSwift */,
 			);
 			productName = "AudityAppMobile (iOS)";
 			productReference = A87651BA28B3D29E00AFC95D /* AudityAppMobile.app */;
@@ -308,6 +316,7 @@
 			mainGroup = A87651AD28B3D29C00AFC95D;
 			packageReferences = (
 				A89748CE28BAFDA6000EB6BC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				A897492128BF3B1D000EB6BC /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 			);
 			productRefGroup = A87651BB28B3D29E00AFC95D /* Products */;
 			projectDirPath = "";
@@ -523,6 +532,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "AudityAppMobile--iOS--Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -552,6 +562,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "AudityAppMobile--iOS--Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -666,6 +677,14 @@
 				minimumVersion = 9.0.0;
 			};
 		};
+		A897492128BF3B1D000EB6BC /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -733,6 +752,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A89748CE28BAFDA6000EB6BC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseStorageCombine-Community";
+		};
+		A897492228BF3B1D000EB6BC /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A897492128BF3B1D000EB6BC /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		A897492428BF3B1D000EB6BC /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A897492128BF3B1D000EB6BC /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Firebase
+import GoogleSignIn
 
 @main
 struct AudityAppMobileApp: App {
@@ -15,7 +16,8 @@ struct AudityAppMobileApp: App {
     
     var body: some Scene {
         WindowGroup {
-            RegisterView(userInfo: User.init())
+//            RegisterView(userInfo: User.init())
+            LoginView(userInfo: User.init())
         }
     }
 }
@@ -24,7 +26,16 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        
+        //Firebase with email and password
         FirebaseApp.configure()
+  
         return true
+    }
+    
+    func application(_ application: UIApplication, open url: URL,
+                     options: [UIApplication.OpenURLOptionsKey: Any])
+      -> Bool {
+      return GIDSignIn.sharedInstance.handle(url)
     }
 }
