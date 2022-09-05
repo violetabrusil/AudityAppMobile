@@ -11,6 +11,7 @@ struct HomeView: View {
     
     @Binding var showSettings: Bool
     @Binding var showEditProfileView: Bool
+    @StateObject var audioBookViewModel = AudioBookViewModel()
     
     public init (showSettings:Binding<Bool>, showEditProfileView:Binding<Bool>){
         
@@ -18,7 +19,7 @@ struct HomeView: View {
         self._showEditProfileView = showEditProfileView
         
     }
-
+    
     var body: some View {
         
         ZStack{
@@ -34,18 +35,19 @@ struct HomeView: View {
                     Spacer()
                     Button(action: {
                         showSettings.toggle()
-                       }, label: {
-                           HStack{
-                               Image("settings")
-                                   .resizable()
-                                   .frame(width: 35, height: 35)
-                                   .padding()
-                                   .foregroundColor(Color.white)
-                           }
-                       })
-                }.padding(.top,30)
+                    }, label: {
+                        HStack{
+                            Image("settings")
+                                .resizable()
+                                .frame(width: 35, height: 35)
+                                .padding()
+                                .foregroundColor(Color.white)
+                        }
+                    })
+                    
+                    
+                }.padding(.top,5)
                 
-                Spacer()
                 
                 VStack{
                     
@@ -55,15 +57,69 @@ struct HomeView: View {
                         .frame(height:0)
                         .foregroundColor(Color.white)
                         .font(.system(size: 25, weight: .heavy, design: .default))
-                        
+                    
+                    
+                }.padding(.bottom, 30)
+                
+                VStack{
                     Text("Recomendados")
                         .multilineTextAlignment(.leading)
                         .padding(.leading, -200.0)
                         .frame(width: 160,height:60)
                         .foregroundColor(Color.white)
                         .font(.system(size: 25, weight: .heavy, design: .default))
+                        .padding(.bottom, 45)
                     
-                }.padding(.bottom, 610)
+                    ScrollView (.horizontal, showsIndicators: false) {
+                        
+                        HStack(spacing: 13){
+                            ForEach(audioBookViewModel.audioBookList, id:\.self) { audioBook in
+                                AudioBookView(audioBook: audioBook)
+                                
+                            }
+                        }
+                        
+                    }
+                    .onAppear{
+                        audioBookViewModel.fetch()
+                    }
+                    .frame(height: 100)
+                    
+                }
+                .padding(.bottom, 80)
+                
+                VStack{
+                    HStack{
+                        Text("Lo nuevo en Audity")
+                            .multilineTextAlignment(.leading)
+    //                        .padding(.leading, -200.0)
+    //                        .frame(width: 160,height:60)
+                            .foregroundColor(Color.white)
+                            .font(.system(size: 25, weight: .heavy, design: .default))
+                            .padding(.bottom, 60)
+                        
+                        Spacer()
+                    }
+                    
+                    ScrollView (.horizontal, showsIndicators: false) {
+                        
+                        HStack(spacing: 13){
+                            ForEach(audioBookViewModel.audioBookList.reversed(), id:\.self) { audioBook in
+                                AudioBookView(audioBook: audioBook)
+                                
+                            }
+                        }
+                        
+                    }
+                    .onAppear{
+                        audioBookViewModel.fetch()
+                    }
+                    .frame(height: 100)
+                    
+                }
+                .padding(.bottom, 60)
+             
+                Spacer()
                 
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -73,7 +129,7 @@ struct HomeView: View {
                 SettingsView(showSettings: $showSettings, showEditProfileView: $showEditProfileView)
                     .offset(y: 20)
             }
-
+            
         }
         
     }
@@ -82,6 +138,6 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView(showSettings: .constant(false), showEditProfileView: .constant(false))
-          
+        
     }
 }

@@ -28,6 +28,7 @@ struct LoginView: View {
                         .foregroundColor(Color.green)
                         
                     TextField("Email", text: $userInfo.email)
+                        .autocapitalization(.none).keyboardType(.emailAddress)
                 }
                 .frame(width: 370,height:50)
                 .background()
@@ -50,13 +51,11 @@ struct LoginView: View {
             
             HStack{
                 Spacer()
-                Button(action: {
-                    ForgotPasswordView()
-                }) {
+                NavigationLink(destination: ForgotPasswordView()){
                     Text ("Olvido su contraseña")
                 }
+                .navigationBarHidden(true)
             }.padding(.bottom)
-            
             VStack{
                 
                 Button(action: {
@@ -94,17 +93,10 @@ struct LoginView: View {
                     .foregroundColor(Color.white)
                     .cornerRadius(20)
             
-                
-                Button(action: {
-                    RegisterView(userInfo: User.init())
-                   }
-                       , label: {
-                       Text("¿Es nuevo aquí? Cree una cuenta")
-                     
-                       
-                   })
-                
-                    .frame(width: 290)
+                NavigationLink(destination: RegisterView(userInfo: User.init()) ){
+                    Text("¿Es nuevo aquí? Cree una cuenta")
+                    
+                }  .frame(width: 290)
                     .foregroundColor(Color.white)
                     .padding(.top,100)
                 
@@ -127,6 +119,7 @@ struct LoginView: View {
             }
             print("Succesfully logged in as user")
         }
+        
     }
     
     func loginWithGoogle() {

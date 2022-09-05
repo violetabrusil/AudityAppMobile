@@ -42,7 +42,7 @@ struct RegisterView: View {
                 }
                 
 
-                TextField("Password", text: $userInfo.password)
+                SecureField("Password", text: $userInfo.password)
                     .frame(width: 370,height:50)
                     .background()
                     .cornerRadius(10)
@@ -63,26 +63,6 @@ struct RegisterView: View {
                     .background(Color.green)
                     .foregroundColor(Color.white)
                     .cornerRadius(20)
-                
-                Button(action: {
-                       print("Regístrate con Google")
-                   }, label: {
-                       HStack(spacing:15){
-                           Image("iconGoogle")
-                               .resizable()
-                               .frame(width: 22, height: 22)
-                               
-                           Text("Regístrate con Google")
-                               .font(.system(size: 15, weight: .heavy, design: .default))
-                       }
-                       .padding()
-                       
-                   })
-                    .frame(width: 240)
-                    .background(Color.green)
-                    .foregroundColor(Color.white)
-                    .cornerRadius(20)
-            
                 
                 Button(action: {
                        print("¿Ya está registrado? Inicie sesión aquí")

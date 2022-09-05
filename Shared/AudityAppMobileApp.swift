@@ -16,8 +16,11 @@ struct AudityAppMobileApp: App {
     
     var body: some Scene {
         WindowGroup {
-//            RegisterView(userInfo: User.init())
-            LoginView(userInfo: User.init())
+//            NavigationView{
+//                LoginView(userInfo: User.init())
+//            }.navigationBarHidden(true)
+//
+            SplashScreenView()
         }
     }
 }

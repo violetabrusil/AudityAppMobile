@@ -8,27 +8,38 @@
 import SwiftUI
 
 struct AudioBookView: View {
+    
+    let audioBook: AudioBook
+    
+    public init(audioBook: AudioBook) {
+        self.audioBook = audioBook
+    }
+    
     var body: some View {
+        
+        
         VStack{
-            Image("aslan")
-                .resizable()
-                .frame(width: 153, height: 153)
+            AsyncImage(url: URL(string: audioBook.urlImage)) { image in
+                image.resizable()
+                
+            } placeholder: {
+                ProgressView()
+            }
+            .frame(width: 153, height: 163)
             
-            Text("Nombre Audiolibro")
+            Text(audioBook.titleAudioBook)
                 .foregroundColor(Color.white)
             
-            Text("Nombre Autor")
+            Text(audioBook.author)
                 .foregroundColor(Color.white)
         }
-        .background(Color(.black))
-                
-            
-        
+        .frame(width: 153)
+    
     }
 }
 
 struct AudioBookView_Previews: PreviewProvider {
     static var previews: some View {
-        AudioBookView()
+        AudioBookView(audioBook: AudioBook(idAudioBook: 1, titleAudioBook: "", author: "", sipnosis: "", urlImage: "", urlAudio: "", gender: "", yearOfPublication: "", reviews: [], userId: ""))
     }
 }

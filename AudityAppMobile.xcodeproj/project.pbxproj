@@ -44,6 +44,10 @@
 		A88DCB8E28B6026900E9CD8A /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88DCB8C28B6026900E9CD8A /* EditProfileView.swift */; };
 		A88DCB9028B68FE400E9CD8A /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88DCB8F28B68FE400E9CD8A /* SearchView.swift */; };
 		A88DCB9128B68FE400E9CD8A /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88DCB8F28B68FE400E9CD8A /* SearchView.swift */; };
+		A8937BF828C25F3C0019A6A8 /* AudioBookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8937BF728C25F3C0019A6A8 /* AudioBookViewModel.swift */; };
+		A8937BFA28C261750019A6A8 /* AudioBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8937BF928C261750019A6A8 /* AudioBook.swift */; };
+		A8937BFE28C262BC0019A6A8 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8937BFD28C262BC0019A6A8 /* Review.swift */; };
+		A8937C0028C660FC0019A6A8 /* AudioBookInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8937BFF28C660FC0019A6A8 /* AudioBookInformationView.swift */; };
 		A897489E28B9257E000EB6BC /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A897489D28B9257E000EB6BC /* LibraryView.swift */; };
 		A897489F28B9257E000EB6BC /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A897489D28B9257E000EB6BC /* LibraryView.swift */; };
 		A89748A428B92B64000EB6BC /* SearchPlayListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89748A328B92B64000EB6BC /* SearchPlayListView.swift */; };
@@ -96,6 +100,10 @@
 		A88DCB8928B5F9AF00E9CD8A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		A88DCB8C28B6026900E9CD8A /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		A88DCB8F28B68FE400E9CD8A /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		A8937BF728C25F3C0019A6A8 /* AudioBookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioBookViewModel.swift; sourceTree = "<group>"; };
+		A8937BF928C261750019A6A8 /* AudioBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioBook.swift; sourceTree = "<group>"; };
+		A8937BFD28C262BC0019A6A8 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		A8937BFF28C660FC0019A6A8 /* AudioBookInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioBookInformationView.swift; sourceTree = "<group>"; };
 		A897489D28B9257E000EB6BC /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
 		A89748A328B92B64000EB6BC /* SearchPlayListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlayListView.swift; sourceTree = "<group>"; };
 		A89748A628B92F58000EB6BC /* SplashScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewModel.swift; sourceTree = "<group>"; };
@@ -177,6 +185,7 @@
 				A897489D28B9257E000EB6BC /* LibraryView.swift */,
 				A89748A328B92B64000EB6BC /* SearchPlayListView.swift */,
 				A89748A628B92F58000EB6BC /* SplashScreenViewModel.swift */,
+				A8937BFF28C660FC0019A6A8 /* AudioBookInformationView.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -198,10 +207,21 @@
 			path = macOS;
 			sourceTree = "<group>";
 		};
+		A8937BF628C25F200019A6A8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A8937BF728C25F3C0019A6A8 /* AudioBookViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		A897490B28BE93A4000EB6BC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A8937BF628C25F200019A6A8 /* ViewModel */,
 				A897491F28BF2B0E000EB6BC /* User.swift */,
+				A8937BF928C261750019A6A8 /* AudioBook.swift */,
+				A8937BFD28C262BC0019A6A8 /* Review.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -354,13 +374,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8937BFA28C261750019A6A8 /* AudioBook.swift in Sources */,
 				A88DCB7528B5D98200E9CD8A /* ReviewView.swift in Sources */,
 				A897491228BEC3E0000EB6BC /* UserViewModel.swift in Sources */,
 				A88DCB8D28B6026900E9CD8A /* EditProfileView.swift in Sources */,
 				A897492028BF2B0E000EB6BC /* User.swift in Sources */,
+				A8937BF828C25F3C0019A6A8 /* AudioBookViewModel.swift in Sources */,
 				A87651DE28B42E1E00AFC95D /* SplashScreenView.swift in Sources */,
 				A88DCB8728B5F2BE00E9CD8A /* CreateNewPlayListView.swift in Sources */,
 				A897490F28BEC129000EB6BC /* LoginView.swift in Sources */,
+				A8937BFE28C262BC0019A6A8 /* Review.swift in Sources */,
 				A87651D228B3F06B00AFC95D /* RegisterView.swift in Sources */,
 				A88DCB7228B52AD500E9CD8A /* MoreInformationView.swift in Sources */,
 				A897491A28BF151E000EB6BC /* ForgotPasswordView.swift in Sources */,
@@ -377,6 +400,7 @@
 				A88DCB8128B5E84900E9CD8A /* AddToPlayListReview.swift in Sources */,
 				A897489E28B9257E000EB6BC /* LibraryView.swift in Sources */,
 				A88DCB7B28B5E30400E9CD8A /* StarsView.swift in Sources */,
+				A8937C0028C660FC0019A6A8 /* AudioBookInformationView.swift in Sources */,
 				A89748A428B92B64000EB6BC /* SearchPlayListView.swift in Sources */,
 				A87651C328B3D29E00AFC95D /* AudityAppMobileApp.swift in Sources */,
 			);
@@ -544,7 +568,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = I;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thesis.audity.AudityAppMobile;
 				PRODUCT_NAME = AudityAppMobile;
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -574,7 +598,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = I;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thesis.audity.AudityAppMobile;
 				PRODUCT_NAME = AudityAppMobile;
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
