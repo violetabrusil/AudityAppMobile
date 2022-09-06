@@ -17,23 +17,29 @@ struct AudioBookView: View {
     
     var body: some View {
         
-        
-        VStack{
-            AsyncImage(url: URL(string: audioBook.urlImage)) { image in
-                image.resizable()
+        Button {
+            
+        } label: {
+            
+            VStack{
+                AsyncImage(url: URL(string: audioBook.urlImage)) { image in
+                    image.resizable()
+                    
+                } placeholder: {
+                    ProgressView()
+                }
+                .frame(width: 153, height: 163)
                 
-            } placeholder: {
-                ProgressView()
+                Text(audioBook.titleAudioBook)
+                    .foregroundColor(Color.white)
+                
+                Text(audioBook.author)
+                    .foregroundColor(Color.white)
             }
-            .frame(width: 153, height: 163)
-            
-            Text(audioBook.titleAudioBook)
-                .foregroundColor(Color.white)
-            
-            Text(audioBook.author)
-                .foregroundColor(Color.white)
+            .frame(width: 153)
         }
-        .frame(width: 153)
+        
+       
     
     }
 }
