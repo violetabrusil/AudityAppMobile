@@ -71,145 +71,97 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "1416547D-1AB5-461D-952B-D270BA17108A"
+            uuid = "B3D83E21-2E62-4F8D-B34B-4561D7A6D42A"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ViewModel/AudioBookViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
-            landmarkName = "fetch()"
-            landmarkType = "9">
-            <Locations>
-               <Location
-                  uuid = "1416547D-1AB5-461D-952B-D270BA17108A - 97da6672d31ab8d4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in AudityAppMobile.AudioBookViewModel.fetch() -&gt; ()"
-                  moduleName = "AudityAppMobile"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/violetabrusil/ThesisAppMobile/AudityAppMobile/ViewModel/AudioBookViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "22"
-                  endingLineNumber = "22"
-                  offsetFromSymbolStart = "251">
-               </Location>
-               <Location
-                  uuid = "1416547D-1AB5-461D-952B-D270BA17108A - 97da6672d31ab8d4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in AudityAppMobile.AudioBookViewModel.fetch() -&gt; ()"
-                  moduleName = "AudityAppMobile"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/violetabrusil/ThesisAppMobile/AudityAppMobile/ViewModel/AudioBookViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "22"
-                  endingLineNumber = "22"
-                  offsetFromSymbolStart = "321">
-               </Location>
-            </Locations>
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "searchAudioBooks(wordToSearch:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "7B5B2D77-C18C-4E5B-813C-C1C5A8E1723B"
+            uuid = "118E5F23-642D-475F-9DF0-AB87916C1E04"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ViewModel/AudioBookViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
-            landmarkName = "fetch()"
-            landmarkType = "9">
-            <Locations>
-               <Location
-                  uuid = "7B5B2D77-C18C-4E5B-813C-C1C5A8E1723B - 97da6672d31ab8d4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in AudityAppMobile.AudioBookViewModel.fetch() -&gt; ()"
-                  moduleName = "AudityAppMobile"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/violetabrusil/ThesisAppMobile/AudityAppMobile/ViewModel/AudioBookViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "22"
-                  endingLineNumber = "22"
-                  offsetFromSymbolStart = "251">
-               </Location>
-               <Location
-                  uuid = "7B5B2D77-C18C-4E5B-813C-C1C5A8E1723B - 97da6672d31ab8d4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in AudityAppMobile.AudioBookViewModel.fetch() -&gt; ()"
-                  moduleName = "AudityAppMobile"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/violetabrusil/ThesisAppMobile/AudityAppMobile/ViewModel/AudioBookViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "22"
-                  endingLineNumber = "22"
-                  offsetFromSymbolStart = "321">
-               </Location>
-            </Locations>
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "searchAudioBooks(wordToSearch:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "10C15B24-5683-4316-8AE3-CB1EC9402FF8"
+            uuid = "4A599420-2D34-4C36-94EE-0B1C5763F863"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ViewModel/AudioBookViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
-            landmarkName = "fetch()"
-            landmarkType = "9">
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "searchAudioBooks(wordToSearch:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C8401654-46D1-4B68-8905-0F58E85C16CB"
+            uuid = "4A7B03E4-8861-4533-9131-AF6D79AB2FC5"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ViewModel/AudioBookViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "16"
-            endingLineNumber = "16"
-            landmarkName = "fetch()"
-            landmarkType = "9">
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "searchAudioBooks(wordToSearch:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "41C17506-4D1A-4298-B80E-9CBB477EDD6C"
+            uuid = "407D5D01-43A2-47CD-8385-1E57537712FB"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ViewModel/AudioBookViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
-            landmarkName = "fetch()"
-            landmarkType = "9">
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "searchAudioBooks(wordToSearch:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FB138A1C-2761-452E-AE74-392619F7265B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ViewModel/AudioBookViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "searchAudioBooks(wordToSearch:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

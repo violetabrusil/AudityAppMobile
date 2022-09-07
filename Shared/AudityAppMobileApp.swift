@@ -20,7 +20,7 @@ struct AudityAppMobileApp: App {
 //                LoginView(userInfo: User.init())
 //            }.navigationBarHidden(true)
 //
-            SplashScreenView()
+            SearchView()
         }
     }
 }

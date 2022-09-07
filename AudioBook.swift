@@ -21,3 +21,11 @@ struct AudioBook: Hashable, Codable {
     let userId: String?
 
 }
+
+struct AudioBookResponse: Decodable {
+    let audioBooks: [AudioBook]
+    
+    private enum CodingKeys: String, CodingKey {
+        case audioBooks = "SEARCH_PER_TITLE"
+    }
+}
