@@ -9,13 +9,27 @@ import SwiftUI
 
 struct StarsView: View {
     
-    let fullCount: Int
+    @Binding var rating: Int?
+    
+    private func startType(index: Int) -> String {
+        
+        if let rating = self.rating {
+            return index <= rating ? "star.fill" : "star"
+        } else {
+            return "star"
+        }
+    }
     
     var body: some View {
         
         HStack{
-            ForEach(0..<fullCount) { _ in
-                     self.fullStar
+            ForEach(1...5, id: \.self) { index in
+                Image(systemName: self.startType(index: index))
+                    .foregroundColor(Color.yellow)
+                    .onTapGesture {
+                        self.rating = index
+                    
+                    }
                    }
         }
         .frame(maxWidth: 250, maxHeight: 50)
@@ -23,16 +37,11 @@ struct StarsView: View {
      
     }
     
-    private var fullStar: some View {
-       Image(systemName: "star.fill")
-            .resizable()
-            .frame(width: 35, height: 35)
-            .foregroundColor(Color.gray)
-     }
+   
 }
 
 struct StarsView_Previews: PreviewProvider {
     static var previews: some View {
-        StarsView(fullCount: 5)
+        StarsView(rating: .constant(3))
     }
 }

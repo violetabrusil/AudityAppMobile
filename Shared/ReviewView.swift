@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ReviewView: View {
+    
+    @State private var rating: Int?
+    
     var body: some View {
         VStack {
             HStack{
@@ -34,8 +37,9 @@ struct ReviewView: View {
                 Text("¿Cómo califica este título?")
                     .foregroundColor(Color.white)
                     .font(.system(size: 20, weight: .heavy, design: .default))
+                StarsView(rating: $rating)
+                Text(rating != nil ? "Calificación: \(rating!)" : "")
             }
-            .padding(.bottom,80)
             Spacer()
             VStack(spacing: 30){
                 TextField("Escriba aqui su comentario", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
