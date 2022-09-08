@@ -21,6 +21,26 @@ class AudioBookListViewModel: ObservableObject {
         }
         
     }
+    
+    func searchPerAuhor(author: String) async {
+        do {
+            let audioBooks = try await AudioBookViewModel().searchAudioBookPerAuthor(wordToSearch: author)
+            self.audioBooks = audioBooks.map(AudioBookModel.init)
+        } catch {
+            print(error)
+        }
+        
+    }
+    
+    func searchPerGender(gender: String) async {
+        do {
+            let audioBooks = try await AudioBookViewModel().searchAudioBookPerGender(wordToSearch: gender)
+            self.audioBooks = audioBooks.map(AudioBookModel.init)
+        } catch {
+            print(error)
+        }
+        
+    }
 }
 
 struct AudioBookModel {
@@ -42,6 +62,15 @@ struct AudioBookModel {
     var image: URL? {
         URL(string: audioBook.urlImage)
     }
+    
+    var year: String {
+        audioBook.yearOfPublication
+    }
+    
+    var gender: String {
+        audioBook.gender
+    }
+    
     
     
 }

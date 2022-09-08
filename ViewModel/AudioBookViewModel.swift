@@ -65,35 +65,49 @@ class AudioBookViewModel: ObservableObject {
         
         let audioBookResponse = try? JSONDecoder().decode([AudioBook].self, from: data)
         return audioBookResponse ?? []
+      
+    }
+    
+    func searchAudioBookPerAuthor(wordToSearch: String) async throws -> [AudioBook] {
+        
+        let searchType: String = "SEARCH_PER_AUTHOR"
+        
+        guard let url = URL(string: "http://localhost:8080/api/audioBook/searchByAuthor/\(searchType)/\(wordToSearch)") else {
+            print("no hay respuesta")
+            throw Network.badURL
+        }
+        
+        let (data, response) = try await URLSession.shared.data(from: url)
+        
+        guard (response as? HTTPURLResponse)?.statusCode == 200 else {
+            throw Network.badID
+        }
         
         
+        let audioBookResponse = try? JSONDecoder().decode([AudioBook].self, from: data)
+        return audioBookResponse ?? []
+      
+    }
+    
+    func searchAudioBookPerGender(wordToSearch: String) async throws -> [AudioBook] {
+        
+        let searchType: String = "SEARCH_PER_GENDER"
+        
+        guard let url = URL(string: "http://localhost:8080/api/audioBook/searchByAuthor/\(searchType)/\(wordToSearch)") else {
+            print("no hay respuesta")
+            throw Network.badURL
+        }
+        
+        let (data, response) = try await URLSession.shared.data(from: url)
+        
+        guard (response as? HTTPURLResponse)?.statusCode == 200 else {
+            throw Network.badID
+        }
         
         
-        
-        //        var components = URLComponents()
-        //        components.scheme = "http"
-        //        components.host = "localhost:8080/api/audioBook/searchByAuthor/\(searchType)/\(wordToSearch)"
-        ////        components.queryItems = [
-        ////            URLQueryItem(name: "typeSearch", value: "SEARCH_PER_TITLE"),
-        ////            URLQueryItem(name: "wordToSearch", value: wordToSearch)
-        ////        ]
-        //
-        //        guard let url = components.url else {
-        //            throw Network.badURL
-        //        }
-        //
-        //        let (data, response) = try await URLSession.shared.data(from: url)
-        //
-        //        guard (response as? HTTPURLResponse)?.statusCode == 200 else {
-        //            throw Network.badID
-        //        }
-        //
-        //        let audioBookResponse = try? JSONDecoder().decode(AudioBookResponse.self, from: data)
-        //        return audioBookResponse?.audioBooks ?? []
-        
-        
-        
-        
+        let audioBookResponse = try? JSONDecoder().decode([AudioBook].self, from: data)
+        return audioBookResponse ?? []
+      
     }
     
 }

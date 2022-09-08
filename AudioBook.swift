@@ -29,3 +29,19 @@ struct AudioBookResponse: Decodable {
         case audioBooks = "SEARCH_PER_TITLE"
     }
 }
+
+struct AudioBookResponseA: Decodable {
+    let audioBooksPerAuthor: [AudioBook]
+    
+    private enum CodingKeys: String, CodingKey {
+        case audioBooksPerAuthor = "SEARCH_PER_AUTHOR"
+    }
+}
+
+struct AudioBookResponseG: Decodable {
+    let audioBooksPerGender: [AudioBook]
+    
+    private enum CodingKeys: String, CodingKey {
+        case audioBooksPerGender = "SEARCH_PER_GENDER"
+    }
+}
