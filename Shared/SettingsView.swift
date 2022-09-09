@@ -11,13 +11,12 @@ struct SettingsView: View {
     
     @Binding var showSettings: Bool
     @Binding var showEditProfileView: Bool
+    @EnvironmentObject var user: UserViewModel
     
     public init (showSettings: Binding<Bool>, showEditProfileView: Binding<Bool>) {
         self._showSettings = showSettings
         self._showEditProfileView = showEditProfileView
     }
-    
-    
     
     var body: some View {
         
@@ -48,16 +47,32 @@ struct SettingsView: View {
             
             HStack(spacing:40){
                 
-                Image("aslan")
-                    .resizable()
+                if user.user?.photo != "" {
+                    AsyncImage(url: URL(string: user.user?.photo ?? "")) { image in
+                        image.resizable()
+                            .aspectRatio(contentMode: .fill)
+                        
+                    } placeholder: {
+                        ProgressView()
+                    }
                     .frame(width: 80, height:80)
                     .clipShape(Circle())
                     .shadow(radius: 10)
                     
+                } else {
+                    Image(systemName: "person.circle.fill")
+                        .resizable()
+                        .frame(width: 80, height:80)
+                        .clipShape(Circle())
+                        .shadow(radius: 10)
+                        .foregroundColor(Color(.gray))
+                    
+                }
+                
+                
                 VStack{
                     
-                    Text("Nombre usuario")
-                    
+                    Text(user.user?.userName ?? "")
                         .multilineTextAlignment(.leading)
                         .foregroundColor(Color.white)
                         .font(.system(size: 16, weight: .heavy, design: .default))
@@ -104,7 +119,7 @@ struct SettingsView: View {
                     .padding(.trailing, 215.0)
                     .padding(.top, 20)
                 
-//                Text(sessionService.userDetails?.email ?? "N/A")
+                Text(user.user?.email ?? "")
          
                     .multilineTextAlignment(.leading)
                     .foregroundColor(Color.white)
@@ -112,7 +127,7 @@ struct SettingsView: View {
                     .padding(.trailing, 280.0)
                 
                 
-//                Text("Nombre de usuario")
+                Text("Nombre de usuario")
                 
                     .multilineTextAlignment(.leading)
                     .foregroundColor(Color.white)
@@ -120,7 +135,7 @@ struct SettingsView: View {
                     .padding(.trailing, 215.0)
                     .padding(.top, 10)
                 
-//                Text(sessionService.userDetails?.userName ?? "N/A")
+                Text(user.user?.userName ?? "")
          
                     .multilineTextAlignment(.leading)
                     .foregroundColor(Color.white)
@@ -133,8 +148,7 @@ struct SettingsView: View {
             VStack{
             
                 Button(action: {
-                    
-
+                    user.signOut()
                    }, label: {
                        HStack{
                            Text("Salir")

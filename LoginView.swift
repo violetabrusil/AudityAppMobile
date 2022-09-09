@@ -99,7 +99,7 @@ struct LoginView: View {
                     .foregroundColor(Color.white)
                     .cornerRadius(20)
             
-                NavigationLink(destination: RegisterView() ){
+                NavigationLink(destination: RegisterView()){
                     Text("¿Es nuevo aquí? Cree una cuenta")
                     
                 }  .frame(width: 290)

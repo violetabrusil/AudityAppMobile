@@ -13,14 +13,12 @@ struct ContentView: View {
     
     var body: some View {
         
-        NavigationView{
-            if user.userIsAuthenicatedAndSynced {
-                SplashScreenView()
-            } else {
-                LoginView()
-            }
-        }.navigationBarHidden(true)
-    
+        if user.userIsAuthenicatedAndSynced {
+            SplashScreenView()
+        } else {
+            LoginView()
+        }
+        
     }
 }
 
