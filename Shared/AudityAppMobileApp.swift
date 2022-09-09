@@ -13,14 +13,16 @@ import GoogleSignIn
 struct AudityAppMobileApp: App {
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+  
     
     var body: some Scene {
         WindowGroup {
-//            NavigationView{
-//                LoginView(userInfo: User.init())
-//            }.navigationBarHidden(true)
+            
+            let user = UserViewModel()
+            ContentView()
+                .environmentObject(user)
 //
-            SearchView()
+//            SearchView()
         }
     }
 }

@@ -11,7 +11,9 @@ import GoogleSignIn
 
 struct LoginView: View {
         
-    @State var userInfo: User
+    @EnvironmentObject var user: UserViewModel
+    @State private var email = ""
+    @State private var password = ""
     
     var body: some View {
         
@@ -27,8 +29,10 @@ struct LoginView: View {
                         .padding()
                         .foregroundColor(Color.green)
                         
-                    TextField("Email", text: $userInfo.email)
-                        .autocapitalization(.none).keyboardType(.emailAddress)
+                    TextField("Email", text: $email)
+                        .autocapitalization(.none)
+                        .keyboardType(.emailAddress)
+                        .disableAutocorrection(true)
                 }
                 .frame(width: 370,height:50)
                 .background()
@@ -41,7 +45,9 @@ struct LoginView: View {
                         .padding()
                         .foregroundColor(Color.green)
                         
-                    SecureField("Password", text: $userInfo.password)
+                    SecureField("Password", text: $password)
+                        .autocapitalization(.none)
+                        .disableAutocorrection(true)
                 }
                 .frame(width: 370,height:50)
                 .background()
@@ -59,7 +65,7 @@ struct LoginView: View {
             VStack{
                 
                 Button(action: {
-                   loginUser()
+                    user.loginUser(email: email, password: password)
                    }, label: {
                        HStack{
                            Text("Ingresar")
@@ -93,7 +99,7 @@ struct LoginView: View {
                     .foregroundColor(Color.white)
                     .cornerRadius(20)
             
-                NavigationLink(destination: RegisterView(userInfo: User.init()) ){
+                NavigationLink(destination: RegisterView() ){
                     Text("¿Es nuevo aquí? Cree una cuenta")
                     
                 }  .frame(width: 290)
@@ -111,16 +117,6 @@ struct LoginView: View {
         .background(Color(.black))
         }
     
-    private func loginUser() {
-        Auth.auth().signIn(withEmail: userInfo.email, password: userInfo.password) { result, err in
-            if let err = err {
-                print("Failed to login user: \(err)")
-                return
-            }
-            print("Succesfully logged in as user")
-        }
-        
-    }
     
     func loginWithGoogle() {
         
@@ -192,7 +188,7 @@ struct LoginView: View {
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView(userInfo: User.init())
+        LoginView()
     }
 }
 

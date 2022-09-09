@@ -10,8 +10,12 @@ import Firebase
 
 struct RegisterView: View {
     
-    @State var userInfo: User
-    @State var user: UserViewModel = UserViewModel()
+    @EnvironmentObject var user: UserViewModel
+    @State private var email = ""
+    @State private var password = ""
+    @State private var userName = ""
+    @State private var photo = ""
+    @State var validation: Validations = Validations()
     
     var body: some View {
         VStack{
@@ -22,35 +26,39 @@ struct RegisterView: View {
                     .foregroundColor(Color.white)
                     .font(.system(size: 30, weight: .heavy, design: .default))
                     
-                TextField("Nombre de usuario", text: $userInfo.userName)
+                TextField("Nombre de usuario", text: $userName)
                     .frame(width: 370,height:50)
                     .background()
                     .cornerRadius(10)
                     .multilineTextAlignment(.leading)
-                if  !user.validNameText.isEmpty {
-                    Text(user.validNameText).font(.caption).foregroundColor(.red)
+                if  !validation.validNameText.isEmpty {
+                    Text(validation.validNameText).font(.caption).foregroundColor(.red)
                 }
 
                    
-                TextField("Email", text: $userInfo.email)
+                TextField("Email", text: $email)
                     .frame(width: 370,height:50)
                     .background()
-                    .autocapitalization(.none).keyboardType(.emailAddress)
+                    .autocapitalization(.none)
+                    .keyboardType(.emailAddress)
+                    .disableAutocorrection(true)
                     .cornerRadius(10)
-                if  !user.validPasswordText.isEmpty {
-                    Text(user.validPasswordText).font(.caption).foregroundColor(.red)
+                if  !validation.validPasswordText.isEmpty {
+                    Text(validation.validPasswordText).font(.caption).foregroundColor(.red)
                 }
                 
 
-                SecureField("Password", text: $userInfo.password)
+                SecureField("Password", text: $password)
                     .frame(width: 370,height:50)
                     .background()
+                    .autocapitalization(.none)
+                    .disableAutocorrection(true)
                     .cornerRadius(10)
             }
             .padding(.top,80)
             VStack{
                 Button(action: {
-                   handleAction()
+                    user.createNewAccount(access: "true", email: email, password: password, rol: "final", userName: userName, photo: photo)
                    }, label: {
                        HStack{
                            Text("Registrar")
@@ -80,47 +88,32 @@ struct RegisterView: View {
         .background(Color(.black))
     }
     
-    private func handleAction() {
-        createNewAccount()
-    }
+   
     
-    private func createNewAccount() {
-        Auth.auth().createUser(withEmail: userInfo.email, password: userInfo.password) { result, err in
-            if let err = err {
-                print("Failed to create user: ",err)
-                return
-            }
-            
-            print("Succesfully created user: \(result?.user.uid ?? "")")
-            
-            self.storeUserInformation()
-        }
         
-    }
-    
-    private func storeUserInformation() {
-        guard let uid = Auth.auth().currentUser?.uid else { return }
-        let userData = ["access": userInfo.access,
-                        "email": userInfo.email,
-                        "photo": userInfo.photo,
-                        "rol": userInfo.rol,
-                        "userName": userInfo.userName]
-        
-        Firestore.firestore().collection("users")
-            .document(uid)
-            .setData(userData) { err in
-                if let err = err {
-                    print(err)
-                    return
-            }
-            print("Success")
-    }
-    
-    }
+//    private func storeUserInformation() {
+//        guard let uid = Auth.auth().currentUser?.uid else { return }
+//        let userData = ["access": userInfo.access,
+//                        "email": userInfo.email,
+//                        "photo": userInfo.photo,
+//                        "rol": userInfo.rol,
+//                        "userName": userInfo.userName]
+//
+//        Firestore.firestore().collection("users")
+//            .document(uid)
+//            .setData(userData) { err in
+//                if let err = err {
+//                    print(err)
+//                    return
+//            }
+//            print("Success")
+//    }
+//
+//    }
 }
 
 struct RegisterView_Previews: PreviewProvider {
     static var previews: some View {
-        RegisterView(userInfo: User.init(), user: UserViewModel.init())
+        RegisterView(validation: Validations.init())
     }
 }

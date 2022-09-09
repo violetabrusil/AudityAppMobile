@@ -9,11 +9,17 @@ import SwiftUI
 
 struct ContentView: View {
     
-
+    @EnvironmentObject var user: UserViewModel
     
     var body: some View {
         
-       Text("")
+        NavigationView{
+            if user.userIsAuthenicatedAndSynced {
+                SplashScreenView()
+            } else {
+                LoginView()
+            }
+        }.navigationBarHidden(true)
     
     }
 }

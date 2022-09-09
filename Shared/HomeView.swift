@@ -12,6 +12,7 @@ struct HomeView: View {
     @Binding var showSettings: Bool
     @Binding var showEditProfileView: Bool
     @StateObject var audioBookViewModel = AudioBookViewModel()
+    @EnvironmentObject var user: UserViewModel
     
     public init (showSettings:Binding<Bool>, showEditProfileView:Binding<Bool>){
         
@@ -51,7 +52,7 @@ struct HomeView: View {
                 
                 VStack{
                     
-                    Text("Hola, ")
+                    Text("Hola, \(user.user?.userName ?? "")")
                         .multilineTextAlignment(.leading)
                         .padding(.leading, -200.0)
                         .frame(height:0)

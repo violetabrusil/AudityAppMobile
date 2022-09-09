@@ -89,6 +89,7 @@
 		A897492028BF2B0E000EB6BC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A897491F28BF2B0E000EB6BC /* User.swift */; };
 		A897492328BF3B1D000EB6BC /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = A897492228BF3B1D000EB6BC /* GoogleSignIn */; };
 		A897492528BF3B1D000EB6BC /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A897492428BF3B1D000EB6BC /* GoogleSignInSwift */; };
+		A8A7258928CB92A600F1EC3B /* Validations.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A7258828CB92A600F1EC3B /* Validations.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -142,6 +143,7 @@
 		A897491928BF151E000EB6BC /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
 		A897491F28BF2B0E000EB6BC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A897492628BF3F8B000EB6BC /* AudityAppMobile--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "AudityAppMobile--iOS--Info.plist"; sourceTree = "<group>"; };
+		A8A7258828CB92A600F1EC3B /* Validations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validations.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +186,7 @@
 				A897491328BF11D4000EB6BC /* Firebase */,
 				A897490B28BE93A4000EB6BC /* Model */,
 				A8937C0728C7957F0019A6A8 /* Navigation */,
+				A8A7258728CB928C00F1EC3B /* Validation */,
 				A87651B228B3D29C00AFC95D /* Shared */,
 				A87651C128B3D29E00AFC95D /* macOS */,
 				A87651BB28B3D29E00AFC95D /* Products */,
@@ -303,6 +306,14 @@
 				A897491928BF151E000EB6BC /* ForgotPasswordView.swift */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		A8A7258728CB928C00F1EC3B /* Validation */ = {
+			isa = PBXGroup;
+			children = (
+				A8A7258828CB92A600F1EC3B /* Validations.swift */,
+			);
+			name = Validation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -430,6 +441,7 @@
 				A8937BFA28C261750019A6A8 /* AudioBook.swift in Sources */,
 				A88DCB7528B5D98200E9CD8A /* ReviewView.swift in Sources */,
 				A897491228BEC3E0000EB6BC /* UserViewModel.swift in Sources */,
+				A8A7258928CB92A600F1EC3B /* Validations.swift in Sources */,
 				A88DCB8D28B6026900E9CD8A /* EditProfileView.swift in Sources */,
 				A897492028BF2B0E000EB6BC /* User.swift in Sources */,
 				A8937C1328C7957F0019A6A8 /* Router.swift in Sources */,

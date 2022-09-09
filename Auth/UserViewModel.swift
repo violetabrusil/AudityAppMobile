@@ -6,69 +6,95 @@
 //
 
 import Foundation
+import Firebase
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
-struct UserViewModel {
+class UserViewModel: ObservableObject {
     
-    var email: String = ""
-    var password: String = ""
-    var userName: String = ""
+    @Published var user: User?
     
-    func isEmpty(_field:String) -> Bool {
-        return _field.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+    private let auth = Auth.auth()
+    private let db = Firestore.firestore()
+    
+    var uuid: String? {
+        auth.currentUser?.uid
     }
     
-    func isEmailValid(_email: String) -> Bool {
-        let emailTest = NSPredicate(format: "SELF MATCHES %@",
-                                    "[A-Z0-9a-z._%+-]+@[A-Za-z0-9._]+\\.[A-Za-z]{2,64}")
-        return emailTest.evaluate(with: email)
+    var userIsAuthenicated: Bool {
+        auth.currentUser != nil
     }
     
-    func isPasswordValid(_password: String) -> Bool {
-        let passwordTest = NSPredicate(format: "SELF MATCHES %@",
-                                       "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$")
-        return passwordTest.evaluate(with: password)
+    var userIsAuthenicatedAndSynced: Bool {
+        user != nil && userIsAuthenicated
     }
     
-    var isSignInComplete: Bool {
-        if !isEmailValid(_email: email) ||
-            isEmpty(_field: userName) ||
-            isPasswordValid(_password: password){
-            return false
-        }
-        return true
-    }
+    //Firebase Auth Function
     
-    var isLogInComplete: Bool {
-        if isEmpty(_field: email) ||
-            isEmpty(_field: password) {
-            return false
-        }
-        return true
-    }
-    
-    var validNameText: String {
-        if !isEmpty(_field: userName){
-            return ""
-        } else {
-            return "Ingrese un nombre de usuario"
+    func loginUser(email: String, password: String) {
+        auth.signIn(withEmail: email, password: password) { [weak self] result, error in
+            guard result != nil, error == nil else { return }
+            DispatchQueue.main.async {
+                self?.sync()
+            }
         }
     }
     
-    var validEmailAddressText: String {
-        if isEmailValid(_email: email){
-            return ""
-        } else {
-            return "Introduzca una dirección de correo electrónico válida"
+    func createNewAccount(access: String, email: String, password: String, rol: String, userName: String, photo: String) {
+        auth.createUser(withEmail: email, password: password) { [weak self] result, error in
+            guard result != nil, error == nil else { return }
+            DispatchQueue.main.async {
+                self?.add(User(access: access, email: email, photo: photo, rol: rol, userName: userName))
+                self?.sync()
+            }
         }
     }
     
-    var validPasswordText: String {
-        if isPasswordValid(_password: password){
-            return ""
-        } else {
-            return "Debe tener 8 caracteres que contengan al menos un número y una letra mayúscula"
+    func signOut() {
+        do{
+            try auth.signOut()
+            self.user = nil
+        }
+        catch {
+            print("Error signing out user: \(error)")
         }
     }
+    
+    //Firebase functions for user data
+    private func sync() {
+        guard userIsAuthenicated else { return }
+        db.collection("users").document(self.uuid!).getDocument { (document, error) in
+            guard document != nil, error == nil else { return }
+            do {
+                try self.user = document!.data(as: User.self)
+            } catch {
+                print("Sync error: \(error)")
+            }
+        }
+    }
+    
+    private func add(_ user: User) {
+        guard userIsAuthenicated else { return }
+        do {
+            let _ = try db.collection("users").document(self.uuid!).setData(from: user)
+        } catch {
+            print("Error adding: \(error)")
+        }
+    }
+    
+    private func update() {
+        guard userIsAuthenicatedAndSynced else { return }
+        do {
+            let _ = try db.collection("users").document(self.uuid!).setData(from: user)
+        } catch {
+            print ("Error updating; \(error)")
+        }
+    }
+    
+    
+    
+    
+    
     
     
 }
