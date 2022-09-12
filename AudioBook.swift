@@ -19,7 +19,20 @@ struct AudioBook: Hashable, Codable {
     let yearOfPublication: String
     let reviews: [Review]?
     let userId: String?
-
+    
+    public init() {
+      
+        self.idAudioBook = 0
+        self.titleAudioBook = "titleAudioBook"
+        self.author = "author"
+        self.sipnosis = "sipnosis"
+        self.urlImage = "urlImage"
+        self.urlAudio = "urlAudio"
+        self.gender = "gender"
+        self.yearOfPublication = "yearOfPublication"
+        self.reviews = []
+        self.userId = "userId"
+    }
 }
 
 struct AudioBookResponse: Decodable {

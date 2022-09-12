@@ -10,6 +10,7 @@ import SwiftUI
 struct AudioBookView: View {
     
     let audioBook: AudioBook
+    let audityViewModel = AudityBaseViewModel()
     
     public init(audioBook: AudioBook) {
         self.audioBook = audioBook
@@ -18,7 +19,9 @@ struct AudioBookView: View {
     var body: some View {
         
         Button {
-            
+            _ = audityViewModel.extras.set(key: "audioBook", value: audioBook)
+            audityViewModel.nextScreenType = NeutralScreenType.AudioBookInformationView.rawValue
+            audityViewModel.goToNextScreen = true
         } label: {
             
             VStack{
@@ -46,6 +49,6 @@ struct AudioBookView: View {
 
 struct AudioBookView_Previews: PreviewProvider {
     static var previews: some View {
-        AudioBookView(audioBook: AudioBook(idAudioBook: 1, titleAudioBook: "", author: "", sipnosis: "", urlImage: "", urlAudio: "", gender: "", yearOfPublication: "", reviews: [], userId: ""))
+        AudioBookView(audioBook: AudioBook())
     }
 }

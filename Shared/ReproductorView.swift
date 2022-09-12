@@ -7,6 +7,8 @@
 
 import SwiftUI
 import GoogleSignInSwift
+import Firebase
+import FirebaseStorage
 
 struct ReproductorView: View {
     
@@ -169,7 +171,6 @@ struct ReproductorView: View {
             .padding(20)
         }
         .onAppear {
-            //            AudioManager.shared.startPlayer(track: audioBook.urlAudio, isPreview: isPreview)
             audioManager.startPlayer(track: audioBook.urlAudio, isPreview: isPreview)
         }
         .onReceive(timer) { _ in
@@ -181,8 +182,7 @@ struct ReproductorView: View {
     
     struct ReproductorView_Previews: PreviewProvider {
         static var previews: some View {
-            ReproductorView(audioBook: AudioBook(idAudioBook: 1, titleAudioBook: "", author: "", sipnosis: "", urlImage: "", urlAudio: "", gender: "", yearOfPublication: "", reviews: [], userId: ""))
-                .environmentObject(AudioManager())
+            ReproductorView(audioBook: AudioBook())
         }
     }
 }

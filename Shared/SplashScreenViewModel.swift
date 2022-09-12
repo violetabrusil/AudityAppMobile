@@ -7,14 +7,19 @@
 
 import Foundation
 
-open class SplashScreenViewModel: ObservableObject {
+open class SplashScreenViewModel: AudityBaseViewModel {
     
+    public var navigationStack: NavigationStack = NavigationStack()
     @Published var showHomeView: Bool = true
     @Published var showSearchView: Bool = false
     @Published var showSearchPLayListView: Bool = false
     @Published var showSettingsView: Bool = false
     @Published var showEditProfileView: Bool = false
     
+    public override init(){
+        super.init()
+        CoreAudityApp.shared.router = NeutralRouter(navStack: navigationStack)
+    }
     
 
     

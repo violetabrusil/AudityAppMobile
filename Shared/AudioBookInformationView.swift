@@ -83,13 +83,14 @@ struct AudioBookInformationView: View {
         .ignoresSafeArea()
         .fullScreenCover(isPresented: $showPlayer) {
             ReproductorView(audioBook: self.audioBook)
+                .environmentObject(AudioManager())
         }
     }
 }
 
 struct AudioBookInformationView_Previews: PreviewProvider {
     static var previews: some View {
-        AudioBookInformationView(audioBook: AudioBook(idAudioBook: 1, titleAudioBook: "", author: "", sipnosis: "", urlImage: "", urlAudio: "", gender: "", yearOfPublication: "", reviews: [], userId: ""))
+        AudioBookInformationView(audioBook: AudioBook())
             .environmentObject(AudioManager())
     }
 }

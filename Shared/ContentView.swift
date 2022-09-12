@@ -12,12 +12,23 @@ struct ContentView: View {
     @EnvironmentObject var user: UserViewModel
     
     var body: some View {
-        
-        if user.userIsAuthenicatedAndSynced {
-            SplashScreenView()
-        } else {
-            LoginView()
+        ZStack(alignment: .top){
+            NavigationView{
+                CoreAudityApp.shared.uiFactory.getViewOf(type: NeutralScreenType.SplashScreenView)
+            }
+            .navigationBarHidden(true)
+            .navigationViewStyle(StackNavigationViewStyle())
         }
+//        if user.userIsAuthenicatedAndSynced {
+//            NavigationView{
+//                CoreAudityApp.shared.uiFactory.getViewOf(type: NeutralScreenType.LoginView)
+//            }
+//            .navigationBarHidden(true)
+//            .navigationViewStyle(StackNavigationViewStyle())
+//
+//        } else {
+//            LoginView()
+//        }
         
     }
 }

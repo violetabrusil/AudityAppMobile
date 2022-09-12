@@ -34,22 +34,15 @@ public class NeutralRouter {
    public func popToRoot(){
       self.navStack.pop(to: .root)
    }
-//
-//   public func popToHome(){
-//      if self.navStack.containsView(withId: ScreenType.Home.rawValue){
-//         self.navStack.pop(to: .view(withId: ScreenType.Home.rawValue))
-//      }
-//      else{
-//         self.navStack.push(CoreAppClient.shared.uiFactory.getViewOf(type: ScreenType.Home, extras: UIExtras()), withId: ScreenType.Home.rawValue)
-//      }
-//   }
-//
-//   public func popToStartKYC(){
-//      if self.navStack.containsView(withId: ScreenType.KYCStartScreen.rawValue){
-//         self.navStack.pop(to: .view(withId: ScreenType.KYCStartScreen.rawValue))
-//      }
-//      else{
-//         self.navStack.push(CoreAppClient.shared.uiFactory.getViewOf(type: ScreenType.KYCStartScreen, extras: UIExtras()), withId: ScreenType.KYCStartScreen.rawValue)
-//      }
-//   }
+
+   public func popToHome(){
+       if self.navStack.containsView(withId: NeutralScreenType.SplashScreenView.rawValue){
+         self.navStack.pop(to: .view(withId: NeutralScreenType.SplashScreenView.rawValue))
+      }
+      else{
+         self.navStack.push(CoreAudityApp.shared.uiFactory.getViewOf(type: NeutralScreenType.SplashScreenView, extras: UIExtras()), withId: NeutralScreenType.SplashScreenView.rawValue)
+      }
+   }
+
+
 }

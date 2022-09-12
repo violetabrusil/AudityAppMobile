@@ -10,9 +10,9 @@ import AVKit
 
 final class AudioManager: ObservableObject {
     
-//    static let shared = AudioManager()
     
     var player: AVAudioPlayer?
+    
     @Published private(set) var isPlaying: Bool = false {
         didSet {
             print("isPlaying", isPlaying)
@@ -20,8 +20,14 @@ final class AudioManager: ObservableObject {
     }
     
     @Published private(set) var isLooping: Bool = false
+    
+    public init(){
+        
+    }
+    
     func startPlayer(track: String, isPreview: Bool = false) {
-        guard let url = Bundle.main.url(forResource: track, withExtension: "mp3") else {
+        
+        guard let url = URL(string: track) else {
             print("Resource not found:  \(track)")
             return
         }
@@ -29,7 +35,8 @@ final class AudioManager: ObservableObject {
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
             try AVAudioSession.sharedInstance().setActive(true)
-            player = try AVAudioPlayer(contentsOf: url)
+            let soundData = try Data(contentsOf: url)
+            player = try AVAudioPlayer(data: soundData)
             
             if isPreview {
                 player?.prepareToPlay()

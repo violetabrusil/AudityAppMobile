@@ -55,9 +55,6 @@
 		A8937C1128C7957F0019A6A8 /* PushView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8937C0B28C7957F0019A6A8 /* PushView.swift */; };
 		A8937C1228C7957F0019A6A8 /* PopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8937C0C28C7957F0019A6A8 /* PopView.swift */; };
 		A8937C1328C7957F0019A6A8 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8937C0D28C7957F0019A6A8 /* Router.swift */; };
-		A8937C1528C795EE0019A6A8 /* MerchantScreenBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8937C1428C795EE0019A6A8 /* MerchantScreenBuilder.swift */; };
-		A8937C1728C795F70019A6A8 /* NeutralScreenBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8937C1628C795F70019A6A8 /* NeutralScreenBuilder.swift */; };
-		A8937C1928C795FD0019A6A8 /* NeutralScreenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8937C1828C795FD0019A6A8 /* NeutralScreenType.swift */; };
 		A8937C1B28C796030019A6A8 /* MerchantBaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8937C1A28C796030019A6A8 /* MerchantBaseViewModel.swift */; };
 		A8937C1D28C796080019A6A8 /* NeutralUIFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8937C1C28C796080019A6A8 /* NeutralUIFactory.swift */; };
 		A8937C1F28C7960D0019A6A8 /* CoreApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8937C1E28C7960D0019A6A8 /* CoreApp.swift */; };
@@ -90,6 +87,12 @@
 		A897492328BF3B1D000EB6BC /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = A897492228BF3B1D000EB6BC /* GoogleSignIn */; };
 		A897492528BF3B1D000EB6BC /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A897492428BF3B1D000EB6BC /* GoogleSignInSwift */; };
 		A8A7258928CB92A600F1EC3B /* Validations.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A7258828CB92A600F1EC3B /* Validations.swift */; };
+		A8A7258B28CE5AEB00F1EC3B /* UIExtras.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A7258A28CE5AEB00F1EC3B /* UIExtras.swift */; };
+		A8A7258D28CE5D0A00F1EC3B /* AudityScreenBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A7258C28CE5D0A00F1EC3B /* AudityScreenBuilder.swift */; };
+		A8A7258F28CE61FC00F1EC3B /* NeutralScreenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A7258E28CE61FC00F1EC3B /* NeutralScreenType.swift */; };
+		A8A7259628CE6A5800F1EC3B /* Resolver in Frameworks */ = {isa = PBXBuildFile; productRef = A8A7259528CE6A5800F1EC3B /* Resolver */; };
+		A8A7259828CE6D6300F1EC3B /* NeutralScreenBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A7259728CE6D6300F1EC3B /* NeutralScreenBuilder.swift */; };
+		A8A7259A28CE71D900F1EC3B /* CancelBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A7259928CE71D900F1EC3B /* CancelBag.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -127,9 +130,6 @@
 		A8937C0B28C7957F0019A6A8 /* PushView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushView.swift; sourceTree = "<group>"; };
 		A8937C0C28C7957F0019A6A8 /* PopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopView.swift; sourceTree = "<group>"; };
 		A8937C0D28C7957F0019A6A8 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
-		A8937C1428C795EE0019A6A8 /* MerchantScreenBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MerchantScreenBuilder.swift; sourceTree = "<group>"; };
-		A8937C1628C795F70019A6A8 /* NeutralScreenBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeutralScreenBuilder.swift; sourceTree = "<group>"; };
-		A8937C1828C795FD0019A6A8 /* NeutralScreenType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeutralScreenType.swift; sourceTree = "<group>"; };
 		A8937C1A28C796030019A6A8 /* MerchantBaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MerchantBaseViewModel.swift; sourceTree = "<group>"; };
 		A8937C1C28C796080019A6A8 /* NeutralUIFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeutralUIFactory.swift; sourceTree = "<group>"; };
 		A8937C1E28C7960D0019A6A8 /* CoreApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreApp.swift; sourceTree = "<group>"; };
@@ -144,6 +144,11 @@
 		A897491F28BF2B0E000EB6BC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A897492628BF3F8B000EB6BC /* AudityAppMobile--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "AudityAppMobile--iOS--Info.plist"; sourceTree = "<group>"; };
 		A8A7258828CB92A600F1EC3B /* Validations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validations.swift; sourceTree = "<group>"; };
+		A8A7258A28CE5AEB00F1EC3B /* UIExtras.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIExtras.swift; sourceTree = "<group>"; };
+		A8A7258C28CE5D0A00F1EC3B /* AudityScreenBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudityScreenBuilder.swift; sourceTree = "<group>"; };
+		A8A7258E28CE61FC00F1EC3B /* NeutralScreenType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeutralScreenType.swift; sourceTree = "<group>"; };
+		A8A7259728CE6D6300F1EC3B /* NeutralScreenBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeutralScreenBuilder.swift; sourceTree = "<group>"; };
+		A8A7259928CE71D900F1EC3B /* CancelBag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CancelBag.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +166,7 @@
 				A89748E628BAFDA6000EB6BC /* FirebaseStorage in Frameworks */,
 				A89748D428BAFDA6000EB6BC /* FirebaseAuth in Frameworks */,
 				A89748D228BAFDA6000EB6BC /* FirebaseAppDistribution-Beta in Frameworks */,
+				A8A7259628CE6A5800F1EC3B /* Resolver in Frameworks */,
 				A89748D628BAFDA6000EB6BC /* FirebaseAuthCombine-Community in Frameworks */,
 				A89748E228BAFDA6000EB6BC /* FirebaseFunctions in Frameworks */,
 				A89748DC28BAFDA6000EB6BC /* FirebaseFirestore in Frameworks */,
@@ -254,13 +260,15 @@
 		A8937C0728C7957F0019A6A8 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				A8A7259928CE71D900F1EC3B /* CancelBag.swift */,
+				A8A7259728CE6D6300F1EC3B /* NeutralScreenBuilder.swift */,
+				A8A7258E28CE61FC00F1EC3B /* NeutralScreenType.swift */,
+				A8A7258C28CE5D0A00F1EC3B /* AudityScreenBuilder.swift */,
+				A8A7258A28CE5AEB00F1EC3B /* UIExtras.swift */,
 				A8937C1E28C7960D0019A6A8 /* CoreApp.swift */,
 				A8937C1C28C796080019A6A8 /* NeutralUIFactory.swift */,
 				A8937C1A28C796030019A6A8 /* MerchantBaseViewModel.swift */,
-				A8937C1828C795FD0019A6A8 /* NeutralScreenType.swift */,
-				A8937C1628C795F70019A6A8 /* NeutralScreenBuilder.swift */,
 				A8937C0828C7957F0019A6A8 /* NeutralRouter.swift */,
-				A8937C1428C795EE0019A6A8 /* MerchantScreenBuilder.swift */,
 				A8937C0928C7957F0019A6A8 /* NavigationStackView.swift */,
 				A8937C0A28C7957F0019A6A8 /* NavigationStack.swift */,
 				A8937C0B28C7957F0019A6A8 /* PushView.swift */,
@@ -348,6 +356,7 @@
 				A89748E728BAFDA6000EB6BC /* FirebaseStorageCombine-Community */,
 				A897492228BF3B1D000EB6BC /* GoogleSignIn */,
 				A897492428BF3B1D000EB6BC /* GoogleSignInSwift */,
+				A8A7259528CE6A5800F1EC3B /* Resolver */,
 			);
 			productName = "AudityAppMobile (iOS)";
 			productReference = A87651BA28B3D29E00AFC95D /* AudityAppMobile.app */;
@@ -400,6 +409,7 @@
 			packageReferences = (
 				A89748CE28BAFDA6000EB6BC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				A897492128BF3B1D000EB6BC /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				A8A7259428CE6A5800F1EC3B /* XCRemoteSwiftPackageReference "Resolver" */,
 			);
 			productRefGroup = A87651BB28B3D29E00AFC95D /* Products */;
 			projectDirPath = "";
@@ -437,15 +447,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8A7258F28CE61FC00F1EC3B /* NeutralScreenType.swift in Sources */,
 				A8937C1028C7957F0019A6A8 /* NavigationStack.swift in Sources */,
 				A8937BFA28C261750019A6A8 /* AudioBook.swift in Sources */,
+				A8A7258B28CE5AEB00F1EC3B /* UIExtras.swift in Sources */,
 				A88DCB7528B5D98200E9CD8A /* ReviewView.swift in Sources */,
+				A8A7259828CE6D6300F1EC3B /* NeutralScreenBuilder.swift in Sources */,
+				A8A7258D28CE5D0A00F1EC3B /* AudityScreenBuilder.swift in Sources */,
 				A897491228BEC3E0000EB6BC /* UserViewModel.swift in Sources */,
+				A8A7259A28CE71D900F1EC3B /* CancelBag.swift in Sources */,
 				A8A7258928CB92A600F1EC3B /* Validations.swift in Sources */,
 				A88DCB8D28B6026900E9CD8A /* EditProfileView.swift in Sources */,
 				A897492028BF2B0E000EB6BC /* User.swift in Sources */,
 				A8937C1328C7957F0019A6A8 /* Router.swift in Sources */,
-				A8937C1528C795EE0019A6A8 /* MerchantScreenBuilder.swift in Sources */,
 				A8937BF828C25F3C0019A6A8 /* AudioBookViewModel.swift in Sources */,
 				A87651DE28B42E1E00AFC95D /* SplashScreenView.swift in Sources */,
 				A8937C2128C7AA870019A6A8 /* AudioBookListViewModel.swift in Sources */,
@@ -462,7 +476,6 @@
 				A87651DB28B423AC00AFC95D /* ActionBarMenuView.swift in Sources */,
 				A88DCB8428B5EDA000E9CD8A /* PlayListView.swift in Sources */,
 				A8937C1228C7957F0019A6A8 /* PopView.swift in Sources */,
-				A8937C1728C795F70019A6A8 /* NeutralScreenBuilder.swift in Sources */,
 				A87651D528B3F8E100AFC95D /* HomeView.swift in Sources */,
 				A88DCB9028B68FE400E9CD8A /* SearchView.swift in Sources */,
 				A89748A728B92F58000EB6BC /* SplashScreenViewModel.swift in Sources */,
@@ -480,7 +493,6 @@
 				A88DCB7B28B5E30400E9CD8A /* StarsView.swift in Sources */,
 				A8937C0028C660FC0019A6A8 /* AudioBookInformationView.swift in Sources */,
 				A89748A428B92B64000EB6BC /* SearchPlayListView.swift in Sources */,
-				A8937C1928C795FD0019A6A8 /* NeutralScreenType.swift in Sources */,
 				A87651C328B3D29E00AFC95D /* AudityAppMobileApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -787,6 +799,14 @@
 				minimumVersion = 6.0.0;
 			};
 		};
+		A8A7259428CE6A5800F1EC3B /* XCRemoteSwiftPackageReference "Resolver" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hmlongco/Resolver.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -864,6 +884,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A897492128BF3B1D000EB6BC /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
 			productName = GoogleSignInSwift;
+		};
+		A8A7259528CE6A5800F1EC3B /* Resolver */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A8A7259428CE6A5800F1EC3B /* XCRemoteSwiftPackageReference "Resolver" */;
+			productName = Resolver;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
