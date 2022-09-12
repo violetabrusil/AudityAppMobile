@@ -10,6 +10,7 @@ import SwiftUI
 struct AudioBookInformationView: View {
     
     @State private var showPlayer = false
+    let audityViewModel = AudityBaseViewModel()
     
     let audioBook: AudioBook
     
@@ -20,7 +21,6 @@ struct AudioBookInformationView: View {
     var body: some View {
         
         VStack(spacing: 0){
-            
             //Image
             
             AsyncImage(url: URL(string: audioBook.urlImage)) { image in

@@ -54,8 +54,7 @@
 		A8937C1028C7957F0019A6A8 /* NavigationStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8937C0A28C7957F0019A6A8 /* NavigationStack.swift */; };
 		A8937C1128C7957F0019A6A8 /* PushView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8937C0B28C7957F0019A6A8 /* PushView.swift */; };
 		A8937C1228C7957F0019A6A8 /* PopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8937C0C28C7957F0019A6A8 /* PopView.swift */; };
-		A8937C1328C7957F0019A6A8 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8937C0D28C7957F0019A6A8 /* Router.swift */; };
-		A8937C1B28C796030019A6A8 /* MerchantBaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8937C1A28C796030019A6A8 /* MerchantBaseViewModel.swift */; };
+		A8937C1B28C796030019A6A8 /* AudityBaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8937C1A28C796030019A6A8 /* AudityBaseViewModel.swift */; };
 		A8937C1D28C796080019A6A8 /* NeutralUIFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8937C1C28C796080019A6A8 /* NeutralUIFactory.swift */; };
 		A8937C1F28C7960D0019A6A8 /* CoreApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8937C1E28C7960D0019A6A8 /* CoreApp.swift */; };
 		A8937C2128C7AA870019A6A8 /* AudioBookListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8937C2028C7AA870019A6A8 /* AudioBookListViewModel.swift */; };
@@ -93,6 +92,7 @@
 		A8A7259628CE6A5800F1EC3B /* Resolver in Frameworks */ = {isa = PBXBuildFile; productRef = A8A7259528CE6A5800F1EC3B /* Resolver */; };
 		A8A7259828CE6D6300F1EC3B /* NeutralScreenBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A7259728CE6D6300F1EC3B /* NeutralScreenBuilder.swift */; };
 		A8A7259A28CE71D900F1EC3B /* CancelBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A7259928CE71D900F1EC3B /* CancelBag.swift */; };
+		A8A7259C28CECF4600F1EC3B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A7259B28CECF4600F1EC3B /* LoginViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -129,8 +129,7 @@
 		A8937C0A28C7957F0019A6A8 /* NavigationStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationStack.swift; sourceTree = "<group>"; };
 		A8937C0B28C7957F0019A6A8 /* PushView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushView.swift; sourceTree = "<group>"; };
 		A8937C0C28C7957F0019A6A8 /* PopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopView.swift; sourceTree = "<group>"; };
-		A8937C0D28C7957F0019A6A8 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
-		A8937C1A28C796030019A6A8 /* MerchantBaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MerchantBaseViewModel.swift; sourceTree = "<group>"; };
+		A8937C1A28C796030019A6A8 /* AudityBaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudityBaseViewModel.swift; sourceTree = "<group>"; };
 		A8937C1C28C796080019A6A8 /* NeutralUIFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeutralUIFactory.swift; sourceTree = "<group>"; };
 		A8937C1E28C7960D0019A6A8 /* CoreApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreApp.swift; sourceTree = "<group>"; };
 		A8937C2028C7AA870019A6A8 /* AudioBookListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioBookListViewModel.swift; sourceTree = "<group>"; };
@@ -149,6 +148,7 @@
 		A8A7258E28CE61FC00F1EC3B /* NeutralScreenType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeutralScreenType.swift; sourceTree = "<group>"; };
 		A8A7259728CE6D6300F1EC3B /* NeutralScreenBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeutralScreenBuilder.swift; sourceTree = "<group>"; };
 		A8A7259928CE71D900F1EC3B /* CancelBag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CancelBag.swift; sourceTree = "<group>"; };
+		A8A7259B28CECF4600F1EC3B /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,13 +267,12 @@
 				A8A7258A28CE5AEB00F1EC3B /* UIExtras.swift */,
 				A8937C1E28C7960D0019A6A8 /* CoreApp.swift */,
 				A8937C1C28C796080019A6A8 /* NeutralUIFactory.swift */,
-				A8937C1A28C796030019A6A8 /* MerchantBaseViewModel.swift */,
+				A8937C1A28C796030019A6A8 /* AudityBaseViewModel.swift */,
 				A8937C0828C7957F0019A6A8 /* NeutralRouter.swift */,
 				A8937C0928C7957F0019A6A8 /* NavigationStackView.swift */,
 				A8937C0A28C7957F0019A6A8 /* NavigationStack.swift */,
 				A8937C0B28C7957F0019A6A8 /* PushView.swift */,
 				A8937C0C28C7957F0019A6A8 /* PopView.swift */,
-				A8937C0D28C7957F0019A6A8 /* Router.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -312,6 +311,7 @@
 				A897490E28BEC129000EB6BC /* LoginView.swift */,
 				A87651D128B3F06B00AFC95D /* RegisterView.swift */,
 				A897491928BF151E000EB6BC /* ForgotPasswordView.swift */,
+				A8A7259B28CECF4600F1EC3B /* LoginViewModel.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -459,7 +459,6 @@
 				A8A7258928CB92A600F1EC3B /* Validations.swift in Sources */,
 				A88DCB8D28B6026900E9CD8A /* EditProfileView.swift in Sources */,
 				A897492028BF2B0E000EB6BC /* User.swift in Sources */,
-				A8937C1328C7957F0019A6A8 /* Router.swift in Sources */,
 				A8937BF828C25F3C0019A6A8 /* AudioBookViewModel.swift in Sources */,
 				A87651DE28B42E1E00AFC95D /* SplashScreenView.swift in Sources */,
 				A8937C2128C7AA870019A6A8 /* AudioBookListViewModel.swift in Sources */,
@@ -475,6 +474,7 @@
 				A8937C0E28C7957F0019A6A8 /* NeutralRouter.swift in Sources */,
 				A87651DB28B423AC00AFC95D /* ActionBarMenuView.swift in Sources */,
 				A88DCB8428B5EDA000E9CD8A /* PlayListView.swift in Sources */,
+				A8A7259C28CECF4600F1EC3B /* LoginViewModel.swift in Sources */,
 				A8937C1228C7957F0019A6A8 /* PopView.swift in Sources */,
 				A87651D528B3F8E100AFC95D /* HomeView.swift in Sources */,
 				A88DCB9028B68FE400E9CD8A /* SearchView.swift in Sources */,
@@ -482,7 +482,7 @@
 				A8937C0428C6995F0019A6A8 /* Extensions.swift in Sources */,
 				A88DCB8A28B5F9AF00E9CD8A /* SettingsView.swift in Sources */,
 				A8937C1F28C7960D0019A6A8 /* CoreApp.swift in Sources */,
-				A8937C1B28C796030019A6A8 /* MerchantBaseViewModel.swift in Sources */,
+				A8937C1B28C796030019A6A8 /* AudityBaseViewModel.swift in Sources */,
 				A88DCB6F28B4342400E9CD8A /* ReproductorView.swift in Sources */,
 				A87651C528B3D29E00AFC95D /* ContentView.swift in Sources */,
 				A8937C0228C690FF0019A6A8 /* PlaybackControlButton.swift in Sources */,

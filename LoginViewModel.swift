@@ -1,29 +1,30 @@
 //
 //  LoginViewModel.swift
-//  AudityAppMobile
+//  AudityAppMobile (iOS)
 //
-//  Created by Violeta on 8/31/22.
+//  Created by Violeta on 9/11/22.
 //
 
 import Foundation
+import SwiftUI
 
-open class LoginViewModel {
+open class LoginViewModel: AudityBaseViewModel {
     
     public var navigationStack: NavigationStack = NavigationStack()
+    var userViewModel = UserViewModel()
     
-    public init(){
-          CoreApp.shared.currentRouter = NeutralRouter(navStack: navigationStack)
+    public override init(){
+        super.init()
+        CoreAudityApp.shared.router = NeutralRouter(navStack: navigationStack)
     }
     
-    public func nagivateHome() {
-//        self.next
-    }
     
-    public func nagivateLogin() {
+    func goToRegisterView(){
+        self.nextScreenType = NeutralScreenType.RegisterView.rawValue
+        self.goToNextScreen = true
         
     }
+
     
-    public func nagivateForgotPassword() {
-        
-    }
+    
 }

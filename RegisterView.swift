@@ -16,6 +16,7 @@ struct RegisterView: View {
     @State private var userName = ""
     @State private var photo = ""
     @State var validation: Validations = Validations()
+    @ObservedObject var viewModel = AudityBaseViewModel()
     
     var body: some View {
         VStack{
@@ -73,7 +74,8 @@ struct RegisterView: View {
                     .cornerRadius(20)
                 
                 Button(action: {
-                       print("¿Ya está registrado? Inicie sesión aquí")
+                    viewModel.navigateToPreviousScreen()
+                    
                    }, label: {
                        Text("¿Ya está registrado? Inicie sesión aquí")
                    })

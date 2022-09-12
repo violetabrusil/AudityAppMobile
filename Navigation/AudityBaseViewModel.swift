@@ -16,6 +16,8 @@ open class AudityBaseViewModel: ObservableObject {
 //   @Published public var isBusy = false
    @Published public var goToNextScreen = false
    @Published public var nextScreenType = ""
+    
+    
 //   @Published public var showAuth: Bool = false
 //   @Published public var showNoInternetError: Bool = false
 //   @Published public var toastMesssage: String = ""
