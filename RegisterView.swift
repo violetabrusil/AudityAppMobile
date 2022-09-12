@@ -32,11 +32,7 @@ struct RegisterView: View {
                     .background()
                     .cornerRadius(10)
                     .multilineTextAlignment(.leading)
-                if  !validation.validNameText.isEmpty {
-                    Text(validation.validNameText).font(.caption).foregroundColor(.red)
-                }
-
-                   
+            
                 TextField("Email", text: $email)
                     .frame(width: 370,height:50)
                     .background()
@@ -44,11 +40,7 @@ struct RegisterView: View {
                     .keyboardType(.emailAddress)
                     .disableAutocorrection(true)
                     .cornerRadius(10)
-                if  !validation.validPasswordText.isEmpty {
-                    Text(validation.validPasswordText).font(.caption).foregroundColor(.red)
-                }
-                
-
+            
                 SecureField("Password", text: $password)
                     .frame(width: 370,height:50)
                     .background()

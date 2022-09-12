@@ -1,5 +1,5 @@
 //
-//  AddToPlayListReview.swift
+//  AddToPlayListView.swift
 //  AudityAppMobile
 //
 //  Created by Violeta on 8/24/22.
@@ -7,12 +7,16 @@
 
 import SwiftUI
 
-struct AddToPlayListReview: View {
+struct AddToPlayListView: View {
+    
+    let audityViewModel = AudityBaseViewModel()
+    
     var body: some View {
+        
         VStack(spacing: 10){
             HStack(spacing: 5){
                 Button(action: {
-                       print("Arrow")
+                    audityViewModel.navigateToPreviousScreen()
                    }, label: {
                        HStack{
                            Image(systemName: "arrow.left")
@@ -27,7 +31,6 @@ struct AddToPlayListReview: View {
                 Text("Añadir a la Lista de Reproducción")
                     .frame(width: 300)
                     .multilineTextAlignment(.center)
-                 
                     .foregroundColor(Color.white)
                     .font(.system(size: 18, weight: .heavy, design: .default))
                     
@@ -65,6 +68,6 @@ struct AddToPlayListReview: View {
 
 struct AddToPlayListReview_Previews: PreviewProvider {
     static var previews: some View {
-        AddToPlayListReview()
+        AddToPlayListView()
     }
 }

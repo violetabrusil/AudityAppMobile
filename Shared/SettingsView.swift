@@ -99,52 +99,41 @@ struct SettingsView: View {
                     
             }
             
-  
-            
-            VStack (spacing:10){
-                
-                Text("Información")
-                
-                    .multilineTextAlignment(.leading)
-                    .foregroundColor(Color.white)
-                    .font(.system(size: 20, weight: .heavy, design: .default))
-                    .padding(.trailing, 250.0)
+            HStack(spacing: 20){
+                Spacer()
+                VStack (spacing:10){
                     
+                    Text("Información")
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .foregroundColor(Color.white)
+                        .font(.system(size: 20, weight: .heavy, design: .default))
+
+                    Text("Email")
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .foregroundColor(Color.white)
+                        .font(.system(size: 16, weight: .heavy, design: .default))
+                        .padding(.top, 20)
+                    
+                    Text(user.user?.email ?? "")
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .foregroundColor(Color.white)
+                        .font(.system(size: 16))
+                    
+                    Text("Nombre de usuario")
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .foregroundColor(Color.white)
+                        .font(.system(size: 16, weight: .heavy, design: .default))
+                        .padding(.top, 10)
+                    
+                    Text(user.user?.userName ?? "")
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .foregroundColor(Color.white)
+                        .font(.system(size: 16))
+                    
+                }
                 
-                Text("Email")
-                
-                    .multilineTextAlignment(.leading)
-                    .foregroundColor(Color.white)
-                    .font(.system(size: 16, weight: .heavy, design: .default))
-                    .padding(.trailing, 215.0)
-                    .padding(.top, 20)
-                
-                Text(user.user?.email ?? "")
-         
-                    .multilineTextAlignment(.leading)
-                    .foregroundColor(Color.white)
-                    .font(.system(size: 16))
-                    .padding(.trailing, 280.0)
-                
-                
-                Text("Nombre de usuario")
-                
-                    .multilineTextAlignment(.leading)
-                    .foregroundColor(Color.white)
-                    .font(.system(size: 16, weight: .heavy, design: .default))
-                    .padding(.trailing, 215.0)
-                    .padding(.top, 10)
-                
-                Text(user.user?.userName ?? "")
-         
-                    .multilineTextAlignment(.leading)
-                    .foregroundColor(Color.white)
-                    .font(.system(size: 16))
-                    .padding(.trailing, 280.0)
-                
-            }
-            .padding(.vertical,20.0)
-            
+            }.padding(.top, 5)
+  
             VStack{
             
                 Button(action: {

@@ -10,12 +10,13 @@ import SwiftUI
 struct ReviewView: View {
     
     @State private var rating: Int?
+    let audityViewModel = AudityBaseViewModel()
     
     var body: some View {
         VStack {
             HStack{
                 Button(action: {
-                       print("Close")
+                    audityViewModel.navigateToPreviousScreen()
                    }, label: {
                        HStack{
                            Image(systemName: "xmark")

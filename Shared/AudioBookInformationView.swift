@@ -30,7 +30,7 @@ struct AudioBookInformationView: View {
                 ProgressView()
             }
             .scaledToFill()
-            .frame(height: UIScreen.main.bounds.height / 3)
+            .frame(height: UIScreen.main.bounds.height / 2)
             
             //AudioBook Details
             
@@ -38,13 +38,28 @@ struct AudioBookInformationView: View {
                 
                 Color(red: 24/255, green: 23/255, blue:22/255)
                 
+                HStack{
+                    Button(action: {
+                        audityViewModel.navigateToPreviousScreen()
+                    }, label: {
+                        HStack{
+                            Image(systemName: "arrow.left")
+                                .resizable()
+                                .frame(width: 20, height: 20)
+                                .padding()
+                                .foregroundColor(Color.white)
+                        }
+                    })
+                    Spacer()
+                    
+                }
+                
                 VStack(alignment: .leading, spacing: 24) {
                     
                     //Gender and Duration
                     VStack(alignment: .leading, spacing: 8) {
                         Text(audioBook.gender)
                         Text(audioBook.yearOfPublication)
-                        Text("0s")
                         
                     }
                     .font(.subheadline)

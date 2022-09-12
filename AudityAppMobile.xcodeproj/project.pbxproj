@@ -30,8 +30,8 @@
 		A88DCB7628B5D98200E9CD8A /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88DCB7428B5D98200E9CD8A /* ReviewView.swift */; };
 		A88DCB7B28B5E30400E9CD8A /* StarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88DCB7A28B5E30400E9CD8A /* StarsView.swift */; };
 		A88DCB7C28B5E30400E9CD8A /* StarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88DCB7A28B5E30400E9CD8A /* StarsView.swift */; };
-		A88DCB8128B5E84900E9CD8A /* AddToPlayListReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88DCB8028B5E84900E9CD8A /* AddToPlayListReview.swift */; };
-		A88DCB8228B5E84900E9CD8A /* AddToPlayListReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88DCB8028B5E84900E9CD8A /* AddToPlayListReview.swift */; };
+		A88DCB8128B5E84900E9CD8A /* AddToPlayListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88DCB8028B5E84900E9CD8A /* AddToPlayListView.swift */; };
+		A88DCB8228B5E84900E9CD8A /* AddToPlayListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88DCB8028B5E84900E9CD8A /* AddToPlayListView.swift */; };
 		A88DCB8428B5EDA000E9CD8A /* PlayListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88DCB8328B5EDA000E9CD8A /* PlayListView.swift */; };
 		A88DCB8528B5EDA000E9CD8A /* PlayListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88DCB8328B5EDA000E9CD8A /* PlayListView.swift */; };
 		A88DCB8728B5F2BE00E9CD8A /* CreateNewPlayListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88DCB8628B5F2BE00E9CD8A /* CreateNewPlayListView.swift */; };
@@ -113,7 +113,7 @@
 		A88DCB7128B52AD500E9CD8A /* MoreInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreInformationView.swift; sourceTree = "<group>"; };
 		A88DCB7428B5D98200E9CD8A /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
 		A88DCB7A28B5E30400E9CD8A /* StarsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarsView.swift; sourceTree = "<group>"; };
-		A88DCB8028B5E84900E9CD8A /* AddToPlayListReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToPlayListReview.swift; sourceTree = "<group>"; };
+		A88DCB8028B5E84900E9CD8A /* AddToPlayListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToPlayListView.swift; sourceTree = "<group>"; };
 		A88DCB8328B5EDA000E9CD8A /* PlayListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayListView.swift; sourceTree = "<group>"; };
 		A88DCB8628B5F2BE00E9CD8A /* CreateNewPlayListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewPlayListView.swift; sourceTree = "<group>"; };
 		A88DCB8928B5F9AF00E9CD8A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -219,7 +219,7 @@
 				A88DCB7128B52AD500E9CD8A /* MoreInformationView.swift */,
 				A88DCB7428B5D98200E9CD8A /* ReviewView.swift */,
 				A88DCB7A28B5E30400E9CD8A /* StarsView.swift */,
-				A88DCB8028B5E84900E9CD8A /* AddToPlayListReview.swift */,
+				A88DCB8028B5E84900E9CD8A /* AddToPlayListView.swift */,
 				A88DCB8328B5EDA000E9CD8A /* PlayListView.swift */,
 				A88DCB8628B5F2BE00E9CD8A /* CreateNewPlayListView.swift */,
 				A88DCB8928B5F9AF00E9CD8A /* SettingsView.swift */,
@@ -503,7 +503,7 @@
 				A87651C528B3D29E00AFC95D /* ContentView.swift in Sources */,
 				A8937C0228C690FF0019A6A8 /* PlaybackControlButton.swift in Sources */,
 				A87651D828B420F400AFC95D /* AudioBookView.swift in Sources */,
-				A88DCB8128B5E84900E9CD8A /* AddToPlayListReview.swift in Sources */,
+				A88DCB8128B5E84900E9CD8A /* AddToPlayListView.swift in Sources */,
 				A8937C0628C69B460019A6A8 /* AudioManager.swift in Sources */,
 				A897489E28B9257E000EB6BC /* LibraryView.swift in Sources */,
 				A88DCB7B28B5E30400E9CD8A /* StarsView.swift in Sources */,
@@ -531,7 +531,7 @@
 				A88DCB7028B4342400E9CD8A /* ReproductorView.swift in Sources */,
 				A87651C628B3D29E00AFC95D /* ContentView.swift in Sources */,
 				A87651D928B420F400AFC95D /* AudioBookView.swift in Sources */,
-				A88DCB8228B5E84900E9CD8A /* AddToPlayListReview.swift in Sources */,
+				A88DCB8228B5E84900E9CD8A /* AddToPlayListView.swift in Sources */,
 				A897489F28B9257E000EB6BC /* LibraryView.swift in Sources */,
 				A88DCB7C28B5E30400E9CD8A /* StarsView.swift in Sources */,
 				A89748A528B92B64000EB6BC /* SearchPlayListView.swift in Sources */,

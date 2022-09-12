@@ -27,6 +27,7 @@ struct ReproductorView: View {
     let timer = Timer
         .publish(every: 0.5, on: .main, in: .common)
         .autoconnect()
+    let audityViewModel = AudityBaseViewModel()
     
     var body: some View {
         
@@ -47,7 +48,7 @@ struct ReproductorView: View {
             //Blur View
             Rectangle()
                 .background(.thinMaterial)
-                .opacity(0.25)
+                .opacity(0.30)
                 .ignoresSafeArea()
             
             //ToolBar
@@ -64,26 +65,26 @@ struct ReproductorView: View {
                                 .resizable()
                                 .frame(width: 15, height: 10)
                                 .padding()
-                                .foregroundColor(Color.black)
+                                .foregroundColor(Color.white)
                         }
                     })
                     
                     Text(audioBook.gender)
-                        .frame(width: 80)
-                        .multilineTextAlignment(.center)
-                        .padding(.leading, 5)
-                        .foregroundColor(Color.black)
+                        .frame(width: 80, alignment: .center)
+                        .foregroundColor(Color.white)
                         .font(.system(size: 16, weight: .heavy, design: .default))
                     
                     Button(action: {
-                        print("More information")
+                        _ = audityViewModel.extras.set(key: "audioBook", value: audioBook)
+                        audityViewModel.nextScreenType = NeutralScreenType.MoreInformationView.rawValue
+                        audityViewModel.goToNextScreen = true
                     }, label: {
                         HStack{
                             Image(systemName: "ellipsis")
                                 .resizable()
                                 .frame(width: 15, height: 5)
                                 .padding()
-                                .foregroundColor(Color.black)
+                                .foregroundColor(Color.white)
                         }
                     })
                     
@@ -92,7 +93,7 @@ struct ReproductorView: View {
                 //Title
                 Text(audioBook.titleAudioBook)
                     .font(.title)
-                    .foregroundColor(.black)
+                    .foregroundColor(Color.white)
                 
                 Spacer()
                 
@@ -115,10 +116,12 @@ struct ReproductorView: View {
                         
                         HStack{
                             Text(DateComponentsFormatter.positional.string(from: player.currentTime) ?? "0:00")
+                                .foregroundColor(Color.white)
                             
                             Spacer()
                             
                             Text(DateComponentsFormatter.positional.string(from: player.duration - player.currentTime) ?? "0:00")
+                                .foregroundColor(Color.white)
                         }
                         .font(.caption)
                         .foregroundColor(.black)
@@ -137,7 +140,7 @@ struct ReproductorView: View {
                         Spacer()
                         
                         //Backward button
-                        PlaybackControlButton(systemName: "gobackward.10") {
+                        PlaybackControlButton(systemName: "gobackward.10", color: Color.white) {
                             player.currentTime -= 10
                         }
                         
@@ -146,21 +149,21 @@ struct ReproductorView: View {
                         //Play/Pause button
                         PlaybackControlButton(systemName: audioManager.isPlaying
                                               ? "pause.circle.fill" : "play.circle.fill",
-                                              fontSize: 44) {
+                                              fontSize: 44, color: Color.white) {
                             audioManager.playPause()
                         }
                         
                         Spacer()
                         
                         //Backward button
-                        PlaybackControlButton(systemName: "goforward.10") {
+                        PlaybackControlButton(systemName: "goforward.10", color: Color.white) {
                             player.currentTime += 10
                         }
                         
                         Spacer()
                         
                         //Stop button
-                        PlaybackControlButton(systemName: "stop.fill") {
+                        PlaybackControlButton(systemName: "stop.fill", color: Color.white) {
                             audioManager.stop()
                             dismiss()
                         }

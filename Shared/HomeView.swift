@@ -52,10 +52,8 @@ struct HomeView: View {
                 
                 VStack{
                     
-                    Text("Hola, \(user.user?.userName ?? "")")
-                        .multilineTextAlignment(.leading)
-                        .padding(.leading, -200.0)
-                        .frame(height:0)
+                    Text("Hola \(user.user?.userName ?? "")")
+                        .frame(maxWidth: .infinity, alignment: .leading)
                         .foregroundColor(Color.white)
                         .font(.system(size: 25, weight: .heavy, design: .default))
                     
@@ -63,13 +61,14 @@ struct HomeView: View {
                 }.padding(.bottom, 30)
                 
                 VStack{
-                    Text("Recomendados")
-                        .multilineTextAlignment(.leading)
-                        .padding(.leading, -200.0)
-                        .frame(width: 160,height:60)
-                        .foregroundColor(Color.white)
-                        .font(.system(size: 25, weight: .heavy, design: .default))
-                        .padding(.bottom, 45)
+                    HStack{
+                        Text("Recomendados")
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .foregroundColor(Color.white)
+                            .font(.system(size: 25, weight: .heavy, design: .default))
+                    }
+                    .padding(.bottom,70)
+                    
                     
                     ScrollView (.horizontal, showsIndicators: false) {
                         
@@ -92,15 +91,13 @@ struct HomeView: View {
                 VStack{
                     HStack{
                         Text("Lo nuevo en Audity")
-                            .multilineTextAlignment(.leading)
-    //                        .padding(.leading, -200.0)
-    //                        .frame(width: 160,height:60)
+                            .frame(maxWidth: .infinity, alignment: .leading)
                             .foregroundColor(Color.white)
                             .font(.system(size: 25, weight: .heavy, design: .default))
-                            .padding(.bottom, 60)
                         
-                        Spacer()
                     }
+                    .padding(.bottom,70)
+                    
                     
                     ScrollView (.horizontal, showsIndicators: false) {
                         
@@ -119,7 +116,6 @@ struct HomeView: View {
                     
                 }
                 .padding(.bottom, 60)
-             
                 Spacer()
                 
             }

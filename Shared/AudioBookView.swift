@@ -25,21 +25,30 @@ struct AudioBookView: View {
         } label: {
             
             VStack{
+    
                 AsyncImage(url: URL(string: audioBook.urlImage)) { image in
                     image.resizable()
+                        .aspectRatio(contentMode: .fill)
                     
                 } placeholder: {
                     ProgressView()
                 }
-                .frame(width: 153, height: 163)
+                .frame(width: 150, height: 150)
                 
-                Text(audioBook.titleAudioBook)
-                    .foregroundColor(Color.white)
-                
-                Text(audioBook.author)
-                    .foregroundColor(Color.white)
+        
+                VStack{
+                    Text(audioBook.titleAudioBook)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .foregroundColor(Color.white)
+                    
+                    Text(audioBook.author)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .foregroundColor(Color.white)
+                }
+                .padding(.top,40)
+               
             }
-            .frame(width: 153)
+            .frame(width: 150)
         }
         
        

@@ -27,9 +27,17 @@ public extension NeutralScreenBuilder {
         case NeutralScreenType.AudioBookInformationView:
             return getAudioBookInformationView(extras: extras)
  
+        case NeutralScreenType.MoreInformationView:
+            return getMoreInformationView(extras: extras)
+            
+        case NeutralScreenType.AddToPlayListView:
+            return getAddToPlayListView()
 //        case NeutralScreenType.MerchantConfirmRegistrationView:
 //            return getMerchantConfirmRegistrationView(extras: extras)
  
+        case NeutralScreenType.ReviewView:
+            return getReviewView()
+            
         default:
             return getNotFound()
         }
@@ -55,6 +63,22 @@ public extension NeutralScreenBuilder {
         let audioBook = (extras?.getValue(with: "audioBook") as AudioBook?) ?? AudioBook()
         return AnyView(AudioBookInformationView(audioBook: audioBook))
     }
+    
+    func getMoreInformationView(extras: UIExtras?) -> AnyView {
+        let audioBook = (extras?.getValue(with: "audioBook") as AudioBook?) ?? AudioBook()
+        return AnyView(MoreInformationView(audioBook: audioBook))
+    }
+    
+    func getAddToPlayListView() -> AnyView {
+        return AnyView(AddToPlayListView())
+    }
+    
+    func getReviewView() -> AnyView {
+        return AnyView(ReviewView())
+    }
+    
+   
+//
 }
 
 public extension NeutralScreenType {
@@ -63,7 +87,8 @@ public extension NeutralScreenType {
     static let ForgotPasswordView = NeutralScreenType(rawValue: "ForgotPasswordView")
     static let SplashScreenView = NeutralScreenType(rawValue: "SplashScreenView")
     static let AudioBookInformationView = NeutralScreenType(rawValue: "AudioBookInformationView")
-//    static let MoreInformationView = NeutralScreenType(rawValue: "MoreInformationView")
-//    static let ReviewView = NeutralScreenType(rawValue: "ReviewView")
+    static let MoreInformationView = NeutralScreenType(rawValue: "MoreInformationView")
+    static let AddToPlayListView = NeutralScreenType(rawValue: "AddToPlayListView")
+    static let ReviewView = NeutralScreenType(rawValue: "ReviewView")
 }
 

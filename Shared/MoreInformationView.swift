@@ -8,13 +8,20 @@
 import SwiftUI
 
 struct MoreInformationView: View {
+    
+    let audityViewModel = AudityBaseViewModel()
+    let audioBook: AudioBook
+    
+    public init(audioBook: AudioBook) {
+        self.audioBook = audioBook
+    }
     var body: some View {
         
         VStack(spacing: 50){
             
             HStack{
                 Button(action: {
-                       print("Close")
+                    audityViewModel.navigateToPreviousScreen()
                    }, label: {
                        HStack{
                            Image(systemName: "xmark")
@@ -29,28 +36,46 @@ struct MoreInformationView: View {
             
     
             VStack(spacing: 5){
-                Image("aslan")
-                    .resizable()
-                    .frame(width: 150, height: 190)
-                    .padding()
                 
-                Text("Nombre Audiolibro")
-                    .foregroundColor(Color.white)
+                AsyncImage(url: URL(string: audioBook.urlImage)) { image in
+                    image.resizable()
+                        .aspectRatio(contentMode: .fill)
                     
+                } placeholder: {
+                    ProgressView()
+                }
+                .frame(width: 150, height: 150)
                 
-                Text("Nombre Autor")
-                    .foregroundColor(Color.white)
-                  
+                Spacer()
                 
-                Text("Nombre Genero")
-                    .foregroundColor(Color.white)
+                VStack{
+                    Text(audioBook.titleAudioBook)
+                        .frame(maxWidth: .infinity, alignment: .center)
+                        .foregroundColor(Color.white)
+                        
+                    
+                    Text(audioBook.author)
+                        .frame(maxWidth: .infinity, alignment: .center)
+                        .foregroundColor(Color.white)
+                      
+                    
+                    Text(audioBook.gender)
+                        .frame(maxWidth: .infinity, alignment: .center)
+                        .foregroundColor(Color.white)
+                    
+                }
+                
+                Spacer()
+                
+               
             }
         
         
             VStack{
                
                 Button(action: {
-                       print("Añadir a lista de reproducción")
+                    audityViewModel.nextScreenType = NeutralScreenType.AddToPlayListView.rawValue
+                    audityViewModel.goToNextScreen = true
                    }, label: {
                        HStack(spacing:20){
                            Image(systemName: "plus")
@@ -67,7 +92,8 @@ struct MoreInformationView: View {
                     .foregroundColor(Color.white)
                 
                 Button(action: {
-                       print("Reseña")
+                    audityViewModel.nextScreenType = NeutralScreenType.ReviewView.rawValue
+                    audityViewModel.goToNextScreen = true
                    }, label: {
                        HStack(spacing:25){
                            Image(systemName: "star.fill")
@@ -94,6 +120,6 @@ struct MoreInformationView: View {
 
 struct MoreInformationView_Previews: PreviewProvider {
     static var previews: some View {
-        MoreInformationView()
+        MoreInformationView(audioBook: AudioBook())
     }
 }
