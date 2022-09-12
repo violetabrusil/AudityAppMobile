@@ -90,28 +90,6 @@ struct RegisterView: View {
         .background(Color(.black))
     }
     
-   
-    
-        
-//    private func storeUserInformation() {
-//        guard let uid = Auth.auth().currentUser?.uid else { return }
-//        let userData = ["access": userInfo.access,
-//                        "email": userInfo.email,
-//                        "photo": userInfo.photo,
-//                        "rol": userInfo.rol,
-//                        "userName": userInfo.userName]
-//
-//        Firestore.firestore().collection("users")
-//            .document(uid)
-//            .setData(userData) { err in
-//                if let err = err {
-//                    print(err)
-//                    return
-//            }
-//            print("Success")
-//    }
-//
-//    }
 }
 
 struct RegisterView_Previews: PreviewProvider {

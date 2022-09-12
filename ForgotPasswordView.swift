@@ -9,28 +9,81 @@ import SwiftUI
 
 struct ForgotPasswordView: View {
     
-    @State var user: Validations = Validations()
+    @Environment(\.presentationMode) var presentationMode
+    @StateObject private var vm = ForgotPasswordViewModelImpl(
+        service: ForgotPasswordServiceImpl()
+    )
+    @ObservedObject var viewModel = AudityBaseViewModel()
     
     var body: some View {
         
         VStack{
-            TextField("Ingrese su correo electrónico", text: $user.email)
-                .autocapitalization(.none)
-                .keyboardType(.emailAddress)
-            Button(action: {
-                //Reset action
-            }) {
+            
+            HStack{
                 Text("Cambiar contraseña")
-                    .frame(width: 200)
-                    .padding(.vertical , 5)
-                    .background(Color.green)
-                    .cornerRadius(8)
-                    .foregroundColor(.white)
-                    .opacity(user.isEmailValid(_email: user.email) ? 1 : 0.75)
-            }
-            . disabled(!user.isEmailValid(_email: user.email))
+                    .multilineTextAlignment(.leading)
+                    .padding(.leading, 5)
+                    .foregroundColor(Color.white)
+                    .font(.system(size: 25, weight: .heavy, design: .default))
+                Spacer()
+                Button(action: {
+                    viewModel.navigateToPreviousScreen()
+                }, label: {
+                    HStack{
+                        Image(systemName: "xmark")
+                            .resizable()
+                            .frame(width: 15, height: 15)
+                            .padding()
+                            .foregroundColor(Color.white)
+                    }
+                })
+                
+                
+            }.padding(.top,25)
+            
             Spacer()
+            
+            VStack{
+                HStack(spacing:5){
+                    Image(systemName: "envelop.fill")
+                        .resizable()
+                        .frame(width: 21, height: 25)
+                        .padding()
+                        .foregroundColor(Color.green)
+                    
+                    TextField("Ingrese su correo electrónico", text: $vm.email)
+                        .autocapitalization(.none)
+                        .keyboardType(.emailAddress)
+                        .disableAutocorrection(true)
+                }
+                .frame(width: 370,height:50)
+                .background()
+                .cornerRadius(10)
+             
+                Button(action: {
+                    vm.sendPasswordReset()
+                    
+                }, label: {
+                    HStack{
+                        Text("Enviar")
+                            .font(.system(size: 15, weight: .heavy, design: .default))
+                    }
+                    .padding()
+                })
+                    .frame(width: 100)
+                    .background(Color.green)
+                    .foregroundColor(Color.white)
+                    .cornerRadius(20)
+        
+            }
+            
+            Spacer()
+            
+            
+ 
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color(.black))
     }
 }
 

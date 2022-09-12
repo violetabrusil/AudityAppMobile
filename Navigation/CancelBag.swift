@@ -2,7 +2,7 @@
 //  CancelBag.swift
 //  eWalletDemo
 //
-//  Created by Daniel Vera on 12/11/20.
+//  Created by Violeta on 9/11/22.
 //
 
 import Combine

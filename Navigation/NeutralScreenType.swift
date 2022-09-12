@@ -2,7 +2,7 @@
 //  NeutralScreenType.swift
 //
 //
-//  Created by Daniel Vera on 22/12/20.
+//  Created by Violeta on 9/11/22.
 //
 
 import Foundation

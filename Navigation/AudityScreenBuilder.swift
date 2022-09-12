@@ -2,13 +2,11 @@
 //  MerchantScreenBuilder.swift
 //  
 //
-//  Created by Diego Morales on 7/28/22.
+//  Created by Violeta on 9/11/22.
 //
 
 import Foundation
 import SwiftUI
-import Resolver
-//import eWalletCore
 
 public extension NeutralScreenBuilder {
     

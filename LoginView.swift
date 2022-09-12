@@ -26,9 +26,9 @@ struct LoginView: View {
                 
                 VStack{
                     HStack(spacing:5){
-                        Image(systemName: "person.fill")
+                        Image(systemName: "envelope.fill")
                             .resizable()
-                            .frame(width: 21, height: 25)
+                            .frame(width: 25, height: 25)
                             .padding()
                             .foregroundColor(Color.green)
                         
@@ -55,16 +55,25 @@ struct LoginView: View {
                     .frame(width: 370,height:50)
                     .background()
                     .cornerRadius(10)
+                    
+                    HStack{
+                        Spacer()
+                        Button(action: {
+                            viewModel.goToForgotPasswordView()
+                        }, label: {
+                            Text("Olvidó su contraseña")
+                        })
+                            .frame(width: 185, alignment: .leading)
+                            .foregroundColor(Color.blue)
+                            .padding(.top, 5)
+                         
+                    }
+                    .padding(.bottom)
                 }
                 .padding(.top,200)
                 
-                HStack{
-                    Spacer()
-                    NavigationLink(destination: ForgotPasswordView()){
-                        Text ("Olvido su contraseña")
-                    }
-                    .navigationBarHidden(true)
-                }.padding(.bottom)
+                
+                
                 VStack{
                     
                     Button(action: {
@@ -125,73 +134,6 @@ struct LoginView: View {
         }
     }
     
-    
-//    func loginWithGoogle() {
-//
-//        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
-//        let config = GIDConfiguration(clientID: clientID)
-//        GIDSignIn.sharedInstance.signIn(with: config,
-//                                        presenting: getRootViewController()) {
-//            [self] user, error in
-//
-//            if let error = error {
-//                print(error.localizedDescription)
-//                return
-//            }
-//
-//            guard
-//                let autentication = user?.authentication,
-//                let idToken = autentication.idToken
-//            else {
-//                return
-//            }
-//
-//            let credential = GoogleAuthProvider.credential(withIDToken: idToken,
-//                                                           accessToken: autentication.accessToken)
-//
-//            //Firebase Auth
-//            Auth.auth().signIn(with: credential) { result, err in
-//                if let error = error {
-//                    print(error.localizedDescription)
-//                    return
-//                }
-//                guard let user = result?.user else { return }
-//
-//                print(user.displayName ?? "Success")
-//
-//                var userGoogle = User()
-//
-//                userGoogle.email = user.email ?? "."
-//                userGoogle.photo = user.photoURL?.absoluteString ?? "."
-//                userGoogle.userName = user.displayName ?? "."
-//
-//                self.storeUserInformation(user: userGoogle)
-//
-//            }
-//        }
-//
-//    }
-//
-//    private func storeUserInformation(user: User) {
-//        guard let uid = Auth.auth().currentUser?.uid else { return }
-//        let userData = ["access": user.access,
-//                        "email": user.email,
-//                        "photo": user.photo,
-//                        "rol": user.rol,
-//                        "userName": user.userName]
-//
-//        Firestore.firestore().collection("users")
-//            .document(uid)
-//            .setData(userData) { err in
-//                if let err = err {
-//                    print(err)
-//                    return
-//                }
-//                print("Success")
-//            }
-//
-//    }
-    
 }
 
 struct LoginView_Previews: PreviewProvider {
@@ -200,20 +142,3 @@ struct LoginView_Previews: PreviewProvider {
     }
 }
 
-//extension View {
-//    func getRect()->CGRect{
-//        return UIScreen.main.bounds
-//    }
-//
-//    func getRootViewController()->UIViewController{
-//        guard let screen = UIApplication.shared.connectedScenes.first as? UIWindowScene else{
-//            return .init()
-//        }
-//
-//        guard let root = screen.windows.first?.rootViewController else{
-//            return .init()
-//        }
-//
-//        return root
-//    }
-//}

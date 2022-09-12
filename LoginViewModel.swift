@@ -22,8 +22,13 @@ open class LoginViewModel: AudityBaseViewModel {
     func goToRegisterView(){
         self.nextScreenType = NeutralScreenType.RegisterView.rawValue
         self.goToNextScreen = true
-        
     }
+    
+    func goToForgotPasswordView(){
+        self.nextScreenType = NeutralScreenType.ForgotPasswordView.rawValue
+        self.goToNextScreen = true
+    }
+
 
     
     
