@@ -9,19 +9,21 @@ import SwiftUI
 
 struct CreateNewPlayListView: View {
     
-    @Binding var showCreateNewPlayListView: Bool
+//    @Binding var showCreateNewPlayListView: Bool
+//
+//    public init (showCreateNewPlayListView:Binding<Bool>){
+//
+//        self._showCreateNewPlayListView = showCreateNewPlayListView
+//
+//    }
     
-    public init (showCreateNewPlayListView:Binding<Bool>){
-        
-        self._showCreateNewPlayListView = showCreateNewPlayListView
-        
-    }
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         VStack{
             HStack{
                 Button(action: {
-                    showCreateNewPlayListView.toggle()
+                    dismiss()
                    }, label: {
                        HStack{
                            Image(systemName: "xmark")
@@ -68,7 +70,7 @@ struct CreateNewPlayListView: View {
             Spacer()
             
         }
-        .frame(width: .infinity, height: .infinity)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(
             Image("background")
         )
@@ -77,6 +79,6 @@ struct CreateNewPlayListView: View {
 
 struct CreateNewPlayListView_Previews: PreviewProvider {
     static var previews: some View {
-        CreateNewPlayListView(showCreateNewPlayListView: .constant(true))
+        CreateNewPlayListView()
     }
 }

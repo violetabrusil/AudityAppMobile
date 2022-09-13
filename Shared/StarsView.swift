@@ -9,12 +9,12 @@ import SwiftUI
 
 struct StarsView: View {
     
-    @Binding var rating: Int?
+    @Binding var rating: String?
     
     private func startType(index: Int) -> String {
         
         if let rating = self.rating {
-            return index <= rating ? "star.fill" : "star"
+            return index <= (rating as NSString).integerValue ? "star.fill" : "star"
         } else {
             return "star"
         }
@@ -27,7 +27,7 @@ struct StarsView: View {
                 Image(systemName: self.startType(index: index))
                     .foregroundColor(Color.yellow)
                     .onTapGesture {
-                        self.rating = index
+                        self.rating = String(index)
                     
                     }
                    }
@@ -42,6 +42,6 @@ struct StarsView: View {
 
 struct StarsView_Previews: PreviewProvider {
     static var previews: some View {
-        StarsView(rating: .constant(3))
+        StarsView(rating: .constant("3"))
     }
 }

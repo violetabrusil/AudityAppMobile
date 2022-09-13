@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A82FB45C28CFCD1A0079980E /* ReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82FB45B28CFCD1A0079980E /* ReviewViewModel.swift */; };
 		A87651C328B3D29E00AFC95D /* AudityAppMobileApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87651B328B3D29C00AFC95D /* AudityAppMobileApp.swift */; };
 		A87651C428B3D29E00AFC95D /* AudityAppMobileApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87651B328B3D29C00AFC95D /* AudityAppMobileApp.swift */; };
 		A87651C528B3D29E00AFC95D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87651B428B3D29C00AFC95D /* ContentView.swift */; };
@@ -98,6 +99,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A82FB45B28CFCD1A0079980E /* ReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewModel.swift; sourceTree = "<group>"; };
 		A87651B328B3D29C00AFC95D /* AudityAppMobileApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudityAppMobileApp.swift; sourceTree = "<group>"; };
 		A87651B428B3D29C00AFC95D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A87651B528B3D29E00AFC95D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 			children = (
 				A8937C2028C7AA870019A6A8 /* AudioBookListViewModel.swift */,
 				A8A725A028CEE5A500F1EC3B /* ForgotPasswordViewModel.swift */,
+				A82FB45B28CFCD1A0079980E /* ReviewViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -485,6 +488,7 @@
 				A88DCB7228B52AD500E9CD8A /* MoreInformationView.swift in Sources */,
 				A8937C1D28C796080019A6A8 /* NeutralUIFactory.swift in Sources */,
 				A897491A28BF151E000EB6BC /* ForgotPasswordView.swift in Sources */,
+				A82FB45C28CFCD1A0079980E /* ReviewViewModel.swift in Sources */,
 				A8A725A128CEE5A500F1EC3B /* ForgotPasswordViewModel.swift in Sources */,
 				A8937C0E28C7957F0019A6A8 /* NeutralRouter.swift in Sources */,
 				A87651DB28B423AC00AFC95D /* ActionBarMenuView.swift in Sources */,

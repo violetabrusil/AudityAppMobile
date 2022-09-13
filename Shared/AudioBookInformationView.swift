@@ -21,22 +21,62 @@ struct AudioBookInformationView: View {
     var body: some View {
         
         VStack(spacing: 0){
-            //Image
-            
-            AsyncImage(url: URL(string: audioBook.urlImage)) { image in
-                image.resizable()
-                
-            } placeholder: {
-                ProgressView()
-            }
-            .scaledToFill()
-            .frame(height: UIScreen.main.bounds.height / 2)
-            
             //AudioBook Details
-            
-            ZStack{
-                
+            ZStack(alignment: .top){
                 Color(red: 24/255, green: 23/255, blue:22/255)
+                
+                VStack{
+                    //Image
+                    AsyncImage(url: URL(string: audioBook.urlImage)) { image in
+                        image.resizable()
+//                            .aspectRatio(contentMode: .fit)
+                        
+                    } placeholder: {
+                        ProgressView()
+                    }
+                    .scaledToFill()
+                    .frame(height: UIScreen.main.bounds.height / 4)
+                    
+                    VStack(alignment: .leading, spacing: 24) {
+                        
+                        //Gender and Duration
+                        VStack(alignment: .leading, spacing: 8) {
+                            Text(audioBook.gender)
+                            Text(audioBook.yearOfPublication)
+                            
+                        }
+                        .font(.subheadline)
+                        .textCase(.uppercase)
+                        .opacity(0.7)
+                        
+                        //Title
+                        Text(audioBook.titleAudioBook)
+                            .font(.title)
+                        
+                        //Play Button
+                        Button {
+                            showPlayer = true
+                        } label: {
+                            Label("Play", systemImage: "play.fill")
+                                .font(.headline)
+                                .foregroundColor(.black)
+                                .padding(.vertical, 10)
+                                .frame(maxWidth: .infinity)
+                                .background(.white)
+                                .cornerRadius(20)
+                        }
+            
+                        //Sipnosis
+                        Text(audioBook.sipnosis)
+                        
+                        Spacer()
+                        
+                    }
+                    .frame(height: UIScreen.main.bounds.height * 1 / 2)
+                    .foregroundColor(.white)
+                    .padding(20)
+                    .padding(.top, 200)
+                }
                 
                 HStack{
                     Button(action: {
@@ -45,55 +85,17 @@ struct AudioBookInformationView: View {
                         HStack{
                             Image(systemName: "arrow.left")
                                 .resizable()
-                                .frame(width: 20, height: 20)
-                                .padding()
+                                .frame(width: 25, height: 25)
+                                .padding(.leading, 20.0)
                                 .foregroundColor(Color.white)
                         }
                     })
+                        .padding(.top, 60)
                     Spacer()
                     
                 }
-                
-                VStack(alignment: .leading, spacing: 24) {
-                    
-                    //Gender and Duration
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text(audioBook.gender)
-                        Text(audioBook.yearOfPublication)
-                        
-                    }
-                    .font(.subheadline)
-                    .textCase(.uppercase)
-                    .opacity(0.7)
-                    
-                    //Title
-                    Text(audioBook.titleAudioBook)
-                        .font(.title)
-                    
-                    //Play Button
-                    Button {
-                        showPlayer = true
-                    } label: {
-                        Label("Play", systemImage: "play.fill")
-                            .font(.headline)
-                            .foregroundColor(.black)
-                            .padding(.vertical, 10)
-                            .frame(maxWidth: .infinity)
-                            .background(.white)
-                            .cornerRadius(20)
-                    }
-                    
-                    
-                    //Sipnosis
-                    Text(audioBook.sipnosis)
-                    
-                    Spacer()
-                    
-                }
-                .foregroundColor(.white)
-                .padding(20)
+//                .padding(10)
             }
-            .frame(height: UIScreen.main.bounds.height * 2 / 3)
         }
         .ignoresSafeArea()
         .fullScreenCover(isPresented: $showPlayer) {

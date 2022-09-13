@@ -9,10 +9,13 @@ import Foundation
 
 struct Review: Hashable, Codable {
     
-    var idReview: String
-    var userId: String
-    var comment: String
-    var rating: String
+    var idReview: Int = 0
+    var audiobook: String? = ""
+    var userId: String = ""
+    var comment: String = ""
+    var rating: String? = ""
+
+    
 }
 
     

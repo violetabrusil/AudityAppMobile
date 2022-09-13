@@ -9,14 +9,21 @@ import SwiftUI
 
 struct AddToPlayListView: View {
     
-    let audityViewModel = AudityBaseViewModel()
+    @State private var showNewPlayList = false
+    @Environment(\.dismiss) var dismiss
+    let audioBook: AudioBook
+    
+    
+    public init(audioBook: AudioBook) {
+        self.audioBook = audioBook
+    }
     
     var body: some View {
         
         VStack(spacing: 10){
             HStack(spacing: 5){
                 Button(action: {
-                    audityViewModel.navigateToPreviousScreen()
+                    dismiss()
                    }, label: {
                        HStack{
                            Image(systemName: "arrow.left")
@@ -35,7 +42,6 @@ struct AddToPlayListView: View {
                     .font(.system(size: 18, weight: .heavy, design: .default))
                     
             }
-            .frame(width: .infinity)
             .padding(.top,20)
           
             Spacer()
@@ -44,7 +50,7 @@ struct AddToPlayListView: View {
             VStack{
             
                 Button(action: {
-                       print("Nueva Lista")
+                       showNewPlayList = true
                    }, label: {
                        HStack{
                            Text("Nueva lista")
@@ -63,11 +69,16 @@ struct AddToPlayListView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(.black))
+        .opacity(30.0)
+        
+        .fullScreenCover(isPresented: $showNewPlayList) {
+            CreateNewPlayListView()
+        }
     }
 }
 
 struct AddToPlayListReview_Previews: PreviewProvider {
     static var previews: some View {
-        AddToPlayListView()
+        AddToPlayListView(audioBook: AudioBook())
     }
 }

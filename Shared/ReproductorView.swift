@@ -21,6 +21,7 @@ struct ReproductorView: View {
     
     @State private var value: Double = 0.0
     @State private var isEditing: Bool = false
+    @State private var showMoreInformation = false
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var audioManager: AudioManager
     
@@ -48,7 +49,7 @@ struct ReproductorView: View {
             //Blur View
             Rectangle()
                 .background(.thinMaterial)
-                .opacity(0.30)
+                .opacity(0.80)
                 .ignoresSafeArea()
             
             //ToolBar
@@ -75,9 +76,8 @@ struct ReproductorView: View {
                         .font(.system(size: 16, weight: .heavy, design: .default))
                     
                     Button(action: {
-                        _ = audityViewModel.extras.set(key: "audioBook", value: audioBook)
-                        audityViewModel.nextScreenType = NeutralScreenType.MoreInformationView.rawValue
-                        audityViewModel.goToNextScreen = true
+                       
+                        showMoreInformation = true
                     }, label: {
                         HStack{
                             Image(systemName: "ellipsis")
@@ -180,6 +180,9 @@ struct ReproductorView: View {
             guard let player = audioManager.player, !isEditing else { return }
             value = player.currentTime
             
+        }
+        .fullScreenCover(isPresented: $showMoreInformation) {
+            MoreInformationView(audioBook: audioBook)
         }
     }
     

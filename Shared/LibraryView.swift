@@ -9,9 +9,9 @@ import SwiftUI
 
 struct LibraryView: View {
     
-    @State var showSearchLibaryView: Bool = false
-    @State var showCreateNewPlayListView: Bool = false
-    
+    @State var showSearchLibaryView = false
+    @State var showCreateNewPlayListView = false
+        
     var body: some View {
         
         ZStack{
@@ -34,7 +34,7 @@ struct LibraryView: View {
                     Spacer()
                     HStack{
                         Button(action: {
-                            showSearchLibaryView.toggle()
+                            showSearchLibaryView = true
                            }, label: {
                                HStack{
                                    Image(systemName: "magnifyingglass")
@@ -45,7 +45,7 @@ struct LibraryView: View {
                            })
                         
                         Button(action: {
-                            showCreateNewPlayListView.toggle()
+                            showCreateNewPlayListView = true
                            }, label: {
                                HStack{
                                    Image(systemName: "plus")
@@ -67,11 +67,18 @@ struct LibraryView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color(.black))
             
-            if showSearchLibaryView {
-                SearchPlayListView(showSearchPlayListView: $showSearchLibaryView)
+//            if showSearchLibaryView {
+//                SearchPlayListView(showSearchPlayListView: $showSearchLibaryView)
+//            }
+//            if showCreateNewPlayListView {
+//                CreateNewPlayListView(showCreateNewPlayListView: $showCreateNewPlayListView)
+//            }
+            
+            .fullScreenCover(isPresented: $showSearchLibaryView) {
+                SearchPlayListView()
             }
-            if showCreateNewPlayListView {
-                CreateNewPlayListView(showCreateNewPlayListView: $showCreateNewPlayListView)
+            .fullScreenCover(isPresented: $showCreateNewPlayListView) {
+                CreateNewPlayListView()
             }
             
         }
@@ -82,6 +89,6 @@ struct LibraryView: View {
 
 struct LibraryView_Previews: PreviewProvider {
     static var previews: some View {
-        LibraryView(showSearchLibaryView: false, showCreateNewPlayListView: false)
+        LibraryView()
     }
 }

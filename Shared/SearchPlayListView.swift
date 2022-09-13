@@ -9,13 +9,15 @@ import SwiftUI
 
 struct SearchPlayListView: View {
     
-    @Binding var showSearchPlayListView: Bool
+//    @Binding var showSearchPlayListView: Bool
+//
+//    public init (showSearchPlayListView:Binding<Bool>){
+//
+//        self._showSearchPlayListView = showSearchPlayListView
+//
+//    }
     
-    public init (showSearchPlayListView:Binding<Bool>){
-        
-        self._showSearchPlayListView = showSearchPlayListView
-        
-    }
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         VStack{
@@ -35,7 +37,7 @@ struct SearchPlayListView: View {
                 .cornerRadius(10)
         
                 Button(action: {
-                    showSearchPlayListView.toggle()
+                    dismiss()
                    }, label: {
                        HStack{
                            Text("Cancelar")
@@ -59,6 +61,6 @@ struct SearchPlayListView: View {
 
 struct SearchPlayListView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchPlayListView(showSearchPlayListView: .constant(true))
+        SearchPlayListView()
     }
 }

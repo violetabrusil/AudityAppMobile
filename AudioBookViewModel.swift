@@ -34,6 +34,11 @@ class AudioBookViewModel: ObservableObject {
             
             do {
                 let audioBooks = try JSONDecoder().decode([AudioBook].self, from: data)
+                
+//                for audioBook in audioBooks {
+//                    let reviews = audioBook.reviews
+//                    
+//                }
                 DispatchQueue.main.async {
                     self.audioBookList = audioBooks
                 }

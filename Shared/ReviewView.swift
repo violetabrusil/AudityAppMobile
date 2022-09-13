@@ -9,47 +9,71 @@ import SwiftUI
 
 struct ReviewView: View {
     
-    @State private var rating: Int?
-    let audityViewModel = AudityBaseViewModel()
+    @Environment(\.dismiss) var dismiss
+//    @StateObject private var vm: ReviewViewModel
+    @ObservedObject var user = UserViewModel()
+    
+    let audioBook: AudioBook
+  
+    public init(audioBook: AudioBook) {
+        self.audioBook = audioBook
+//        self.vm = ReviewViewModel(idAudioBook: audioBook.idAudioBook)
+    }
     
     var body: some View {
         VStack {
             HStack{
                 Button(action: {
-                    audityViewModel.navigateToPreviousScreen()
-                   }, label: {
+                    dismiss()
+                }, label: {
                        HStack{
-                           Image(systemName: "xmark")
+                           Image(systemName: "arrow.left")
                                .resizable()
-                               .frame(width: 15, height: 15)
+                               .frame(width: 20, height: 20)
                                .padding()
                                .foregroundColor(Color.white)
                        }
                    })
             }
-            .padding(.leading, 300.0)
+            .padding(.trailing, 300.0)
             Spacer()
             VStack(spacing: 5){
-                Image("aslan")
-                    .resizable()
-                    .frame(width: 200, height: 250)
-                    .padding()
+                
+                AsyncImage(url: URL(string: audioBook.urlImage)) { image in
+                    image.resizable()
+                        .aspectRatio(contentMode: .fill)
+                    
+                } placeholder: {
+                    ProgressView()
+                }
+                .frame(width: 180, height: 180)
+              
                 
                 Text("¿Cómo califica este título?")
                     .foregroundColor(Color.white)
                     .font(.system(size: 20, weight: .heavy, design: .default))
-                StarsView(rating: $rating)
-                Text(rating != nil ? "Calificación: \(rating!)" : "")
+//                StarsView(rating: $vm.review.rating)
+//                Text($vm.review.rating != nil ? "Calificación: \(vm.review.rating!)" : "")
+                    .foregroundColor(Color.white)
             }
             Spacer()
             VStack(spacing: 30){
-                TextField("Escriba aqui su comentario", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
-                    .frame(width: 370,height:250)
-                    .overlay( RoundedRectangle(cornerRadius: 20) .stroke(Color.green) )
-                    .multilineTextAlignment(.leading)
+////                TextField("Escriba aqui su comentario", text: $vm.review.comment)
+//                    .frame(width: 370,height:300)
+//                    .overlay( RoundedRectangle(cornerRadius: 20) .stroke(Color.green) )
+//                    .multilineTextAlignment(.leading)
+//                    .foregroundColor(Color.white)
                 
                 Button(action: {
-                       print("Enviar")
+//                    vm.addReview(completion: { result in
+//                        switch result {
+//                        case .success(let message):
+//                            print("Reseña enviada \(message)")
+//                        case.failure(let error):
+//                            print("an error ocurred \(error)")
+//                        }
+//
+//                    })
                    }, label: {
                        HStack{
                            Text("Enviar")
@@ -62,9 +86,11 @@ struct ReviewView: View {
                     .background(Color.green)
                     .foregroundColor(Color.white)
                     .cornerRadius(20)
-                    
+                    .padding(.bottom,40)
+                Spacer()
             }
-            .padding(.bottom,30)
+//            .padding(.top)
+            Spacer()
         
             
            
@@ -77,6 +103,6 @@ struct ReviewView: View {
 
 struct ReviewView_Previews: PreviewProvider {
     static var previews: some View {
-        ReviewView()
+        ReviewView(audioBook: AudioBook())
     }
 }
