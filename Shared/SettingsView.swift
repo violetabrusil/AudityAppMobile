@@ -9,14 +9,9 @@ import SwiftUI
 
 struct SettingsView: View {
     
-    @Binding var showSettings: Bool
-    @Binding var showEditProfileView: Bool
+    @State private var showEditProfileView = false
     @EnvironmentObject var user: UserViewModel
-    
-    public init (showSettings: Binding<Bool>, showEditProfileView: Binding<Bool>) {
-        self._showSettings = showSettings
-        self._showEditProfileView = showEditProfileView
-    }
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         
@@ -24,7 +19,7 @@ struct SettingsView: View {
            
             HStack{
                 Button(action: {
-                    showSettings.toggle()
+                    dismiss()
                    }, label: {
                        HStack{
                            Image(systemName: "arrow.left")
@@ -85,7 +80,7 @@ struct SettingsView: View {
                 }
               
                 Button(action: {
-                    showEditProfileView.toggle()
+                    showEditProfileView = true
                    }, label: {
                        HStack{
                            Image(systemName: "pencil")
@@ -159,11 +154,15 @@ struct SettingsView: View {
         .padding(.bottom, 200.0)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(.black))
+        .fullScreenCover(isPresented: $showEditProfileView) {
+            EditProfileView()
+//                .environmentObject(user)
+        }
     }
 }
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsView(showSettings: .constant(false),showEditProfileView: .constant(false))
+        SettingsView()
     }
 }

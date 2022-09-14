@@ -13,43 +13,46 @@ enum APIError: Error{
     case ecodingProblem
 }
 
-final class ReviewViewModel: ObservableObject {
+class ReviewViewModel: ObservableObject {
     
-//    @Published var review = Review()
-//    
-//    let resourceUrl: URL
-//    
-//    init(idAudioBook: Int) {
-//        let resourceString = "http://localhost:8080/api/audioBook/addReview/\(idAudioBook)"
-//        guard let resourceUrl = URL(string: resourceString) else { fatalError()}
-//        self.resourceUrl = resourceUrl
-//    }
-//    
-//    func addReview (completion: @escaping(Result<Review, APIError>) -> Void) {
-//        
-//        do {
-//            var urlRequest = URLRequest(url: resourceUrl)
-//            urlRequest.httpMethod = "POST"
-//            urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
-//            urlRequest.httpBody = try JSONEncoder().encode(review)
-//            
-//            let dataTask = URLSession.shared.dataTask(with: urlRequest) { data, response, _ in
-//                guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200,
-//                      let jsonData = data else {
-//                          completion(.failure(.responseProblem))
-//                          return
-//                      }
-//                
-//                do {
-//                    let reviewData = try JSONDecoder().decode(Review.self, from: jsonData)
-//                    completion(.success(reviewData))
-//                } catch {
-//                    completion(.failure(.decodingProblem))
-//                }
-//            }
-//            dataTask.resume()
-//        } catch {
-//            completion(.failure(.ecodingProblem))
-//        }
-//    }
+    @Published var review = [Review]()
+    let prefixUrl = "http://localhost:8080/api/audioBook"
+    
+    func addReview(idAudioBook: String, parameters: [String: Any]){
+        guard let url = URL(string: "\(prefixUrl)/addReview/\(idAudioBook)") else {
+            print("Not foun url")
+            return
+        }
+        
+        let data = try! JSONSerialization.data(withJSONObject: parameters)
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.httpBody = data
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        URLSession.shared.dataTask(with: request) { (data, res, error) in
+            if error != nil {
+                print("Error", error?.localizedDescription ?? "")
+                return
+            }
+            
+            do {
+                if let data = data {
+                    let result = try JSONDecoder().decode(AudioBook.self, from: data)
+                    DispatchQueue.main.async {
+                        print(result)
+                    }
+                } else {
+                    print("No data")
+                }
+            } catch let JsonError {
+                print("Json error", JsonError.localizedDescription)
+            }
+        }.resume()
+  
+    }
+    
+    
+  
 }

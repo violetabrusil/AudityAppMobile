@@ -9,18 +9,10 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @Binding var showSettings: Bool
-    @Binding var showEditProfileView: Bool
+    @State private var showSettings = false
     @StateObject var audioBookViewModel = AudioBookViewModel()
     @EnvironmentObject var user: UserViewModel
-    
-    public init (showSettings:Binding<Bool>, showEditProfileView:Binding<Bool>){
-        
-        self._showSettings = showSettings
-        self._showEditProfileView = showEditProfileView
-        
-    }
-    
+  
     var body: some View {
         
         ZStack{
@@ -35,7 +27,7 @@ struct HomeView: View {
                         .font(.system(size: 30, weight: .heavy, design: .default))
                     Spacer()
                     Button(action: {
-                        showSettings.toggle()
+                        showSettings = true
                     }, label: {
                         HStack{
                             Image("settings")
@@ -121,10 +113,8 @@ struct HomeView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color(.black))
-            
-            if showSettings {
-                SettingsView(showSettings: $showSettings, showEditProfileView: $showEditProfileView)
-                    .offset(y: 20)
+            .fullScreenCover(isPresented: $showSettings) {
+               SettingsView()
             }
             
         }
@@ -134,7 +124,7 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(showSettings: .constant(false), showEditProfileView: .constant(false))
+        HomeView()
         
     }
 }

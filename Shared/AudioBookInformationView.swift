@@ -69,6 +69,24 @@ struct AudioBookInformationView: View {
                         //Sipnosis
                         Text(audioBook.sipnosis)
                         
+                        if ((audioBook.reviews?.count) != nil){
+                            VStack{
+                                ScrollView{
+                                    ForEach(0..<audioBook.reviews!.count, id: \.self ) { index in
+                                        HStack{
+                                            StarsView(rating: .constant(audioBook.reviews![index].rating ?? "0"))
+                                            Text(audioBook.reviews![index].comment)
+                                                .frame(maxWidth: .infinity, alignment: .leading)
+                                                .foregroundColor(Color.white)
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        else{
+                            Text("No hay reviews.")
+                        }
+                     
                         Spacer()
                         
                     }

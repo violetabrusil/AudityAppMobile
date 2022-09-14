@@ -9,11 +9,11 @@ import SwiftUI
 
 struct StarsView: View {
     
-    @Binding var rating: String?
+    @Binding var rating: String
     
     private func startType(index: Int) -> String {
         
-        if let rating = self.rating {
+        if rating != nil {
             return index <= (rating as NSString).integerValue ? "star.fill" : "star"
         } else {
             return "star"
@@ -23,6 +23,7 @@ struct StarsView: View {
     var body: some View {
         
         HStack{
+            
             ForEach(1...5, id: \.self) { index in
                 Image(systemName: self.startType(index: index))
                     .foregroundColor(Color.yellow)
@@ -33,7 +34,7 @@ struct StarsView: View {
                    }
         }
         .frame(maxWidth: 250, maxHeight: 50)
-        .background(Color(.black))
+        .background(Color(red: 24/255, green: 23/255, blue:22/255))
      
     }
     

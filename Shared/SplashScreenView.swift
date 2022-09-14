@@ -21,13 +21,13 @@ struct SplashScreenView: View {
                     SearchView()
                 }
                 if viewModel.showHomeView {
-                    HomeView(showSettings: $viewModel.showSettingsView, showEditProfileView: $viewModel.showEditProfileView)
+                    HomeView()
                 }
                 
                 ActionBarMenuView(showHomeView: $viewModel.showHomeView, showSearchView: $viewModel.showSearchView, showSearchPLayListView: $viewModel.showSearchPLayListView)
                 
                 if viewModel.showEditProfileView {
-                    EditProfileView(showEditProfileView: $viewModel.showEditProfileView)
+                    EditProfileView()
                 }
             }
         }
