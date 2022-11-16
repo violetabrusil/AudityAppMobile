@@ -107,7 +107,8 @@ struct EditProfileView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         
         .cornerRadius(20)
-        .background(Color(.gray))
+        .background(Color("fullBackground"))
+        
     }
 }
 

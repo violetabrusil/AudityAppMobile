@@ -48,7 +48,7 @@ struct SearchView: View {
                     
                 })
                     .frame(width: 100)
-                    .background(Color.green)
+                    .background(Color("GreenColor"))
                     .foregroundColor(Color.white)
                     .cornerRadius(20)
                 
@@ -67,7 +67,7 @@ struct SearchView: View {
                     
                 })
                     .frame(width: 100)
-                    .background(Color.green)
+                    .background(Color("GreenColor"))
                     .foregroundColor(Color.white)
                     .cornerRadius(20)
                 
@@ -86,7 +86,7 @@ struct SearchView: View {
                     
                 })
                     .frame(width: 100)
-                    .background(Color.green)
+                    .background(Color("GreenColor"))
                     .foregroundColor(Color.white)
                     .cornerRadius(20)
                 
@@ -287,7 +287,7 @@ struct SearchView: View {
                 
             }
         }
-        .background(Color(.black))
+        .background(Color("fullBackground"))
     }
 }
 

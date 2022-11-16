@@ -8,6 +8,7 @@
 import SwiftUI
 import Firebase
 import GoogleSignIn
+import FirebaseAppCheck
 
 @main
 struct AudityAppMobileApp: App {
@@ -32,6 +33,9 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         
         //Firebase with email and password
+        let providerFactory = YourAppCheckProviderFactory()
+        AppCheck.setAppCheckProviderFactory(providerFactory)
+
         FirebaseApp.configure()
   
         return true

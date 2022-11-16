@@ -115,12 +115,12 @@ struct ReproductorView: View {
                         .accentColor(.green)
                         
                         HStack{
-                            Text(DateComponentsFormatter.positional.string(from: player.currentTime) ?? "0:00")
+                            Text(DateComponentsFormatter.positional.string(from: player.currentTime) ?? ":0:00")
                                 .foregroundColor(Color.white)
                             
                             Spacer()
                             
-                            Text(DateComponentsFormatter.positional.string(from: player.duration - player.currentTime) ?? "0:00")
+                            Text(DateComponentsFormatter.positional.string(from: player.duration - player.currentTime) ?? ":0:00")
                                 .foregroundColor(Color.white)
                         }
                         .font(.caption)

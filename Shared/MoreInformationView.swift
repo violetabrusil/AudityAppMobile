@@ -123,7 +123,7 @@ struct MoreInformationView: View {
             
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.black)
+        .background(Color("fullBackground"))
         
         .fullScreenCover(isPresented: $showAddToPlayList) {
             AddToPlayListView(audioBook: audioBook)

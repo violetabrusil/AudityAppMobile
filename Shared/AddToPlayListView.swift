@@ -60,7 +60,7 @@ struct AddToPlayListView: View {
                       
                    })
                     .frame(width: 150)
-                    .background(Color.green)
+                    .background(Color("GreenColor"))
                     .foregroundColor(Color.white)
                     .cornerRadius(20)
             }
@@ -68,7 +68,7 @@ struct AddToPlayListView: View {
         
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color(.black))
+        .background(Color("fullBackground"))
         .opacity(30.0)
         
         .fullScreenCover(isPresented: $showNewPlayList) {

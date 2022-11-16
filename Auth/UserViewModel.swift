@@ -97,11 +97,13 @@ class UserViewModel: ObservableObject {
     }
     
     
-    func createNewAccount(access: String, email: String, password: String, rol: String, userName: String, photo: String) {
+    func createNewAccount(access: String, email: String, password: String,
+                          rol: String, userName: String, photo: String) {
         auth.createUser(withEmail: email, password: password) { [weak self] result, error in
             guard result != nil, error == nil else { return }
             DispatchQueue.main.async {
-                self?.add(User(access: access, email: email, photo: photo, rol: rol, userName: userName))
+                self?.add(User(access: access, email: email, photo: photo,
+                               rol: rol, userName: userName))
                 self?.sync()
             }
         }
@@ -184,11 +186,5 @@ class UserViewModel: ObservableObject {
         
         return root
     }
-    
-    
-    
-    
-    
-    
-    
+   
 }

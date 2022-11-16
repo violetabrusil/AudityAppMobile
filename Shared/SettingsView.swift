@@ -142,7 +142,7 @@ struct SettingsView: View {
                       
                    })
                     .frame(width: 150)
-                    .background(Color.green)
+                    .background(Color("GrayColor"))
                     .foregroundColor(Color.white)
                     .cornerRadius(20)
             }
@@ -153,7 +153,7 @@ struct SettingsView: View {
         }
         .padding(.bottom, 200.0)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color(.black))
+        .background(Color("fullBackground"))
         .fullScreenCover(isPresented: $showEditProfileView) {
             EditProfileView()
 //                .environmentObject(user)

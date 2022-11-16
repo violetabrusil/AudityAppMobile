@@ -90,7 +90,7 @@ struct ReviewView: View {
                             
                         })
                             .frame(width: 150)
-                            .background(Color.green)
+                            .background(Color("GreenColor"))
                             .foregroundColor(Color.white)
                             .cornerRadius(20)
                             .padding(.bottom,40)

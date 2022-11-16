@@ -60,7 +60,7 @@ struct CreateNewPlayListView: View {
                       
                    })
                     .frame(width: 150)
-                    .background(Color.green)
+                    .background(Color("GreenColor"))
                     .foregroundColor(Color.white)
                     .cornerRadius(50)
                     .padding(.top, 30)

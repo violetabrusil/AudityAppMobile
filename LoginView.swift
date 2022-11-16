@@ -20,118 +20,147 @@ struct LoginView: View {
     var body: some View {
         
         NavigationStackView(navigationStack: viewModel.navigationStack){
-            VStack {
+            ZStack {
+                Color("fullBackground")
                 
-                //          Image()
+                Image("loginBackground")
+                    .resizable()
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .padding(.bottom, 160)
                 
-                VStack{
-                    HStack(spacing:5){
-                        Image(systemName: "envelope.fill")
+                Color("fullBackground")
+                    .opacity(0.3)
+                VStack {
+
+                    VStack(){
+                        
+                        Image("iconAudity")
                             .resizable()
-                            .frame(width: 25, height: 25)
-                            .padding()
-                            .foregroundColor(Color.green)
+                            .frame(width: 130, height: 130)
                         
-                        TextField("Email", text: $email)
-                            .autocapitalization(.none)
-                            .keyboardType(.emailAddress)
-                            .disableAutocorrection(true)
+                        
+                        Text("Cientos de audiolibros")
+                            .foregroundColor(Color.white)
+                            .font(.system(size: 30, weight: .heavy, design: .default))
+                        Text("Disponibles en Audity")
+                            .foregroundColor(Color.white)
+                            .font(.system(size: 30, weight: .heavy, design: .default))
+                        
                     }
-                    .frame(width: 370,height:50)
-                    .background()
-                    .cornerRadius(10)
+                    .padding(.top, 200)
                     
-                    HStack(spacing:5){
-                        Image(systemName: "key.fill")
-                            .resizable()
-                            .frame(width: 21, height: 25)
-                            .padding()
-                            .foregroundColor(Color.green)
+                    VStack{
                         
-                        SecureField("Password", text: $password)
-                            .autocapitalization(.none)
-                            .disableAutocorrection(true)
-                    }
-                    .frame(width: 370,height:50)
-                    .background()
-                    .cornerRadius(10)
-                    
-                    HStack{
-                        Spacer()
-                        Button(action: {
-                            viewModel.goToForgotPasswordView()
-                        }, label: {
-                            Text("Olvidó su contraseña")
-                        })
-                            .frame(width: 185, alignment: .leading)
-                            .foregroundColor(Color.blue)
-                            .padding(.top, 5)
-                         
-                    }
-                    .padding(.bottom)
-                }
-                .padding(.top,200)
-                
-                
-                
-                VStack{
-                    
-                    Button(action: {
-                        user.loginUser(email: email, password: password)
-                        
-                    }, label: {
-                        HStack{
-                            Text("Ingresar")
-                                .font(.system(size: 15, weight: .heavy, design: .default))
-                            
-                        }
-                        .padding()
-                        
-                    })
-                        .frame(width: 220)
-                        .background(Color.green)
-                        .foregroundColor(Color.white)
-                        .cornerRadius(20)
-                    
-                    Button(action: {
-                        user.loginWithGoogle()
-                    }, label: {
-                        HStack(spacing:15){
-                            Image("iconGoogle")
+                        HStack(spacing:5){
+                            Image(systemName: "envelope.fill")
                                 .resizable()
-                                .frame(width: 22, height: 22)
+                                .frame(width: 25, height: 25)
+                                .padding()
+                                .foregroundColor(Color("GreenColor"))
                             
-                            Text("Ingresa con Google")
-                                .font(.system(size: 15, weight: .heavy, design: .default))
+                            TextField("Email", text: $email)
+                                .autocapitalization(.none)
+                                .keyboardType(.emailAddress)
+                                .disableAutocorrection(true)
                         }
-                        .padding()
+                        .frame(width: 370,height:50)
+                        .background()
+                        .cornerRadius(10)
                         
-                    })
-                        .frame(width: 220)
-                        .background(Color.green)
-                        .foregroundColor(Color.white)
-                        .cornerRadius(20)
+                        HStack(spacing:5){
+                            Image(systemName: "key.fill")
+                                .resizable()
+                                .frame(width: 21, height: 25)
+                                .padding()
+                                .foregroundColor(Color("GreenColor"))
+                            
+                            SecureField("Password", text: $password)
+                                .autocapitalization(.none)
+                                .disableAutocorrection(true)
+                        }
+                        .frame(width: 370,height:50)
+                        .background()
+                        .cornerRadius(10)
+                        
+                        HStack{
+                            Spacer()
+                            Button(action: {
+                                viewModel.goToForgotPasswordView()
+                            }, label: {
+                                Text("Olvidó su contraseña")
+                            })
+                                .frame(width: 185, alignment: .leading)
+                                .foregroundColor(Color.blue)
+                                .padding(.top, 5)
+                             
+                        }
+                        .padding(.bottom)
+                    }
+                    .padding(.top,30)
                     
-                    Button(action: {
-                        viewModel.goToRegisterView()
-                    }, label: {
-                        Text("¿Es nuevo aquí? Cree una cuenta")
-                    })
-                        .frame(width: 290)
-                        .foregroundColor(Color.white)
-                        .padding(.top,100)
+                    
+                    
+                    VStack{
+                        
+                        Button(action: {
+                            user.loginUser(email: email, password: password)
+                            
+                        }, label: {
+                            HStack{
+                                Text("Ingresar")
+                                    .font(.system(size: 15, weight: .heavy, design: .default))
+                                
+                            }
+                            .padding()
+                            
+                        })
+                            .frame(width: 220)
+                            .background(Color("GreenColor"))
+                            .foregroundColor(Color.white)
+                            .cornerRadius(20)
+                        
+                        Button(action: {
+                            user.loginWithGoogle()
+                        }, label: {
+                            HStack(spacing:15){
+                                Image("iconGoogle")
+                                    .resizable()
+                                    .frame(width: 22, height: 22)
+                                
+                                Text("Ingresa con Google")
+                                    .font(.system(size: 15, weight: .heavy, design: .default))
+                            }
+                            .padding()
+                            
+                        })
+                            .frame(width: 220)
+                            .background(Color("BlueColor"))
+                            .foregroundColor(Color.white)
+                            .cornerRadius(20)
+                        
+                        Button(action: {
+                            viewModel.goToRegisterView()
+                        }, label: {
+                            Text("¿Es nuevo aquí? Cree una cuenta")
+                        })
+                            .frame(width: 290)
+                            .foregroundColor(Color.white)
+                            .padding(.top,40)
+                        
+                        
+                    }
+                    
                     
                     
                 }
-                .padding(.top,50)
-                
-                
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+               
                 
                 
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color(.black))
+            
         }
+        .ignoresSafeArea()
     }
     
 }

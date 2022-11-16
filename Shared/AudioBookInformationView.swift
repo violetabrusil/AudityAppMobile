@@ -35,7 +35,7 @@ struct AudioBookInformationView: View {
                         ProgressView()
                     }
                     .scaledToFill()
-                    .frame(height: UIScreen.main.bounds.height / 4)
+                    .frame(height: UIScreen.main.bounds.height / 3)
                     
                     VStack(alignment: .leading, spacing: 24) {
                         
@@ -52,6 +52,7 @@ struct AudioBookInformationView: View {
                         //Title
                         Text(audioBook.titleAudioBook)
                             .font(.title)
+                            .frame(maxWidth: .infinity, alignment: .leading)
                         
                         //Play Button
                         Button {
@@ -68,6 +69,7 @@ struct AudioBookInformationView: View {
             
                         //Sipnosis
                         Text(audioBook.sipnosis)
+                      
                         
                         if ((audioBook.reviews?.count) != nil){
                             VStack{
@@ -90,7 +92,7 @@ struct AudioBookInformationView: View {
                         Spacer()
                         
                     }
-                    .frame(height: UIScreen.main.bounds.height * 1 / 2)
+                    .frame(height: UIScreen.main.bounds.height * 1 / 5)
                     .foregroundColor(.white)
                     .padding(20)
                     .padding(.top, 200)

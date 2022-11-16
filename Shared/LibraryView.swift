@@ -65,7 +65,7 @@ struct LibraryView: View {
                 
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color(.black))
+            .background(Color("fullBackground"))
             
 //            if showSearchLibaryView {
 //                SearchPlayListView(showSearchPlayListView: $showSearchLibaryView)

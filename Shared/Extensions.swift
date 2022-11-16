@@ -26,7 +26,7 @@ extension DateComponentsFormatter {
         print("Initializing DateComponentsFormatter.abbreviated")
         let formatter = DateComponentsFormatter()
         
-        formatter.allowedUnits = [.minute, .second]
+        formatter.allowedUnits = [.hour,.minute, .second]
         formatter.unitsStyle = .positional
         formatter.zeroFormattingBehavior = .pad
         

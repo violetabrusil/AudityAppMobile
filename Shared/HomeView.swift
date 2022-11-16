@@ -112,7 +112,7 @@ struct HomeView: View {
                 
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color(.black))
+            .background(Color("fullBackground"))
             .fullScreenCover(isPresented: $showSettings) {
                SettingsView()
             }

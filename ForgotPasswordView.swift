@@ -71,7 +71,7 @@ struct ForgotPasswordView: View {
                     .padding()
                 })
                     .frame(width: 100)
-                    .background(Color.green)
+                    .background(Color("GreenColor"))
                     .foregroundColor(Color.white)
                     .cornerRadius(20)
         
@@ -83,7 +83,7 @@ struct ForgotPasswordView: View {
  
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color(.black))
+        .background(Color("fullBackground"))
     }
 }
 

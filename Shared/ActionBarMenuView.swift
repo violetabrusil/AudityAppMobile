@@ -92,7 +92,7 @@ struct ActionBarMenuView: View {
                 
             }
             .frame(maxWidth: 414, maxHeight: 60)
-        .background(Color.black)
+            .background(Color("fullBackground"))
         }
         
             

@@ -20,12 +20,19 @@ struct RegisterView: View {
     
     var body: some View {
         VStack{
-//            Image()
+            
             VStack{
                 
+                Image("iconAudity")
+                    .resizable()
+                    .frame(width: 130, height: 130)
                 Text("Crear Cuenta")
                     .foregroundColor(Color.white)
                     .font(.system(size: 30, weight: .heavy, design: .default))
+            }
+            
+
+            VStack{
                     
                 TextField("Nombre de usuario", text: $userName)
                     .frame(width: 370,height:50)
@@ -48,7 +55,7 @@ struct RegisterView: View {
                     .disableAutocorrection(true)
                     .cornerRadius(10)
             }
-            .padding(.top,80)
+            .padding(.top,20)
             VStack{
                 Button(action: {
                     user.createNewAccount(access: "true", email: email, password: password, rol: "final", userName: userName, photo: photo)
@@ -61,7 +68,7 @@ struct RegisterView: View {
                       
                    })
                     .frame(width: 240)
-                    .background(Color.green)
+                    .background(Color("GreenColor"))
                     .foregroundColor(Color.white)
                     .cornerRadius(20)
                 
@@ -79,7 +86,7 @@ struct RegisterView: View {
             .padding(.top,50)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color(.black))
+        .background(Color("fullBackground"))
     }
     
 }

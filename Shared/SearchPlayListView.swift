@@ -27,7 +27,7 @@ struct SearchPlayListView: View {
                     Image(systemName: "magnifyingglass")
                         .resizable()
                         .frame(width: 20, height: 20)
-                        .foregroundColor(Color.green)
+                        .foregroundColor(Color("GreenColor"))
                         .padding()
                         
                     TextField("Busca tus librerías", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
@@ -55,7 +55,7 @@ struct SearchPlayListView: View {
         
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color(.black))
+        .background(Color("fullBackground"))
     }
 }
 

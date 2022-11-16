@@ -35,7 +35,7 @@ struct PlayListView: View {
             .frame(width: 420, height: 100)
         }
         .frame(width: .infinity, height: .infinity)
-        .background(Color(.black))
+        .background(Color("fullBackground"))
     }
 }
 
