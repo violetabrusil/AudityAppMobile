@@ -205,13 +205,13 @@
 			isa = PBXGroup;
 			children = (
 				A897492628BF3F8B000EB6BC /* Audity--iOS--Info.plist */,
-				A897491328BF11D4000EB6BC /* Firebase */,
-				A8A7259D28CEE34A00F1EC3B /* Service */,
+				A8A219AB292D7A1C00CB5D91 /* Firebase */,
+				A8A219AF292D7B0700CB5D91 /* Service */,
 				A8937BF628C25F200019A6A8 /* ViewModel */,
-				A897490B28BE93A4000EB6BC /* Model */,
+				A8A219B0292D7B4A00CB5D91 /* Model */,
 				A8937C0728C7957F0019A6A8 /* Navigation */,
-				A8A7258728CB928C00F1EC3B /* Validation */,
 				A87651B228B3D29C00AFC95D /* Shared */,
+				A8A219B1292D7B7300CB5D91 /* Validations */,
 				A87651C128B3D29E00AFC95D /* macOS */,
 				A87651BB28B3D29E00AFC95D /* Products */,
 				A8025F092927E7F600DD3963 /* Frameworks */,
@@ -297,34 +297,16 @@
 			path = Navigation;
 			sourceTree = "<group>";
 		};
-		A897490B28BE93A4000EB6BC /* Model */ = {
+		A8A219AB292D7A1C00CB5D91 /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
-				A897491F28BF2B0E000EB6BC /* User.swift */,
-				A8937BF928C261750019A6A8 /* AudioBook.swift */,
-				A8937BFD28C262BC0019A6A8 /* Review.swift */,
+				A8A219AE292D7AB000CB5D91 /* Auth */,
+				A8A219AD292D7A9D00CB5D91 /* Views */,
 			);
-			name = Model;
+			path = Firebase;
 			sourceTree = "<group>";
 		};
-		A897491328BF11D4000EB6BC /* Firebase */ = {
-			isa = PBXGroup;
-			children = (
-				A897491628BF1205000EB6BC /* Views */,
-				A897491428BF11E7000EB6BC /* Auth */,
-			);
-			name = Firebase;
-			sourceTree = "<group>";
-		};
-		A897491428BF11E7000EB6BC /* Auth */ = {
-			isa = PBXGroup;
-			children = (
-				A897491128BEC3E0000EB6BC /* UserViewModel.swift */,
-			);
-			path = Auth;
-			sourceTree = "<group>";
-		};
-		A897491628BF1205000EB6BC /* Views */ = {
+		A8A219AD292D7A9D00CB5D91 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				A897490E28BEC129000EB6BC /* LoginView.swift */,
@@ -332,25 +314,43 @@
 				A897491928BF151E000EB6BC /* ForgotPasswordView.swift */,
 				A8A7259B28CECF4600F1EC3B /* LoginViewModel.swift */,
 			);
-			name = Views;
+			path = Views;
 			sourceTree = "<group>";
 		};
-		A8A7258728CB928C00F1EC3B /* Validation */ = {
+		A8A219AE292D7AB000CB5D91 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				A8A7258828CB92A600F1EC3B /* Validations.swift */,
+				A897491128BEC3E0000EB6BC /* UserViewModel.swift */,
 			);
-			name = Validation;
+			path = Auth;
 			sourceTree = "<group>";
 		};
-		A8A7259D28CEE34A00F1EC3B /* Service */ = {
+		A8A219AF292D7B0700CB5D91 /* Service */ = {
 			isa = PBXGroup;
 			children = (
 				A8937BF728C25F3C0019A6A8 /* AudioBookViewModel.swift */,
 				A8A7259E28CEE3B500F1EC3B /* ForgotPasswordService.swift */,
 				A8353AC328D2BEF400E211A0 /* CheckProvider.swift */,
 			);
-			name = Service;
+			path = Service;
+			sourceTree = "<group>";
+		};
+		A8A219B0292D7B4A00CB5D91 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A897491F28BF2B0E000EB6BC /* User.swift */,
+				A8937BF928C261750019A6A8 /* AudioBook.swift */,
+				A8937BFD28C262BC0019A6A8 /* Review.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A8A219B1292D7B7300CB5D91 /* Validations */ = {
+			isa = PBXGroup;
+			children = (
+				A8A7258828CB92A600F1EC3B /* Validations.swift */,
+			);
+			path = Validations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
