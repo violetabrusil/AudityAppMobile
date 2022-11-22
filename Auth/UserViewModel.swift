@@ -98,7 +98,8 @@ class UserViewModel: ObservableObject {
     
     
     func createNewAccount(access: String, email: String, password: String,
-                          rol: String, userName: String, photo: String) {
+                          rol: String, userName: String, photo: String) -> Bool{
+        var success = true
         auth.createUser(withEmail: email, password: password) { [weak self] result, error in
             guard result != nil, error == nil else { return }
             DispatchQueue.main.async {
@@ -106,7 +107,11 @@ class UserViewModel: ObservableObject {
                                rol: rol, userName: userName))
                 self?.sync()
             }
+            if error != nil {
+                success = false
+            }
         }
+        return success
     }
     
     func signOut() {

@@ -12,17 +12,41 @@ struct HomeView: View {
     @State private var showSettings = false
     @StateObject var audioBookViewModel = AudioBookViewModel()
     @EnvironmentObject var user: UserViewModel
-  
+    
+    func greetingLogic() -> String {
+        
+        let hour = Calendar.current.component(.hour, from: Date())
+        
+        let NEW_DAY = 0
+        let NOON = 12
+        let SUNSET = 18
+        let MIDNIGHT = 24
+        
+        var greetingText = ""
+        
+        switch hour {
+        case NEW_DAY..<NOON:
+            greetingText = "Buenos días"
+        case NOON..<SUNSET:
+            greetingText = "Buenas tardes"
+        case SUNSET..<MIDNIGHT:
+            greetingText = "Buenas noches"
+        default:
+            _ = "Hola"
+        }
+        return greetingText
+    }
     var body: some View {
+        
+        let greeting = greetingLogic()
         
         ZStack{
             
             VStack{
                 
                 HStack{
-                    Text("Buenas tardes")
-                        .multilineTextAlignment(.leading)
-                        .padding(.leading, 5)
+                    Text(greeting)
+                        .padding(.leading, 10)
                         .foregroundColor(Color.white)
                         .font(.system(size: 30, weight: .heavy, design: .default))
                     Spacer()
@@ -45,9 +69,10 @@ struct HomeView: View {
                 VStack{
                     
                     Text("Hola \(user.user?.userName ?? "")")
-                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .frame(maxWidth: .infinity)
                         .foregroundColor(Color.white)
                         .font(.system(size: 25, weight: .heavy, design: .default))
+                        .padding(.trailing, 245)
                     
                     
                 }.padding(.bottom, 30)
@@ -55,9 +80,10 @@ struct HomeView: View {
                 VStack{
                     HStack{
                         Text("Recomendados")
-                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .frame(maxWidth: .infinity)
                             .foregroundColor(Color.white)
                             .font(.system(size: 25, weight: .heavy, design: .default))
+                            .padding(.trailing, 200)
                     }
                     .padding(.bottom,70)
                     
@@ -83,9 +109,10 @@ struct HomeView: View {
                 VStack{
                     HStack{
                         Text("Lo nuevo en Audity")
-                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .frame(maxWidth: .infinity)
                             .foregroundColor(Color.white)
                             .font(.system(size: 25, weight: .heavy, design: .default))
+                            .padding(.trailing, 150)
                         
                     }
                     .padding(.bottom,70)

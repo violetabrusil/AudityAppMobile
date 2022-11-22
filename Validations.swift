@@ -25,14 +25,14 @@ struct Validations {
     
     func isPasswordValid(_password: String) -> Bool {
         let passwordTest = NSPredicate(format: "SELF MATCHES %@",
-                                       "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$")
+                                       "^.{8,}$")
         return passwordTest.evaluate(with: password)
     }
     
     var isSignInComplete: Bool {
         if !isEmailValid(_email: email) ||
             isEmpty(_field: userName) ||
-            isPasswordValid(_password: password){
+            !isPasswordValid(_password: password){
             return false
         }
         return true
@@ -66,7 +66,7 @@ struct Validations {
         if isPasswordValid(_password: password){
             return ""
         } else {
-            return "Debe tener 8 caracteres que contengan al menos un número y una letra mayúscula"
+            return "La contraseña debe tener 8 caracteres"
         }
     }
 }

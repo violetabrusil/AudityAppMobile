@@ -19,7 +19,7 @@ struct SearchView: View {
         let navBarAppearance = UINavigationBarAppearance()
         navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.systemBackground]
         navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.systemBackground]
-        navBarAppearance.backgroundColor = UIColor.black
+        navBarAppearance.backgroundColor = UIColor(Color("fullBackground"))
         navBarAppearance.shadowColor = .clear
         UINavigationBar.appearance().standardAppearance = navBarAppearance
         UINavigationBar.appearance().compactAppearance = navBarAppearance
@@ -98,9 +98,8 @@ struct SearchView: View {
                 
                 if searchPerTitle == true {
                     NavigationView{
-                        
                         ZStack{
-                            Color(.black)
+                            Color("fullBackground")
                                 .ignoresSafeArea()
                             List(audioBookListVM.audioBooks, id: \.idAudioBook) { audioBook in
                                 
@@ -138,14 +137,14 @@ struct SearchView: View {
                                     }
                                 }
                                 .frame(maxWidth: .infinity,maxHeight: .infinity)
-                                .background(Color(.black))
-                                .listRowBackground(Color.black)
+                                .background(Color("fullBackground"))
+                                .listRowBackground(Color("fullBackground"))
                             }
                             .listStyle(.plain)
                             .searchable(text: $searchText)
                             .foregroundColor(.white)
                             .onChange(of: searchText) { value in
-                                async {
+                                Task.init {
                                     if !value.isEmpty && value.count > 3 {
                                         await audioBookListVM.search(title: value)
                                     } else {
@@ -163,7 +162,7 @@ struct SearchView: View {
                 if searchPerAuthor == true {
                     NavigationView{
                         ZStack{
-                            Color(.black)
+                            Color("fullBackground")
                                 .ignoresSafeArea()
                             List(audioBookListVM.audioBooks, id: \.idAudioBook) { audioBook in
                                 HStack{
@@ -199,13 +198,13 @@ struct SearchView: View {
                                     }
                                 }
                                 .frame(maxWidth: .infinity,maxHeight: .infinity)
-                                .background(Color(.black))
-                                .listRowBackground(Color.black)
+                                .background(Color("fullBackground"))
+                                .listRowBackground(Color("fullBackground"))
                             }.listStyle(.plain)
                                 .searchable(text: $searchText)
                                 .foregroundColor(.white)
                                 .onChange(of: searchText) { value in
-                                    async {
+                                    Task.init {
                                         if !value.isEmpty && value.count > 3 {
                                             await audioBookListVM.searchPerAuhor(author: value)
                                         } else {
@@ -227,7 +226,7 @@ struct SearchView: View {
                     
                     NavigationView{
                         ZStack{
-                            Color(.black)
+                            Color("fullBackground")
                                 .ignoresSafeArea()
                             List(audioBookListVM.audioBooks, id: \.idAudioBook) { audioBook in
                                 HStack{
@@ -263,13 +262,13 @@ struct SearchView: View {
                                     }
                                 }
                                 .frame(maxWidth: .infinity,maxHeight: .infinity)
-                                .background(Color(.black))
-                                .listRowBackground(Color.black)
+                                .background(Color("fullBackground"))
+                                .listRowBackground(Color("fullBackground"))
                             }.listStyle(.plain)
                                 .searchable(text: $searchText)
                                 .foregroundColor(.white)
                                 .onChange(of: searchText) { value in
-                                    async {
+                                    Task.init{
                                         if !value.isEmpty && value.count > 3 {
                                             await audioBookListVM.searchPerGender(gender: value)
                                         } else {

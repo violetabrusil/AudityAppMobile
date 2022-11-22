@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A8025F0B2927E7F600DD3963 /* ToastSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = A8025F0A2927E7F600DD3963 /* ToastSwiftUI */; };
 		A82FB45C28CFCD1A0079980E /* ReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82FB45B28CFCD1A0079980E /* ReviewViewModel.swift */; };
 		A8353AC428D2BEF400E211A0 /* CheckProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8353AC328D2BEF400E211A0 /* CheckProvider.swift */; };
 		A83A80E429244E2900EE4C6B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A83A80E329244E2800EE4C6B /* Assets.xcassets */; };
@@ -104,8 +105,8 @@
 		A83A80E329244E2800EE4C6B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A87651B328B3D29C00AFC95D /* AudityAppMobileApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudityAppMobileApp.swift; sourceTree = "<group>"; };
 		A87651B428B3D29C00AFC95D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		A87651BA28B3D29E00AFC95D /* AudityAppMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudityAppMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A87651C028B3D29E00AFC95D /* AudityAppMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudityAppMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A87651BA28B3D29E00AFC95D /* Audity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Audity.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A87651C028B3D29E00AFC95D /* Audity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Audity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A87651C228B3D29E00AFC95D /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		A87651D128B3F06B00AFC95D /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		A87651D428B3F8E100AFC95D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -146,7 +147,7 @@
 		A897491128BEC3E0000EB6BC /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		A897491928BF151E000EB6BC /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
 		A897491F28BF2B0E000EB6BC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		A897492628BF3F8B000EB6BC /* AudityAppMobile--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "AudityAppMobile--iOS--Info.plist"; sourceTree = "<group>"; };
+		A897492628BF3F8B000EB6BC /* Audity--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Audity--iOS--Info.plist"; sourceTree = "<group>"; };
 		A8A7258828CB92A600F1EC3B /* Validations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validations.swift; sourceTree = "<group>"; };
 		A8A7258A28CE5AEB00F1EC3B /* UIExtras.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIExtras.swift; sourceTree = "<group>"; };
 		A8A7258C28CE5D0A00F1EC3B /* AudityScreenBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudityScreenBuilder.swift; sourceTree = "<group>"; };
@@ -177,6 +178,7 @@
 				A89748D628BAFDA6000EB6BC /* FirebaseAuthCombine-Community in Frameworks */,
 				A89748E228BAFDA6000EB6BC /* FirebaseFunctions in Frameworks */,
 				A89748DC28BAFDA6000EB6BC /* FirebaseFirestore in Frameworks */,
+				A8025F0B2927E7F600DD3963 /* ToastSwiftUI in Frameworks */,
 				A89748E028BAFDA6000EB6BC /* FirebaseFirestoreSwift in Frameworks */,
 				A897492328BF3B1D000EB6BC /* GoogleSignIn in Frameworks */,
 			);
@@ -192,10 +194,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A8025F092927E7F600DD3963 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A87651AD28B3D29C00AFC95D = {
 			isa = PBXGroup;
 			children = (
-				A897492628BF3F8B000EB6BC /* AudityAppMobile--iOS--Info.plist */,
+				A897492628BF3F8B000EB6BC /* Audity--iOS--Info.plist */,
 				A897491328BF11D4000EB6BC /* Firebase */,
 				A8A7259D28CEE34A00F1EC3B /* Service */,
 				A8937BF628C25F200019A6A8 /* ViewModel */,
@@ -205,6 +214,7 @@
 				A87651B228B3D29C00AFC95D /* Shared */,
 				A87651C128B3D29E00AFC95D /* macOS */,
 				A87651BB28B3D29E00AFC95D /* Products */,
+				A8025F092927E7F600DD3963 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -243,8 +253,8 @@
 		A87651BB28B3D29E00AFC95D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A87651BA28B3D29E00AFC95D /* AudityAppMobile.app */,
-				A87651C028B3D29E00AFC95D /* AudityAppMobile.app */,
+				A87651BA28B3D29E00AFC95D /* Audity.app */,
+				A87651C028B3D29E00AFC95D /* Audity.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -346,9 +356,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A87651B928B3D29E00AFC95D /* AudityAppMobile (iOS) */ = {
+		A87651B928B3D29E00AFC95D /* Audity (iOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A87651CB28B3D29E00AFC95D /* Build configuration list for PBXNativeTarget "AudityAppMobile (iOS)" */;
+			buildConfigurationList = A87651CB28B3D29E00AFC95D /* Build configuration list for PBXNativeTarget "Audity (iOS)" */;
 			buildPhases = (
 				A87651B628B3D29E00AFC95D /* Sources */,
 				A87651B728B3D29E00AFC95D /* Frameworks */,
@@ -358,7 +368,7 @@
 			);
 			dependencies = (
 			);
-			name = "AudityAppMobile (iOS)";
+			name = "Audity (iOS)";
 			packageProductDependencies = (
 				A89748CF28BAFDA6000EB6BC /* FirebaseAppCheck */,
 				A89748D128BAFDA6000EB6BC /* FirebaseAppDistribution-Beta */,
@@ -376,14 +386,15 @@
 				A897492228BF3B1D000EB6BC /* GoogleSignIn */,
 				A897492428BF3B1D000EB6BC /* GoogleSignInSwift */,
 				A8A7259528CE6A5800F1EC3B /* Resolver */,
+				A8025F0A2927E7F600DD3963 /* ToastSwiftUI */,
 			);
 			productName = "AudityAppMobile (iOS)";
-			productReference = A87651BA28B3D29E00AFC95D /* AudityAppMobile.app */;
+			productReference = A87651BA28B3D29E00AFC95D /* Audity.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A87651BF28B3D29E00AFC95D /* AudityAppMobile (macOS) */ = {
+		A87651BF28B3D29E00AFC95D /* Audity (macOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A87651CE28B3D29E00AFC95D /* Build configuration list for PBXNativeTarget "AudityAppMobile (macOS)" */;
+			buildConfigurationList = A87651CE28B3D29E00AFC95D /* Build configuration list for PBXNativeTarget "Audity (macOS)" */;
 			buildPhases = (
 				A87651BC28B3D29E00AFC95D /* Sources */,
 				A87651BD28B3D29E00AFC95D /* Frameworks */,
@@ -393,9 +404,9 @@
 			);
 			dependencies = (
 			);
-			name = "AudityAppMobile (macOS)";
+			name = "Audity (macOS)";
 			productName = "AudityAppMobile (macOS)";
-			productReference = A87651C028B3D29E00AFC95D /* AudityAppMobile.app */;
+			productReference = A87651C028B3D29E00AFC95D /* Audity.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -406,7 +417,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1320;
-				LastUpgradeCheck = 1320;
+				LastUpgradeCheck = 1400;
 				TargetAttributes = {
 					A87651B928B3D29E00AFC95D = {
 						CreatedOnToolsVersion = 13.2.1;
@@ -416,7 +427,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A87651B128B3D29C00AFC95D /* Build configuration list for PBXProject "AudityAppMobile" */;
+			buildConfigurationList = A87651B128B3D29C00AFC95D /* Build configuration list for PBXProject "Audity" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -429,13 +440,14 @@
 				A89748CE28BAFDA6000EB6BC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				A897492128BF3B1D000EB6BC /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				A8A7259428CE6A5800F1EC3B /* XCRemoteSwiftPackageReference "Resolver" */,
+				A83A80E52927E59200EE4C6B /* XCRemoteSwiftPackageReference "ToastSwiftUI" */,
 			);
 			productRefGroup = A87651BB28B3D29E00AFC95D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A87651B928B3D29E00AFC95D /* AudityAppMobile (iOS) */,
-				A87651BF28B3D29E00AFC95D /* AudityAppMobile (macOS) */,
+				A87651B928B3D29E00AFC95D /* Audity (iOS) */,
+				A87651BF28B3D29E00AFC95D /* Audity (macOS) */,
 			);
 		};
 /* End PBXProject section */
@@ -582,6 +594,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -641,6 +654,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -669,7 +683,7 @@
 				DEVELOPMENT_TEAM = 3Z694566VH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "AudityAppMobile--iOS--Info.plist";
+				INFOPLIST_FILE = "Audity--iOS--Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -682,7 +696,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.thesis.audity.AudityAppMobile;
-				PRODUCT_NAME = AudityAppMobile;
+				PRODUCT_NAME = Audity;
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -700,7 +714,7 @@
 				DEVELOPMENT_TEAM = 3Z694566VH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "AudityAppMobile--iOS--Info.plist";
+				INFOPLIST_FILE = "Audity--iOS--Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -713,7 +727,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.thesis.audity.AudityAppMobile;
-				PRODUCT_NAME = AudityAppMobile;
+				PRODUCT_NAME = Audity;
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -732,7 +746,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 3Z694566VH;
+				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -743,7 +759,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.4;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.thesis.audity.AudityAppMobile;
-				PRODUCT_NAME = AudityAppMobile;
+				PRODUCT_NAME = Audity;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -757,9 +773,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -770,7 +788,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.4;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.thesis.audity.AudityAppMobile;
-				PRODUCT_NAME = AudityAppMobile;
+				PRODUCT_NAME = Audity;
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -780,7 +798,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A87651B128B3D29C00AFC95D /* Build configuration list for PBXProject "AudityAppMobile" */ = {
+		A87651B128B3D29C00AFC95D /* Build configuration list for PBXProject "Audity" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A87651C928B3D29E00AFC95D /* Debug */,
@@ -789,7 +807,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A87651CB28B3D29E00AFC95D /* Build configuration list for PBXNativeTarget "AudityAppMobile (iOS)" */ = {
+		A87651CB28B3D29E00AFC95D /* Build configuration list for PBXNativeTarget "Audity (iOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A87651CC28B3D29E00AFC95D /* Debug */,
@@ -798,7 +816,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A87651CE28B3D29E00AFC95D /* Build configuration list for PBXNativeTarget "AudityAppMobile (macOS)" */ = {
+		A87651CE28B3D29E00AFC95D /* Build configuration list for PBXNativeTarget "Audity (macOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A87651CF28B3D29E00AFC95D /* Debug */,
@@ -810,6 +828,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		A83A80E52927E59200EE4C6B /* XCRemoteSwiftPackageReference "ToastSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/huynguyencong/ToastSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.3.4;
+			};
+		};
 		A89748CE28BAFDA6000EB6BC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -837,6 +863,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		A8025F0A2927E7F600DD3963 /* ToastSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A83A80E52927E59200EE4C6B /* XCRemoteSwiftPackageReference "ToastSwiftUI" */;
+			productName = ToastSwiftUI;
+		};
 		A89748CF28BAFDA6000EB6BC /* FirebaseAppCheck */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = A89748CE28BAFDA6000EB6BC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

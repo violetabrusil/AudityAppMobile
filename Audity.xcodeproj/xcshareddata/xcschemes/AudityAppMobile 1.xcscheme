@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1320"
+   LastUpgradeVersion = "1400"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -17,7 +17,7 @@
                BlueprintIdentifier = "A875413128D28FCD0017E653"
                BuildableName = "AudityAppMobile.app"
                BlueprintName = "AudityAppMobile"
-               ReferencedContainer = "container:AudityAppMobile.xcodeproj">
+               ReferencedContainer = "container:Audity.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,7 +47,7 @@
             BlueprintIdentifier = "A875413128D28FCD0017E653"
             BuildableName = "AudityAppMobile.app"
             BlueprintName = "AudityAppMobile"
-            ReferencedContainer = "container:AudityAppMobile.xcodeproj">
+            ReferencedContainer = "container:Audity.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -64,7 +64,7 @@
             BlueprintIdentifier = "A875413128D28FCD0017E653"
             BuildableName = "AudityAppMobile.app"
             BlueprintName = "AudityAppMobile"
-            ReferencedContainer = "container:AudityAppMobile.xcodeproj">
+            ReferencedContainer = "container:Audity.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
