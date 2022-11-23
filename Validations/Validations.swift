@@ -39,7 +39,7 @@ struct Validations {
     }
     
     var isLogInComplete: Bool {
-        if isEmpty(_field: email) ||
+        if isEmpty(_field: email) &&
             isEmpty(_field: password) {
             return false
         }
@@ -67,6 +67,22 @@ struct Validations {
             return ""
         } else {
             return "La contraseña debe tener 8 caracteres"
+        }
+    }
+    
+    var validEmailText: String {
+        if !isEmpty(_field: email){
+            return ""
+        } else {
+            return "El email es requerido"
+        }
+    }
+    
+    var validPassText: String {
+        if !isEmpty(_field: password){
+            return ""
+        } else {
+            return "La contraseña es requerida"
         }
     }
 }

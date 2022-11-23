@@ -8,20 +8,23 @@
 import SwiftUI
 import Firebase
 import GoogleSignIn
+import ToastSwiftUI
 
 struct LoginView: View {
     
     @ObservedObject var viewModel = LoginViewModel()
     @EnvironmentObject var user: UserViewModel
-    @State private var email = ""
-    @State private var password = ""
-    
+    @State var validation: Validations = Validations()
+    @State var buttonLoginPressed = false
+    @State var showToast = false
+    @State var successLogin = false
     
     var body: some View {
         
         NavigationStackView(navigationStack: viewModel.navigationStack){
             ZStack {
                 Color("fullBackground")
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
                 
                 Image("loginBackground")
                     .resizable()
@@ -30,9 +33,11 @@ struct LoginView: View {
                 
                 Color("fullBackground")
                     .opacity(0.3)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                
                 VStack {
 
-                    VStack(){
+                    VStack{
                         
                         Image("iconAudity")
                             .resizable()
@@ -55,33 +60,54 @@ struct LoginView: View {
                             Image(systemName: "envelope.fill")
                                 .resizable()
                                 .frame(width: 25, height: 25)
-                                .padding()
+                                .padding(.leading,5)
                                 .foregroundColor(Color("GreenColor"))
                             
-                            TextField("Email", text: $email)
+                            TextField("Email", text: $validation.email)
                                 .autocapitalization(.none)
                                 .keyboardType(.emailAddress)
                                 .disableAutocorrection(true)
+                           
                         }
                         .frame(width: 370,height:50)
                         .background()
                         .cornerRadius(10)
+                        
+                       
+                        if validation.validEmailText != "" && buttonLoginPressed{
+                                Text(validation.validEmailText)
+                                    .foregroundColor(Color(.red))
+                                    .font(.system(size: 11, weight: .heavy, design: .default))
+                                    .padding(.trailing,240)
+                                
+                        }
+                        
                         
                         HStack(spacing:5){
                             Image(systemName: "key.fill")
                                 .resizable()
                                 .frame(width: 21, height: 25)
-                                .padding()
+                                .padding(.leading,5)
                                 .foregroundColor(Color("GreenColor"))
                             
-                            SecureField("Password", text: $password)
+                            SecureField("Password", text: $validation.password)
                                 .autocapitalization(.none)
                                 .disableAutocorrection(true)
+                           
                         }
                         .frame(width: 370,height:50)
                         .background()
                         .cornerRadius(10)
                         
+                     
+                        if validation.validPassText != "" && buttonLoginPressed{
+                                Text(validation.validPassText)
+                                    .foregroundColor(Color(.red))
+                                    .font(.system(size: 11, weight: .heavy, design: .default))
+                                    .padding(.trailing,200)
+                                
+                        }
+                            
                         HStack{
                             Spacer()
                             Button(action: {
@@ -91,19 +117,28 @@ struct LoginView: View {
                             })
                                 .frame(width: 185, alignment: .leading)
                                 .foregroundColor(Color.blue)
-                                .padding(.top, 5)
+                                .padding(.top, 2)
                              
                         }
                         .padding(.bottom)
                     }
-                    .padding(.top,30)
+                    .padding(.top,1)
                     
                     
                     
                     VStack{
                         
                         Button(action: {
-                            user.loginUser(email: email, password: password)
+                            self.buttonLoginPressed = true
+                            
+                            if validation.isLogInComplete{
+                                successLogin =  user.loginUser(email: validation.email, password: validation.password)
+                                showToast = true
+                                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2){
+                                    showToast = false
+                                }
+                            }
+                           
                             
                         }, label: {
                             HStack{
@@ -145,17 +180,12 @@ struct LoginView: View {
                         })
                             .frame(width: 290)
                             .foregroundColor(Color.white)
-                            .padding(.top,40)
-                        
+                            .padding(.top,30)
                         
                     }
-                    
-                    
-                    
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-               
-                
+                .toast(isPresenting: $showToast, message: successLogin ? "Ingreso exitoso." : "Credenciales incorrectas. Intente nuevamente", icon: successLogin ? .success : .error)
                 
             }
             
@@ -167,7 +197,7 @@ struct LoginView: View {
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView()
+        LoginView(validation: Validations.init())
     }
 }
 

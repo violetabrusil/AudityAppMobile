@@ -35,13 +35,20 @@ class UserViewModel: ObservableObject {
     
     //Firebase Auth Function
     
-    func loginUser(email: String, password: String) {
+    func loginUser(email: String, password: String) -> Bool{
+        var success = true
         auth.signIn(withEmail: email, password: password) { [weak self] result, error in
-            guard result != nil, error == nil else { return }
+            guard result != nil, error == nil else {
+                return }
+            if result == nil {
+                success = false
+            }
             DispatchQueue.main.async {
                 self?.sync()
             }
+            
         }
+        return success
     }
     
     func loginWithGoogle() {

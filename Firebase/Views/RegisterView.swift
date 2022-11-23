@@ -87,7 +87,7 @@ struct RegisterView: View {
                         showToast = true
                         if successRegister{
                             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2){
-                                viewModel.navigateToPreviousScreen()
+                                showToast = false
                             }
                         }
                         else{

@@ -66,15 +66,14 @@ struct HomeView: View {
                 }.padding(.top,5)
                 
                 
-                VStack{
+                HStack{
                     
                     Text("Hola \(user.user?.userName ?? "")")
-                        .frame(maxWidth: .infinity)
+//                        .frame(maxWidth: .infinity)
                         .foregroundColor(Color.white)
                         .font(.system(size: 25, weight: .heavy, design: .default))
-                        .padding(.trailing, 245)
-                    
-                    
+                        .padding(.leading, 10)
+                    Spacer()
                 }.padding(.bottom, 30)
                 
                 VStack{
