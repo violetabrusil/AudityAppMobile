@@ -65,7 +65,7 @@ struct SettingsView: View {
                 }
                 
                 
-                VStack{
+                VStack(spacing: 5){
                     
                     Text(user.user?.userName ?? "")
                         .multilineTextAlignment(.leading)
@@ -155,7 +155,7 @@ struct SettingsView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color("fullBackground"))
         .fullScreenCover(isPresented: $showEditProfileView) {
-            EditProfileView()
+            EditProfileView(showEditProfileView: $showEditProfileView)
 //                .environmentObject(user)
         }
     }

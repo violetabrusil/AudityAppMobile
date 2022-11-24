@@ -27,7 +27,7 @@ struct SplashScreenView: View {
                 ActionBarMenuView(showHomeView: $viewModel.showHomeView, showSearchView: $viewModel.showSearchView, showSearchPLayListView: $viewModel.showSearchPLayListView)
                 
                 if viewModel.showEditProfileView {
-                    EditProfileView()
+                    EditProfileView(showEditProfileView: $viewModel.showEditProfileView)
                 }
             }
         }

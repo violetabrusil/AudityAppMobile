@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		A8025F0B2927E7F600DD3963 /* ToastSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = A8025F0A2927E7F600DD3963 /* ToastSwiftUI */; };
+		A815AC13292ECACB000AAC98 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = A815AC12292ECACB000AAC98 /* FirebaseStorage */; };
+		A815AC15292ED8FC000AAC98 /* ImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A815AC14292ED8FC000AAC98 /* ImagePickerController.swift */; };
+		A815AC17292EDBCC000AAC98 /* FirebaseImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A815AC16292EDBCC000AAC98 /* FirebaseImageView.swift */; };
 		A82FB45C28CFCD1A0079980E /* ReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82FB45B28CFCD1A0079980E /* ReviewViewModel.swift */; };
 		A8353AC428D2BEF400E211A0 /* CheckProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8353AC328D2BEF400E211A0 /* CheckProvider.swift */; };
 		A83A80E429244E2900EE4C6B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A83A80E329244E2800EE4C6B /* Assets.xcassets */; };
@@ -79,7 +82,6 @@
 		A89748E028BAFDA6000EB6BC /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A89748DF28BAFDA6000EB6BC /* FirebaseFirestoreSwift */; };
 		A89748E228BAFDA6000EB6BC /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = A89748E128BAFDA6000EB6BC /* FirebaseFunctions */; };
 		A89748E428BAFDA6000EB6BC /* FirebaseInstallations in Frameworks */ = {isa = PBXBuildFile; productRef = A89748E328BAFDA6000EB6BC /* FirebaseInstallations */; };
-		A89748E628BAFDA6000EB6BC /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = A89748E528BAFDA6000EB6BC /* FirebaseStorage */; };
 		A89748E828BAFDA6000EB6BC /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = A89748E728BAFDA6000EB6BC /* FirebaseStorageCombine-Community */; };
 		A897490F28BEC129000EB6BC /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A897490E28BEC129000EB6BC /* LoginView.swift */; };
 		A897491228BEC3E0000EB6BC /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A897491128BEC3E0000EB6BC /* UserViewModel.swift */; };
@@ -100,6 +102,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A815AC14292ED8FC000AAC98 /* ImagePickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerController.swift; sourceTree = "<group>"; };
+		A815AC16292EDBCC000AAC98 /* FirebaseImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseImageView.swift; sourceTree = "<group>"; };
 		A82FB45B28CFCD1A0079980E /* ReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewModel.swift; sourceTree = "<group>"; };
 		A8353AC328D2BEF400E211A0 /* CheckProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckProvider.swift; sourceTree = "<group>"; };
 		A83A80E329244E2800EE4C6B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -171,12 +175,12 @@
 				A89748E828BAFDA6000EB6BC /* FirebaseStorageCombine-Community in Frameworks */,
 				A89748D828BAFDA6000EB6BC /* FirebaseDatabase in Frameworks */,
 				A89748D028BAFDA6000EB6BC /* FirebaseAppCheck in Frameworks */,
-				A89748E628BAFDA6000EB6BC /* FirebaseStorage in Frameworks */,
 				A89748D428BAFDA6000EB6BC /* FirebaseAuth in Frameworks */,
 				A89748D228BAFDA6000EB6BC /* FirebaseAppDistribution-Beta in Frameworks */,
 				A8A7259628CE6A5800F1EC3B /* Resolver in Frameworks */,
 				A89748D628BAFDA6000EB6BC /* FirebaseAuthCombine-Community in Frameworks */,
 				A89748E228BAFDA6000EB6BC /* FirebaseFunctions in Frameworks */,
+				A815AC13292ECACB000AAC98 /* FirebaseStorage in Frameworks */,
 				A89748DC28BAFDA6000EB6BC /* FirebaseFirestore in Frameworks */,
 				A8025F0B2927E7F600DD3963 /* ToastSwiftUI in Frameworks */,
 				A89748E028BAFDA6000EB6BC /* FirebaseFirestoreSwift in Frameworks */,
@@ -246,6 +250,8 @@
 				A8937C0128C690FF0019A6A8 /* PlaybackControlButton.swift */,
 				A8937C0328C6995F0019A6A8 /* Extensions.swift */,
 				A8937C0528C69B460019A6A8 /* AudioManager.swift */,
+				A815AC14292ED8FC000AAC98 /* ImagePickerController.swift */,
+				A815AC16292EDBCC000AAC98 /* FirebaseImageView.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -381,12 +387,12 @@
 				A89748DF28BAFDA6000EB6BC /* FirebaseFirestoreSwift */,
 				A89748E128BAFDA6000EB6BC /* FirebaseFunctions */,
 				A89748E328BAFDA6000EB6BC /* FirebaseInstallations */,
-				A89748E528BAFDA6000EB6BC /* FirebaseStorage */,
 				A89748E728BAFDA6000EB6BC /* FirebaseStorageCombine-Community */,
 				A897492228BF3B1D000EB6BC /* GoogleSignIn */,
 				A897492428BF3B1D000EB6BC /* GoogleSignInSwift */,
 				A8A7259528CE6A5800F1EC3B /* Resolver */,
 				A8025F0A2927E7F600DD3963 /* ToastSwiftUI */,
+				A815AC12292ECACB000AAC98 /* FirebaseStorage */,
 			);
 			productName = "AudityAppMobile (iOS)";
 			productReference = A87651BA28B3D29E00AFC95D /* Audity.app */;
@@ -508,10 +514,12 @@
 				A88DCB8428B5EDA000E9CD8A /* PlayListView.swift in Sources */,
 				A8A7259F28CEE3B500F1EC3B /* ForgotPasswordService.swift in Sources */,
 				A8A7259C28CECF4600F1EC3B /* LoginViewModel.swift in Sources */,
+				A815AC15292ED8FC000AAC98 /* ImagePickerController.swift in Sources */,
 				A8937C1228C7957F0019A6A8 /* PopView.swift in Sources */,
 				A87651D528B3F8E100AFC95D /* HomeView.swift in Sources */,
 				A88DCB9028B68FE400E9CD8A /* SearchView.swift in Sources */,
 				A89748A728B92F58000EB6BC /* SplashScreenViewModel.swift in Sources */,
+				A815AC17292EDBCC000AAC98 /* FirebaseImageView.swift in Sources */,
 				A8937C0428C6995F0019A6A8 /* Extensions.swift in Sources */,
 				A88DCB8A28B5F9AF00E9CD8A /* SettingsView.swift in Sources */,
 				A8937C1F28C7960D0019A6A8 /* CoreAudityApp.swift in Sources */,
@@ -868,6 +876,11 @@
 			package = A83A80E52927E59200EE4C6B /* XCRemoteSwiftPackageReference "ToastSwiftUI" */;
 			productName = ToastSwiftUI;
 		};
+		A815AC12292ECACB000AAC98 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A89748CE28BAFDA6000EB6BC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
 		A89748CF28BAFDA6000EB6BC /* FirebaseAppCheck */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = A89748CE28BAFDA6000EB6BC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
@@ -922,11 +935,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A89748CE28BAFDA6000EB6BC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseInstallations;
-		};
-		A89748E528BAFDA6000EB6BC /* FirebaseStorage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A89748CE28BAFDA6000EB6BC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseStorage;
 		};
 		A89748E728BAFDA6000EB6BC /* FirebaseStorageCombine-Community */ = {
 			isa = XCSwiftPackageProductDependency;

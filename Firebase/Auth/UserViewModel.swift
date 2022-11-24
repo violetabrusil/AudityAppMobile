@@ -153,7 +153,7 @@ class UserViewModel: ObservableObject {
         }
     }
     
-    private func update() {
+    func update() {
         guard userIsAuthenicatedAndSynced else { return }
         do {
             let _ = try db.collection("users").document(self.uuid!).setData(from: user)
@@ -162,7 +162,7 @@ class UserViewModel: ObservableObject {
         }
     }
     
-    private func storeUserInformation(user: User) {
+    func storeUserInformation(user: User) {
         guard let uid =  auth.currentUser?.uid else { return }
         print("uid: \(uid)")
         let userData = ["access": user.access,

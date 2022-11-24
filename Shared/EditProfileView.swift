@@ -6,13 +6,24 @@
 //
 
 import SwiftUI
+import FirebaseStorage
+
+var FILE_NAME = ""
 
 struct EditProfileView: View {
     
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var user : UserViewModel
     @State var userName: String = ""
+    @State var imageURL: String = ""
     @State var pressed = false
+    @State var shown = false
+    @Binding var showEditProfileView: Bool
+    @State var showToast = false
+    
+    public init (showEditProfileView: Binding<Bool>) {
+        self._showEditProfileView = showEditProfileView
+    }
     
     var body: some View {
         VStack{
@@ -23,8 +34,8 @@ struct EditProfileView: View {
                     HStack{
                         Image(systemName: "xmark")
                             .resizable()
-                            .frame(width: 15, height: 15)
-                            .padding()
+                            .frame(width: 20, height: 20)
+                            .padding(.leading, 30)
                             .foregroundColor(Color.white)
                     }
                 })
@@ -37,83 +48,120 @@ struct EditProfileView: View {
                     .font(.system(size: 16, weight: .heavy, design: .default))
                 
                 Button(action: {
-                    print("Save")
+                    
+                    var existChanges = false
+                    if FILE_NAME != "" {
+                        existChanges = true
+                        user.user?.photo = imageURL
+                    }
+                    if userName != user.user?.userName  && userName != "" {
+                        existChanges = true
+                        user.user?.userName = userName
+                    }
+                    if existChanges {
+                        user.update()
+                        showToast = true
+                        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2){
+                            showToast = false
+                            showEditProfileView = false
+                        }
+                        
+                    }
+                    
                 }, label: {
                     HStack{
-                        Image(systemName: "square.and.arrow.down")
+                        Image("save")
                             .resizable()
-                            .frame(width: 20, height: 25)
-                            .padding()
+                            .frame(width: 28, height: 28)
+                            .padding(.trailing, 30)
                             .foregroundColor(Color.white)
                     }
                 })
             }
-            Spacer()
+            .padding(.top, 30)
+          
             VStack{
                 
-                if user.user?.photo != "" {
-                    AsyncImage(url: URL(string: user.user?.photo ?? "")) { image in
-                        image.resizable()
-                            .aspectRatio(contentMode: .fill)
-                        
-                    } placeholder: {
-                        ProgressView()
-                    }
-                    .frame(width: 200, height:200)
-                    .clipShape(Circle())
-                    .shadow(radius: 10)
-                    
+                if imageURL != "" {
+                    FirebaseImageView(imageURL: imageURL)
                 } else {
-                    Image(systemName: "person.circle.fill")
-                        .resizable()
-                        .frame(width: 200, height:200)
-                        .clipShape(Circle())
-                        .shadow(radius: 10)
-                        .foregroundColor(Color(.gray))
+                    if user.user?.photo != "" {
+                        FirebaseImageView(imageURL: user.user?.photo ?? "")
+                    } else {
+                        Image(systemName: "person.circle.fill")
+                            .resizable()
+                            .frame(width: 200, height:200)
+                            .clipShape(Circle())
+                            .shadow(radius: 10)
+                            .foregroundColor(Color(.gray))
+                    }
+               
                     
                 }
-                
-                Button(action: {
-                    print("Cambiar foto")
-                }, label: {
-                    HStack{
+                VStack{
+                    Button(action: { FILE_NAME = user.user?.userName ?? ""
+                        self.shown.toggle() }) {
                         Text("Cambiar foto")
-                            .font(.system(size: 15, weight: .heavy, design: .default))
-                        
-                    }
-                    .padding()
-                    
-                })
-                    .frame(width: 150)
-                    .foregroundColor(Color.white)
-                    .cornerRadius(20)
+                                .font(.system(size: 20)).bold()
+                    }.sheet(isPresented: $shown) {
                 
-                ZStack{
-                    TextField("", text: $userName)
-                        .foregroundColor(Color.white)
-                        .frame(width: 100, alignment: .center)
+                        imagePicker(shown: self.$shown, imageURL: self.$imageURL)
+                    }
+                    .padding(10)
+                    .background(Color.clear)
+                    .foregroundColor(Color.white)
+                    
+                }
+                .onAppear(perform: loadImageFromFirebase)
+                .animation(.spring(), value: 5)
+              
+                
+            
+                
+                HStack{
+                    TextField(user.user?.userName ?? "", text: $userName)
+                        .foregroundColor(Color.black)
+                        .font(.system(size: 15))
+                        .multilineTextAlignment(.center)
                         .disableAutocorrection(true)
                         .onTapGesture {
                             pressed.toggle()
                         }
-                    Text(user.user?.userName ?? "")
-                        .opacity(pressed ? 0 : 1)
                 }
-                
+                .frame(width: 220,height:40)
+                .background(Color.white)
+                .cornerRadius(20)
             }
-            .padding(.bottom, 300.0)
+            .padding(.top, 100)
             Spacer()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        
         .cornerRadius(20)
         .background(Color("fullBackground"))
+        .toast(isPresenting: $showToast, message: "Datos actualizados correctamente")
         
+    }
+    
+    func loadImageFromFirebase() {
+        let storage = Storage.storage().reference(withPath: user.user?.photo ?? "")
+        storage.downloadURL {(url, error) in
+            if error != nil {
+                print((error?.localizedDescription)!)
+                return
+            }
+            print("Download success")
+            self.imageURL = "\(url!)"
+            print(self.imageURL)
+        }
     }
 }
 
+
+
 struct EditProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        EditProfileView()
+        EditProfileView(showEditProfileView: .constant(true))
     }
 }
+
+
