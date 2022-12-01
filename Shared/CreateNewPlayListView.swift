@@ -8,17 +8,14 @@
 import SwiftUI
 
 struct CreateNewPlayListView: View {
-    
-//    @Binding var showCreateNewPlayListView: Bool
-//
-//    public init (showCreateNewPlayListView:Binding<Bool>){
-//
-//        self._showCreateNewPlayListView = showCreateNewPlayListView
-//
-//    }
-    
+ 
+    @ObservedObject var playlistModel = PlayListViewModel()
+    @ObservedObject var user = UserViewModel()
     @Environment(\.dismiss) var dismiss
-    
+    @State var namePlaylist: String = ""
+    @State var success = false
+    @State var showToast = false
+ 
     var body: some View {
         VStack{
             HStack{
@@ -43,14 +40,25 @@ struct CreateNewPlayListView: View {
                     .font(.system(size: 25, weight: .heavy, design: .default))
                     .padding(.top, 80)
                 
-                TextField("Nombre lista", text: .constant("Nombre de la lista"))
+                TextField("Nombre lista", text: $namePlaylist)
                     .frame(width: 380,height:50)
                     .multilineTextAlignment(.center)
                     .foregroundColor(Color.white)
                     .padding(.top, 20)
                 
                 Button(action: {
-                       print("Crear")
+                    if user.uuid != "" && namePlaylist != "" {
+                        let parameters: [String: Any] = ["namePlayList": namePlaylist, "userId": user.uuid!]
+                        playlistModel.createPlayList(parameters: parameters)
+                        success = true
+                        showToast = true
+                        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2){
+                            showToast = false
+                            dismiss()
+                        }
+                    } else {
+                        print("Error al crear la lista de reproducción")
+                    }
                    }, label: {
                        HStack{
                            Text("Crear")
@@ -74,6 +82,7 @@ struct CreateNewPlayListView: View {
         .background(
             Image("background")
         )
+        .toast(isPresenting: $showToast, message: "Lista de reproducción creada")
     }
 }
 

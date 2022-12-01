@@ -13,13 +13,16 @@ enum Network: Error {
     case badID
 }
 
+let BASEURL = "http://localhost:8080/"
+
 class AudioBookViewModel: ObservableObject {
     
     @Published var audioBookList: [AudioBook] = []
     @Published var audioBookSearchList: [AudioBook] = []
     
     func fetch() {
-        guard let url = URL(string: "http://localhost:8080/api/audioBook/getAllAudioBooks") else {
+        let endpoint = "api/audioBook/getAllAudioBooks"
+        guard let url = URL(string: BASEURL + endpoint) else {
             print("no hay respuesta")
             return
         }
@@ -55,8 +58,9 @@ class AudioBookViewModel: ObservableObject {
     func searchAudioBooks(wordToSearch: String) async throws -> [AudioBook] {
         
         let searchType: String = "SEARCH_PER_TITLE"
+        let endpoint = "api/audioBook/searchByAuthor/\(searchType)/\(wordToSearch)"
         
-        guard let url = URL(string: "http://localhost:8080/api/audioBook/searchByAuthor/\(searchType)/\(wordToSearch)") else {
+        guard let url = URL(string: BASEURL + endpoint) else {
             print("no hay respuesta")
             throw Network.badURL
         }
@@ -76,8 +80,9 @@ class AudioBookViewModel: ObservableObject {
     func searchAudioBookPerAuthor(wordToSearch: String) async throws -> [AudioBook] {
         
         let searchType: String = "SEARCH_PER_AUTHOR"
+        let endpoint = "api/audioBook/searchByAuthor/\(searchType)/\(wordToSearch)"
         
-        guard let url = URL(string: "http://localhost:8080/api/audioBook/searchByAuthor/\(searchType)/\(wordToSearch)") else {
+        guard let url = URL(string: BASEURL + endpoint) else {
             print("no hay respuesta")
             throw Network.badURL
         }
@@ -97,8 +102,9 @@ class AudioBookViewModel: ObservableObject {
     func searchAudioBookPerGender(wordToSearch: String) async throws -> [AudioBook] {
         
         let searchType: String = "SEARCH_PER_GENDER"
+        let endpoint = "api/audioBook/searchByAuthor/\(searchType)/\(wordToSearch)"
         
-        guard let url = URL(string: "http://localhost:8080/api/audioBook/searchByAuthor/\(searchType)/\(wordToSearch)") else {
+        guard let url = URL(string: BASEURL + endpoint) else {
             print("no hay respuesta")
             throw Network.badURL
         }

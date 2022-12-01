@@ -46,9 +46,11 @@ struct AudioBookView: View {
                         .foregroundColor(Color.white)
                 }
                 .padding(.top,40)
+                
                
             }
             .frame(width: 150)
+            .padding(.leading,20)
         }
         
        

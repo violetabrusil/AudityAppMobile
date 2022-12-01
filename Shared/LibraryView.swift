@@ -11,7 +11,8 @@ struct LibraryView: View {
     
     @State var showSearchLibaryView = false
     @State var showCreateNewPlayListView = false
-        
+    @EnvironmentObject var user : UserViewModel
+    
     var body: some View {
         
         ZStack{
@@ -20,11 +21,20 @@ struct LibraryView: View {
                     
                     HStack(spacing: 10){
                         
-                        Image("aslan")
-                            .resizable()
-                            .frame(width: 50, height: 50)
+                        VStack{
+                            AsyncImage(url: URL(string: user.user?.photo ?? "")) { image in
+                                image.resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                
+                            } placeholder: {
+                                ProgressView()
+                            }
+                            .frame(width: 50, height:50)
                             .clipShape(Circle())
                             .shadow(radius: 10)
+                            
+                        }
+                        .padding(.leading, 20)
                         
                         Text("Mi Librería")
                             .multilineTextAlignment(.leading)
@@ -35,29 +45,29 @@ struct LibraryView: View {
                     HStack{
                         Button(action: {
                             showSearchLibaryView = true
-                           }, label: {
-                               HStack{
-                                   Image(systemName: "magnifyingglass")
-                                       .resizable()
-                                       .frame(width: 23, height: 23)
-                                       .foregroundColor(Color.white)
-                               }
-                           })
+                        }, label: {
+                            HStack{
+                                Image(systemName: "magnifyingglass")
+                                    .resizable()
+                                    .frame(width: 23, height: 23)
+                                    .foregroundColor(Color.white)
+                            }
+                        })
                         
                         Button(action: {
                             showCreateNewPlayListView = true
-                           }, label: {
-                               HStack{
-                                   Image(systemName: "plus")
-                                       .resizable()
-                                       .frame(width: 23, height: 23)
-                                       .padding()
-                                       .foregroundColor(Color.white)
-                               }
-                           })
+                        }, label: {
+                            HStack{
+                                Image(systemName: "plus")
+                                    .resizable()
+                                    .frame(width: 23, height: 23)
+                                    .padding()
+                                    .foregroundColor(Color.white)
+                            }
+                        })
                     }
                     
-                   
+                    
                 }
                 .padding(.top,30)
                 Spacer()
@@ -67,12 +77,12 @@ struct LibraryView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color("fullBackground"))
             
-//            if showSearchLibaryView {
-//                SearchPlayListView(showSearchPlayListView: $showSearchLibaryView)
-//            }
-//            if showCreateNewPlayListView {
-//                CreateNewPlayListView(showCreateNewPlayListView: $showCreateNewPlayListView)
-//            }
+            //            if showSearchLibaryView {
+            //                SearchPlayListView(showSearchPlayListView: $showSearchLibaryView)
+            //            }
+            //            if showCreateNewPlayListView {
+            //                CreateNewPlayListView(showCreateNewPlayListView: $showCreateNewPlayListView)
+            //            }
             
             .fullScreenCover(isPresented: $showSearchLibaryView) {
                 SearchPlayListView()

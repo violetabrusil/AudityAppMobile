@@ -37,7 +37,7 @@ struct AudioBookInformationView: View {
                     .scaledToFill()
                     .frame(height: UIScreen.main.bounds.height / 3)
                     
-                    VStack(alignment: .leading, spacing: 24) {
+                    VStack(alignment: .leading, spacing: 10) {
                         
                         //Gender and Duration
                         VStack(alignment: .leading, spacing: 8) {
@@ -54,24 +54,28 @@ struct AudioBookInformationView: View {
                             .font(.title)
                             .frame(maxWidth: .infinity, alignment: .leading)
                         
-                        //Play Button
-                        Button {
-                            showPlayer = true
-                        } label: {
-                            Label("Play", systemImage: "play.fill")
-                                .font(.headline)
-                                .foregroundColor(.black)
-                                .padding(.vertical, 10)
-                                .frame(maxWidth: .infinity)
-                                .background(.white)
-                                .cornerRadius(20)
+                        VStack(spacing: 0){
+                            //Play Button
+                            Button {
+                                showPlayer = true
+                            } label: {
+                                Label("Play", systemImage: "play.fill")
+                                    .font(.headline)
+                                    .foregroundColor(.black)
+                                    .padding(.vertical, 10)
+                                    .frame(maxWidth: .infinity)
+                                    .background(.white)
+                                    .cornerRadius(20)
+                            }
+                
+                            //Sipnosis
+                            Text(audioBook.sipnosis)
+                                .frame(height: 100)
+                                .multilineTextAlignment(.leading)
+                            
                         }
-            
-                        //Sipnosis
-                        Text(audioBook.sipnosis)
-                      
                         
-                        if ((audioBook.reviews?.count) != nil){
+                        if ((audioBook.reviews?.count) != 0){
                             VStack{
                                 ScrollView{
                                     ForEach(0..<audioBook.reviews!.count, id: \.self ) { index in
@@ -83,19 +87,23 @@ struct AudioBookInformationView: View {
                                         }
                                     }
                                 }
-                            }
+                            }.frame(height: 300)
                         }
                         else{
-                            Text("No hay reviews.")
+                            HStack{
+                                Spacer()
+                                Text("No hay reviews.")
+                                Spacer()
+                            }
+                            
                         }
-                     
                         Spacer()
                         
                     }
-                    .frame(height: UIScreen.main.bounds.height * 1 / 5)
+                    .frame(height: UIScreen.main.bounds.height * 1 / 3)
                     .foregroundColor(.white)
                     .padding(20)
-                    .padding(.top, 200)
+                    .padding(.top, 280)
                 }
                 
                 HStack{

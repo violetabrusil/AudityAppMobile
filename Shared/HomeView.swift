@@ -36,6 +36,7 @@ struct HomeView: View {
         }
         return greetingText
     }
+    
     var body: some View {
         
         let greeting = greetingLogic()
@@ -74,7 +75,7 @@ struct HomeView: View {
                         .font(.system(size: 25, weight: .heavy, design: .default))
                         .padding(.leading, 10)
                     Spacer()
-                }.padding(.bottom, 30)
+                }.padding(.bottom, 10)
                 
                 VStack{
                     HStack{
@@ -84,7 +85,7 @@ struct HomeView: View {
                             .font(.system(size: 25, weight: .heavy, design: .default))
                             .padding(.trailing, 200)
                     }
-                    .padding(.bottom,70)
+                    .padding(.bottom,80)
                     
                     
                     ScrollView (.horizontal, showsIndicators: false) {
@@ -114,7 +115,7 @@ struct HomeView: View {
                             .padding(.trailing, 150)
                         
                     }
-                    .padding(.bottom,70)
+                    .padding(.bottom,80)
                     
                     
                     ScrollView (.horizontal, showsIndicators: false) {

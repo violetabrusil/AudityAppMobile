@@ -20,7 +20,7 @@ class ReviewViewModel: ObservableObject {
     
     func addReview(idAudioBook: String, parameters: [String: Any]){
         guard let url = URL(string: "\(prefixUrl)/addReview/\(idAudioBook)") else {
-            print("Not foun url")
+            print("Not found url")
             return
         }
         
