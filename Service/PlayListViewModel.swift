@@ -16,7 +16,7 @@ enum UrlError: Error{
 
 class PlayListViewModel: ObservableObject {
     
-    @Published var playlist = [PlayList]()
+    @Published var playList: [PlayList] = []
     let prefixUrl = "http://localhost:9090/api/playList"
     
     func createPlayList(parameters: [String: Any]){
@@ -54,6 +54,75 @@ class PlayListViewModel: ObservableObject {
   
     }
     
+    func searchPlayListPerUser(wordToSearch: String) {
+        
+        let searchType: String = "SEARCH_PER_USER"
+        let endpoint = "/searchByNamePlayList/\(searchType)/\(wordToSearch)"
+        guard let url = URL(string: prefixUrl + endpoint) else {
+            print("no hay respuesta")
+            return
+        }
+        
+        let task = URLSession.shared.dataTask(with: url) {
+            data, _, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            
+            //            Convert to JSON
+            
+            do {
+                let playLists = try JSONDecoder().decode([PlayList].self, from: data)
+                
+                DispatchQueue.main.async {
+                    self.playList = playLists
+                }
+                
+            }
+            catch {
+                print(error)
+            }
+        }
+        
+        task.resume()
+    }
     
+    func addAudioBookToPlayList(idPlayList: String, parameters: [String: Any]){
+        guard let url = URL(string: "\(prefixUrl)/addAudioBookToPlayList/\(idPlayList)") else {
+            print("Not found url")
+            return
+        }
+        
+        let data = try! JSONSerialization.data(withJSONObject: parameters)
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.httpBody = data
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        URLSession.shared.dataTask(with: request) { (data, res, error) in
+            if error != nil {
+                print("Error", error?.localizedDescription ?? "")
+                return
+            }
+            
+            do {
+                if let data = data {
+                    let result = try JSONDecoder().decode(PlayList.self, from: data)
+                    DispatchQueue.main.async {
+                        print(result)
+                    }
+                } else {
+                    print("No data")
+                }
+            } catch let JsonError {
+                print("Json error", JsonError.localizedDescription)
+            }
+        }.resume()
   
+    }
+    
+    
+    
+    
 }

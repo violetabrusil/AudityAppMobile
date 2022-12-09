@@ -9,12 +9,13 @@ import SwiftUI
 
 struct SearchView: View {
     
-    @StateObject private var audioBookListVM = AudioBookListViewModel()
     @State private var searchText: String = ""
     @State private var searchPerTitle: Bool = true
     @State private var searchPerAuthor: Bool = false
     @State private var searchPerGender: Bool = false
-    
+    let audityViewModel = AudityBaseViewModel()
+    let audioBookViewModel = AudioBookViewModel()
+
     init() {
         let navBarAppearance = UINavigationBarAppearance()
         navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.systemBackground]
@@ -25,195 +26,280 @@ struct SearchView: View {
         UINavigationBar.appearance().compactAppearance = navBarAppearance
         UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
         UINavigationBar.appearance().tintColor = UIColor.systemBackground
+  
     }
     
     var body: some View {
         
-        VStack{
+        ZStack{
             
-            HStack{
-                
-                Button(action: {
-                    searchPerTitle = true
-                    searchPerAuthor = false
-                    searchPerGender = false
-                    
-                }, label: {
-                    HStack{
-                        Text("Título")
-                            .font(.system(size: 15, weight: .heavy, design: .default))
-                        
-                    }
-                    .padding()
-                    
-                })
-                    .frame(width: 100)
-                    .background(Color("GreenColor"))
-                    .foregroundColor(Color.white)
-                    .cornerRadius(20)
-                
-                Button(action: {
-                    searchPerTitle = false
-                    searchPerAuthor = true
-                    searchPerGender = false
-                    
-                }, label: {
-                    HStack{
-                        Text("Autor")
-                            .font(.system(size: 15, weight: .heavy, design: .default))
-                        
-                    }
-                    .padding()
-                    
-                })
-                    .frame(width: 100)
-                    .background(Color("GreenColor"))
-                    .foregroundColor(Color.white)
-                    .cornerRadius(20)
-                
-                Button(action: {
-                    searchPerTitle = false
-                    searchPerAuthor = false
-                    searchPerGender = true
-                    
-                }, label: {
-                    HStack{
-                        Text("Género")
-                            .font(.system(size: 15, weight: .heavy, design: .default))
-                        
-                    }
-                    .padding()
-                    
-                })
-                    .frame(width: 100)
-                    .background(Color("GreenColor"))
-                    .foregroundColor(Color.white)
-                    .cornerRadius(20)
-                
-            }
-            .padding(.top, 10)
+            Color("fullBackground")
+                .ignoresSafeArea()
             
-            
-            ZStack{
+            VStack{
                 
-                if searchPerTitle == true {
-                    NavigationView{
-                        ZStack{
-                            Color("fullBackground")
-                                .ignoresSafeArea()
-                            List(audioBookListVM.audioBooks, id: \.idAudioBook) { audioBook in
-                                
-                                HStack(spacing:30){
-                                    AsyncImage(url: audioBook.image, content: { image in
-                                        image.resizable()
-                                            .aspectRatio(contentMode: .fit)
-                                            .frame(width: 100)
-                                    }, placeholder: {
-                                        ProgressView()
-                                    })
-                                    
-                                    VStack{
-                                        Text(audioBook.titleAudioBook)
-                                            .foregroundColor(.white)
-                                            .font(.system(size: 18, weight: .heavy, design: .default))
-                                            .frame(maxWidth: .infinity, alignment: .leading)
-                                            .foregroundColor(.white)
-                                            .multilineTextAlignment(.leading)
-                                        Text(audioBook.author)
-                                            .foregroundColor(.white)
-                                            .frame(maxWidth: .infinity, alignment: .leading)
-                                            .foregroundColor(.white)
-                                            .multilineTextAlignment(.leading)
-                                        Text(audioBook.gender)
-                                            .foregroundColor(.white)
-                                            .frame(maxWidth: .infinity, alignment: .leading)
-                                            .foregroundColor(.white)
-                                            .multilineTextAlignment(.leading)
-                                        Text(audioBook.year)
-                                            .foregroundColor(.white)
-                                            .frame(maxWidth: .infinity, alignment: .leading)
-                                            .foregroundColor(.white)
-                                            .multilineTextAlignment(.leading)
-                                    }
-                                }
-                                .frame(maxWidth: .infinity,maxHeight: .infinity)
-                                .background(Color("fullBackground"))
-                                .listRowBackground(Color("fullBackground"))
-                            }
-                            .listStyle(.plain)
-                            .searchable(text: $searchText)
-                            .foregroundColor(.white)
-                            .onChange(of: searchText) { value in
-                                Task.init {
-                                    if !value.isEmpty && value.count > 3 {
-                                        await audioBookListVM.search(title: value)
-                                    } else {
-                                        audioBookListVM.audioBooks.removeAll()
-                                    }
-                                }
-                                
-                            }
-                            .navigationTitle("Buscar por título")
+                HStack{
+                    
+                    Button(action: {
+                        searchPerTitle = true
+                        searchPerAuthor = false
+                        searchPerGender = false
+                        
+                    }, label: {
+                        HStack{
+                            Text("Título")
+                                .font(.system(size: 15, weight: .heavy, design: .default))
+                            
                         }
-                    }
+                        .padding()
+                        
+                    })
+                        .frame(width: 100)
+                        .background(Color("GreenColor"))
+                        .foregroundColor(Color.white)
+                        .cornerRadius(20)
+                    
+                    Button(action: {
+                        searchPerTitle = false
+                        searchPerAuthor = true
+                        searchPerGender = false
+                        
+                    }, label: {
+                        HStack{
+                            Text("Autor")
+                                .font(.system(size: 15, weight: .heavy, design: .default))
+                            
+                        }
+                        .padding()
+                        
+                    })
+                        .frame(width: 100)
+                        .background(Color("GreenColor"))
+                        .foregroundColor(Color.white)
+                        .cornerRadius(20)
+                    
+                    Button(action: {
+                        searchPerTitle = false
+                        searchPerAuthor = false
+                        searchPerGender = true
+                        
+                    }, label: {
+                        HStack{
+                            Text("Género")
+                                .font(.system(size: 15, weight: .heavy, design: .default))
+                            
+                        }
+                        .padding()
+                        
+                    })
+                        .frame(width: 100)
+                        .background(Color("GreenColor"))
+                        .foregroundColor(Color.white)
+                        .cornerRadius(20)
                     
                 }
+                .padding(.top, 10)
                 
-                if searchPerAuthor == true {
-                    NavigationView{
-                        ZStack{
-                            Color("fullBackground")
-                                .ignoresSafeArea()
-                            List(audioBookListVM.audioBooks, id: \.idAudioBook) { audioBook in
-                                HStack{
-                                    AsyncImage(url: audioBook.image, content: { image in
-                                        image.resizable()
-                                            .aspectRatio(contentMode: .fit)
-                                            .frame(width: 100)
-                                    }, placeholder: {
-                                        ProgressView()
-                                    })
-                                    VStack{
-                                        Text(audioBook.titleAudioBook)
-                                            .foregroundColor(.white)
-                                            .font(.system(size: 18, weight: .heavy, design: .default))
-                                            .frame(maxWidth: .infinity, alignment: .leading)
-                                            .foregroundColor(.white)
-                                            .multilineTextAlignment(.leading)
-                                        Text(audioBook.author)
-                                            .foregroundColor(.white)
-                                            .frame(maxWidth: .infinity, alignment: .leading)
-                                            .foregroundColor(.white)
-                                            .multilineTextAlignment(.leading)
-                                        Text(audioBook.gender)
-                                            .foregroundColor(.white)
-                                            .frame(maxWidth: .infinity, alignment: .leading)
-                                            .foregroundColor(.white)
-                                            .multilineTextAlignment(.leading)
-                                        Text(audioBook.year)
-                                            .foregroundColor(.white)
-                                            .frame(maxWidth: .infinity, alignment: .leading)
-                                            .foregroundColor(.white)
-                                            .multilineTextAlignment(.leading)
+                
+                ZStack{
+                    
+                    if searchPerTitle == true {
+                        NavigationView{
+                            
+                            ZStack{
+                                Color("fullBackground")
+                                    .ignoresSafeArea()
+                                List(audioBookViewModel.searchPerTitle, id: \.idAudioBook) { audioBook in
+                                    
+                                    HStack(spacing:30){
+                                        AsyncImage(url: audioBook.image, content: { image in
+                                            image.resizable()
+                                                .aspectRatio(contentMode: .fit)
+                                                .frame(width: 100)
+                                        }, placeholder: {
+                                            ProgressView()
+                                        })
+                                        
+                                        VStack{
+                                            Text(audioBook.titleAudioBook)
+                                                .foregroundColor(.white)
+                                                .font(.system(size: 18, weight: .heavy, design: .default))
+                                                .frame(maxWidth: .infinity, alignment: .leading)
+                                                .foregroundColor(.white)
+                                                .multilineTextAlignment(.leading)
+                                            Text(audioBook.author)
+                                                .foregroundColor(.white)
+                                                .frame(maxWidth: .infinity, alignment: .leading)
+                                                .foregroundColor(.white)
+                                                .multilineTextAlignment(.leading)
+                                            Text(audioBook.gender)
+                                                .foregroundColor(.white)
+                                                .frame(maxWidth: .infinity, alignment: .leading)
+                                                .foregroundColor(.white)
+                                                .multilineTextAlignment(.leading)
+                                            Text(audioBook.year)
+                                                .foregroundColor(.white)
+                                                .frame(maxWidth: .infinity, alignment: .leading)
+                                                .foregroundColor(.white)
+                                                .multilineTextAlignment(.leading)
+                                        }
                                     }
+                                    .frame(maxWidth: .infinity,maxHeight: .infinity)
+                                    .background(Color("fullBackground"))
+                                    .listRowBackground(Color("fullBackground"))
                                 }
-                                .frame(maxWidth: .infinity,maxHeight: .infinity)
-                                .background(Color("fullBackground"))
-                                .listRowBackground(Color("fullBackground"))
-                            }.listStyle(.plain)
+                                .listStyle(.plain)
                                 .searchable(text: $searchText)
                                 .foregroundColor(.white)
                                 .onChange(of: searchText) { value in
                                     Task.init {
                                         if !value.isEmpty && value.count > 3 {
-                                            await audioBookListVM.searchPerAuhor(author: value)
+                                            await searchPerTitle(title: value)
                                         } else {
-                                            audioBookListVM.audioBooks.removeAll()
+//                                            audioBooks.removeAll()
                                         }
                                     }
                                     
                                 }
-                                .navigationTitle("Buscar por autor")
+                                .navigationTitle("Buscar por título")
+                            }
+                        }
+                       
+                        
+                    }
+                    
+                    if searchPerAuthor == true {
+                        NavigationView{
+                            ZStack{
+                                Color("fullBackground")
+                                    .ignoresSafeArea()
+                                List(audioBookViewModel.searchPerAuthor, id: \.idAudioBook) { audioBook in
+                                    Button {
+                                        _ = audityViewModel.extras.set(key: "audioBook", value: audioBook)
+                                        audityViewModel.nextScreenType = NeutralScreenType.AudioBookInformationView.rawValue
+                                        audityViewModel.goToNextScreen = true
+                                    } label: {
+                                        HStack{
+                                            AsyncImage(url: audioBook.image, content: { image in
+                                                image.resizable()
+                                                    .aspectRatio(contentMode: .fit)
+                                                    .frame(width: 100)
+                                            }, placeholder: {
+                                                ProgressView()
+                                            })
+                                            VStack{
+                                                Text(audioBook.titleAudioBook)
+                                                    .foregroundColor(.white)
+                                                    .font(.system(size: 18, weight: .heavy, design: .default))
+                                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                                    .foregroundColor(.white)
+                                                    .multilineTextAlignment(.leading)
+                                                Text(audioBook.author)
+                                                    .foregroundColor(.white)
+                                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                                    .foregroundColor(.white)
+                                                    .multilineTextAlignment(.leading)
+                                                Text(audioBook.gender)
+                                                    .foregroundColor(.white)
+                                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                                    .foregroundColor(.white)
+                                                    .multilineTextAlignment(.leading)
+                                                Text(audioBook.year)
+                                                    .foregroundColor(.white)
+                                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                                    .foregroundColor(.white)
+                                                    .multilineTextAlignment(.leading)
+                                            }
+                                        }
+                                        .frame(maxWidth: .infinity,maxHeight: .infinity)
+                                        .background(Color("fullBackground"))
+                                        
+                                    }.listRowBackground(Color("fullBackground"))
+                                
+                                }.listStyle(.plain)
+                                    .searchable(text: $searchText)
+                                    .foregroundColor(.white)
+                                    .onChange(of: searchText) { value in
+                                        Task.init {
+                                            if !value.isEmpty && value.count > 3 {
+                                                await searchPerAuthor(author: value)
+                                            } else {
+//                                                audioBooks.removeAll()
+                                            }
+                                        }
+                                        
+                                    }
+                                    .navigationTitle("Buscar por autor")
+                                   
+                                
+                            }
+                            
+                            
+                        }
+                        .background(Color("fullBackground"))
+                       
+                        
+                    }
+                    
+                    if searchPerGender == true {
+                        
+                        NavigationView{
+                            ZStack{
+                                Color("fullBackground")
+                                    .ignoresSafeArea()
+                                List(audioBookViewModel.searchPerGender, id: \.idAudioBook) { audioBook in
+                                    
+                                    HStack{
+                                        AsyncImage(url: audioBook.image, content: { image in
+                                            image.resizable()
+                                                .aspectRatio(contentMode: .fit)
+                                                .frame(width: 100)
+                                        }, placeholder: {
+                                            ProgressView()
+                                        })
+                                        VStack{
+                                            Text(audioBook.titleAudioBook)
+                                                .foregroundColor(.white)
+                                                .font(.system(size: 18, weight: .heavy, design: .default))
+                                                .frame(maxWidth: .infinity, alignment: .leading)
+                                                .foregroundColor(.white)
+                                                .multilineTextAlignment(.leading)
+                                            Text(audioBook.author)
+                                                .foregroundColor(.white)
+                                                .frame(maxWidth: .infinity, alignment: .leading)
+                                                .foregroundColor(.white)
+                                                .multilineTextAlignment(.leading)
+                                            Text(audioBook.gender)
+                                                .foregroundColor(.white)
+                                                .frame(maxWidth: .infinity, alignment: .leading)
+                                                .foregroundColor(.white)
+                                                .multilineTextAlignment(.leading)
+                                            Text(audioBook.year)
+                                                .foregroundColor(.white)
+                                                .frame(maxWidth: .infinity, alignment: .leading)
+                                                .foregroundColor(.white)
+                                                .multilineTextAlignment(.leading)
+                                        }
+                                    }
+                                    .frame(maxWidth: .infinity,maxHeight: .infinity)
+                                    .background(Color("fullBackground"))
+                                    .listRowBackground(Color("fullBackground"))
+                                }.listStyle(.plain)
+                                    .searchable(text: $searchText)
+                                    .foregroundColor(.white)
+                                    .background(Color("fullBackground"))
+                                    .onChange(of: searchText) { value in
+                                        Task.init{
+                                            if !value.isEmpty && value.count > 3 {
+                                                await searchPerGender(gender: value)
+                                            } else {
+//                                                audioBookListVM.audioBooks.removeAll()
+                                            }
+                                        }
+                                        
+                                    }
+                                    .navigationTitle("Buscar por género")
+                            }
                             
                         }
                         
@@ -221,73 +307,13 @@ struct SearchView: View {
                     }
                     
                 }
-                
-                if searchPerGender == true {
-                    
-                    NavigationView{
-                        ZStack{
-                            Color("fullBackground")
-                                .ignoresSafeArea()
-                            List(audioBookListVM.audioBooks, id: \.idAudioBook) { audioBook in
-                                HStack{
-                                    AsyncImage(url: audioBook.image, content: { image in
-                                        image.resizable()
-                                            .aspectRatio(contentMode: .fit)
-                                            .frame(width: 100)
-                                    }, placeholder: {
-                                        ProgressView()
-                                    })
-                                    VStack{
-                                        Text(audioBook.titleAudioBook)
-                                            .foregroundColor(.white)
-                                            .font(.system(size: 18, weight: .heavy, design: .default))
-                                            .frame(maxWidth: .infinity, alignment: .leading)
-                                            .foregroundColor(.white)
-                                            .multilineTextAlignment(.leading)
-                                        Text(audioBook.author)
-                                            .foregroundColor(.white)
-                                            .frame(maxWidth: .infinity, alignment: .leading)
-                                            .foregroundColor(.white)
-                                            .multilineTextAlignment(.leading)
-                                        Text(audioBook.gender)
-                                            .foregroundColor(.white)
-                                            .frame(maxWidth: .infinity, alignment: .leading)
-                                            .foregroundColor(.white)
-                                            .multilineTextAlignment(.leading)
-                                        Text(audioBook.year)
-                                            .foregroundColor(.white)
-                                            .frame(maxWidth: .infinity, alignment: .leading)
-                                            .foregroundColor(.white)
-                                            .multilineTextAlignment(.leading)
-                                    }
-                                }
-                                .frame(maxWidth: .infinity,maxHeight: .infinity)
-                                .background(Color("fullBackground"))
-                                .listRowBackground(Color("fullBackground"))
-                            }.listStyle(.plain)
-                                .searchable(text: $searchText)
-                                .foregroundColor(.white)
-                                .onChange(of: searchText) { value in
-                                    Task.init{
-                                        if !value.isEmpty && value.count > 3 {
-                                            await audioBookListVM.searchPerGender(gender: value)
-                                        } else {
-                                            audioBookListVM.audioBooks.removeAll()
-                                        }
-                                    }
-                                    
-                                }
-                                .navigationTitle("Buscar por género")
-                        }
-                        
-                    }
-                    
-                }
-                
             }
+            .background(Color("fullBackground"))
+            
         }
-        .background(Color("fullBackground"))
+       
     }
+  
 }
 
 struct SearchView_Previews: PreviewProvider {

@@ -27,15 +27,15 @@ struct AudioBookView: View {
             VStack{
     
                 AsyncImage(url: URL(string: audioBook.urlImage)) { image in
-                    image.resizable()
-                        .aspectRatio(contentMode: .fill)
+                    image
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 150, height: 200)
                     
                 } placeholder: {
                     ProgressView()
                 }
-                .frame(width: 150, height: 150)
-                
-        
+               
                 VStack{
                     Text(audioBook.titleAudioBook)
                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -45,7 +45,7 @@ struct AudioBookView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .foregroundColor(Color.white)
                 }
-                .padding(.top,40)
+                .padding(.top,15)
                 
                
             }

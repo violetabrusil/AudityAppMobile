@@ -64,7 +64,7 @@ struct HomeView: View {
                     })
                     
                     
-                }.padding(.top,5)
+                }.padding(.top,3)
                 
                 
                 HStack{
@@ -75,7 +75,7 @@ struct HomeView: View {
                         .font(.system(size: 25, weight: .heavy, design: .default))
                         .padding(.leading, 10)
                     Spacer()
-                }.padding(.bottom, 10)
+                }.padding(.bottom, 5)
                 
                 VStack{
                     HStack{
@@ -85,7 +85,7 @@ struct HomeView: View {
                             .font(.system(size: 25, weight: .heavy, design: .default))
                             .padding(.trailing, 200)
                     }
-                    .padding(.bottom,80)
+                    .padding(.bottom,90)
                     
                     
                     ScrollView (.horizontal, showsIndicators: false) {
@@ -115,7 +115,7 @@ struct HomeView: View {
                             .padding(.trailing, 150)
                         
                     }
-                    .padding(.bottom,80)
+                    .padding(.bottom,90)
                     
                     
                     ScrollView (.horizontal, showsIndicators: false) {

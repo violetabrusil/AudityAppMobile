@@ -33,6 +33,20 @@ struct AudioBook: Hashable, Codable {
         self.reviews = []
         self.userId = "userId"
     }
+    
+    public init(idAudioBook: Int, titleAudioBook: String, author: String, sipnosis: String, urlImage: String,
+                urlAudio: String, gender: String, yearOfPublication: String, reviews: [Review], userId: String) {
+        self.idAudioBook = idAudioBook
+        self.titleAudioBook = titleAudioBook
+        self.author = author
+        self.sipnosis = sipnosis
+        self.urlImage = urlImage
+        self.urlAudio = urlAudio
+        self.gender = gender
+        self.yearOfPublication = yearOfPublication
+        self.reviews = reviews
+        self.userId = userId
+    }
 }
 
 struct AudioBookResponse: Decodable {

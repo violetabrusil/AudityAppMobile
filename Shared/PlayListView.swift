@@ -8,39 +8,57 @@
 import SwiftUI
 
 struct PlayListView: View {
+    
+    let playList: PlayList
+    let audityViewModel = AudityBaseViewModel()
+    
+    public init(playList: PlayList) {
+        self.playList = playList
+    }
+    
     var body: some View {
         VStack{
          
             HStack{
-                Image("aslan")
+           
+                Image("playList")
                     .resizable()
                     .frame(width: 90, height:90)
-                    .padding(.leading, -100.0)
+                    .padding(.leading, 20)
             
                 VStack{
-                    Text("Nombre playlist")
+                    Text(playList.namePlayList)
                         .multilineTextAlignment(.leading)
-                        .frame(width: 150)
+                        .frame(maxWidth: .infinity, alignment: .leading)
                         .foregroundColor(Color.white)
                         .font(.system(size: 15, weight: .heavy, design: .default))
-                    Text("2 audiolibroa")
-                        .frame(width: 150)
-                        .multilineTextAlignment(.leading)
-                        .foregroundColor(Color.white)
-                        .font(.system(size: 15))
+                    if playList.idAudioBooks != nil {
+                        Text("\(playList.idAudioBooks!.count) audiolibros")
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .multilineTextAlignment(.leading)
+                            .foregroundColor(Color.white)
+                            .font(.system(size: 15))
+                        
+                    } else {
+                        Text("Sin audiolibros")
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .multilineTextAlignment(.leading)
+                            .foregroundColor(Color.white)
+                            .font(.system(size: 15))
+                    }
+                  
+                     
                 }
-             
-                
+       
             }
-            .frame(width: 420, height: 100)
+            .frame(maxWidth: .infinity,maxHeight: .infinity)
         }
-        .frame(width: .infinity, height: .infinity)
         .background(Color("fullBackground"))
     }
 }
 
 struct PlayListView_Previews: PreviewProvider {
     static var previews: some View {
-        PlayListView()
+        PlayListView(playList: PlayList())
     }
 }

@@ -121,4 +121,34 @@ class AudioBookViewModel: ObservableObject {
       
     }
     
+    func searchPerTitle(title: String) async {
+        do {
+            let audioBooks = try await searchAudioBooks(wordToSearch: title)
+            self.audioBookSearchList = audioBooks
+        } catch {
+            print(error)
+        }
+        
+    }
+    
+    func searchPerAuhor(author: String) async {
+        do {
+            let audioBooks = try await searchAudioBookPerAuthor(wordToSearch: author)
+            self.audioBookSearchList = audioBooks
+        } catch {
+            print(error)
+        }
+        
+    }
+    
+    func searchPerGender(gender: String) async {
+        do {
+            let audioBooks = try await searchAudioBookPerGender(wordToSearch: gender)
+            self.audioBookSearchList = audioBooks
+        } catch {
+            print(error)
+        }
+        
+    }
+    
 }

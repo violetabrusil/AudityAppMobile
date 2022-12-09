@@ -11,6 +11,7 @@ struct LibraryView: View {
     
     @State var showSearchLibaryView = false
     @State var showCreateNewPlayListView = false
+    @StateObject var playListViewModel = PlayListViewModel()
     @EnvironmentObject var user : UserViewModel
     
     var body: some View {
@@ -43,16 +44,16 @@ struct LibraryView: View {
                     }
                     Spacer()
                     HStack{
-                        Button(action: {
-                            showSearchLibaryView = true
-                        }, label: {
-                            HStack{
-                                Image(systemName: "magnifyingglass")
-                                    .resizable()
-                                    .frame(width: 23, height: 23)
-                                    .foregroundColor(Color.white)
-                            }
-                        })
+//                        Button(action: {
+//                            showSearchLibaryView = true
+//                        }, label: {
+//                            HStack{
+//                                Image(systemName: "magnifyingglass")
+//                                    .resizable()
+//                                    .frame(width: 23, height: 23)
+//                                    .foregroundColor(Color.white)
+//                            }
+//                        })
                         
                         Button(action: {
                             showCreateNewPlayListView = true
@@ -65,12 +66,33 @@ struct LibraryView: View {
                                     .foregroundColor(Color.white)
                             }
                         })
+               
                     }
+                    
+                 
                     
                     
                 }
                 .padding(.top,30)
                 Spacer()
+                
+                VStack{
+                    
+                    ScrollView (.vertical, showsIndicators: false) {
+                        
+                        HStack(spacing: 13){
+                            ForEach(playListViewModel.playList, id:\.self) { playList in
+                                PlayListView(playList: playList)
+                            }
+                        }
+                    }
+                    .onAppear{
+                        playListViewModel.searchPlayListPerUser(wordToSearch: user.uuid ?? "")
+                        
+                    }
+                    
+                    
+                }.padding(.top,20)
                 
                 
             }
@@ -85,7 +107,7 @@ struct LibraryView: View {
             //            }
             
             .fullScreenCover(isPresented: $showSearchLibaryView) {
-                SearchPlayListView()
+                //SearchPlayListView()
             }
             .fullScreenCover(isPresented: $showCreateNewPlayListView) {
                 CreateNewPlayListView()

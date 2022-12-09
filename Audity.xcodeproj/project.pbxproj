@@ -16,6 +16,8 @@
 		A832DC102931774F0006022B /* PlayList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A832DC0F2931774F0006022B /* PlayList.swift */; };
 		A8353AC428D2BEF400E211A0 /* CheckProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8353AC328D2BEF400E211A0 /* CheckProvider.swift */; };
 		A83A80E429244E2900EE4C6B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A83A80E329244E2800EE4C6B /* Assets.xcassets */; };
+		A854132C29429335005C4201 /* PlaylistInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A854132B29429335005C4201 /* PlaylistInformationView.swift */; };
+		A854132E2942B0C3005C4201 /* IdAudioBooks.swift in Sources */ = {isa = PBXBuildFile; fileRef = A854132D2942B0C3005C4201 /* IdAudioBooks.swift */; };
 		A87651C328B3D29E00AFC95D /* AudityAppMobileApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87651B328B3D29C00AFC95D /* AudityAppMobileApp.swift */; };
 		A87651C428B3D29E00AFC95D /* AudityAppMobileApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87651B328B3D29C00AFC95D /* AudityAppMobileApp.swift */; };
 		A87651C528B3D29E00AFC95D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87651B428B3D29C00AFC95D /* ContentView.swift */; };
@@ -67,8 +69,6 @@
 		A8937C2128C7AA870019A6A8 /* AudioBookListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8937C2028C7AA870019A6A8 /* AudioBookListViewModel.swift */; };
 		A897489E28B9257E000EB6BC /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A897489D28B9257E000EB6BC /* LibraryView.swift */; };
 		A897489F28B9257E000EB6BC /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A897489D28B9257E000EB6BC /* LibraryView.swift */; };
-		A89748A428B92B64000EB6BC /* SearchPlayListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89748A328B92B64000EB6BC /* SearchPlayListView.swift */; };
-		A89748A528B92B64000EB6BC /* SearchPlayListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89748A328B92B64000EB6BC /* SearchPlayListView.swift */; };
 		A89748A728B92F58000EB6BC /* SplashScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89748A628B92F58000EB6BC /* SplashScreenViewModel.swift */; };
 		A89748A828B92F58000EB6BC /* SplashScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89748A628B92F58000EB6BC /* SplashScreenViewModel.swift */; };
 		A89748B728BAEF41000EB6BC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A89748B628BAEF41000EB6BC /* GoogleService-Info.plist */; };
@@ -91,6 +91,7 @@
 		A897492028BF2B0E000EB6BC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A897491F28BF2B0E000EB6BC /* User.swift */; };
 		A897492328BF3B1D000EB6BC /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = A897492228BF3B1D000EB6BC /* GoogleSignIn */; };
 		A897492528BF3B1D000EB6BC /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A897492428BF3B1D000EB6BC /* GoogleSignInSwift */; };
+		A8A269142942CA99006F2469 /* AudioBooksFromPlayList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A269132942CA99006F2469 /* AudioBooksFromPlayList.swift */; };
 		A8A7258928CB92A600F1EC3B /* Validations.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A7258828CB92A600F1EC3B /* Validations.swift */; };
 		A8A7258B28CE5AEB00F1EC3B /* UIExtras.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A7258A28CE5AEB00F1EC3B /* UIExtras.swift */; };
 		A8A7258D28CE5D0A00F1EC3B /* AudityScreenBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A7258C28CE5D0A00F1EC3B /* AudityScreenBuilder.swift */; };
@@ -111,6 +112,8 @@
 		A832DC0F2931774F0006022B /* PlayList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayList.swift; sourceTree = "<group>"; };
 		A8353AC328D2BEF400E211A0 /* CheckProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckProvider.swift; sourceTree = "<group>"; };
 		A83A80E329244E2800EE4C6B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A854132B29429335005C4201 /* PlaylistInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistInformationView.swift; sourceTree = "<group>"; };
+		A854132D2942B0C3005C4201 /* IdAudioBooks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdAudioBooks.swift; sourceTree = "<group>"; };
 		A87651B328B3D29C00AFC95D /* AudityAppMobileApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudityAppMobileApp.swift; sourceTree = "<group>"; };
 		A87651B428B3D29C00AFC95D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A87651BA28B3D29E00AFC95D /* Audity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Audity.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,7 +151,6 @@
 		A8937C1E28C7960D0019A6A8 /* CoreAudityApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreAudityApp.swift; sourceTree = "<group>"; };
 		A8937C2028C7AA870019A6A8 /* AudioBookListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioBookListViewModel.swift; sourceTree = "<group>"; };
 		A897489D28B9257E000EB6BC /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
-		A89748A328B92B64000EB6BC /* SearchPlayListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlayListView.swift; sourceTree = "<group>"; };
 		A89748A628B92F58000EB6BC /* SplashScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewModel.swift; sourceTree = "<group>"; };
 		A89748B628BAEF41000EB6BC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A897490E28BEC129000EB6BC /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 		A897491928BF151E000EB6BC /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
 		A897491F28BF2B0E000EB6BC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A897492628BF3F8B000EB6BC /* Audity--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Audity--iOS--Info.plist"; sourceTree = "<group>"; };
+		A8A269132942CA99006F2469 /* AudioBooksFromPlayList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioBooksFromPlayList.swift; sourceTree = "<group>"; };
 		A8A7258828CB92A600F1EC3B /* Validations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validations.swift; sourceTree = "<group>"; };
 		A8A7258A28CE5AEB00F1EC3B /* UIExtras.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIExtras.swift; sourceTree = "<group>"; };
 		A8A7258C28CE5D0A00F1EC3B /* AudityScreenBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudityScreenBuilder.swift; sourceTree = "<group>"; };
@@ -248,7 +251,6 @@
 				A88DCB8C28B6026900E9CD8A /* EditProfileView.swift */,
 				A88DCB8F28B68FE400E9CD8A /* SearchView.swift */,
 				A897489D28B9257E000EB6BC /* LibraryView.swift */,
-				A89748A328B92B64000EB6BC /* SearchPlayListView.swift */,
 				A89748A628B92F58000EB6BC /* SplashScreenViewModel.swift */,
 				A8937BFF28C660FC0019A6A8 /* AudioBookInformationView.swift */,
 				A8937C0128C690FF0019A6A8 /* PlaybackControlButton.swift */,
@@ -256,6 +258,8 @@
 				A8937C0528C69B460019A6A8 /* AudioManager.swift */,
 				A815AC14292ED8FC000AAC98 /* ImagePickerController.swift */,
 				A815AC16292EDBCC000AAC98 /* FirebaseImageView.swift */,
+				A854132B29429335005C4201 /* PlaylistInformationView.swift */,
+				A8A269132942CA99006F2469 /* AudioBooksFromPlayList.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -353,6 +357,7 @@
 				A8937BF928C261750019A6A8 /* AudioBook.swift */,
 				A8937BFD28C262BC0019A6A8 /* Review.swift */,
 				A832DC0F2931774F0006022B /* PlayList.swift */,
+				A854132D2942B0C3005C4201 /* IdAudioBooks.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -507,6 +512,7 @@
 				A8937C1128C7957F0019A6A8 /* PushView.swift in Sources */,
 				A88DCB8728B5F2BE00E9CD8A /* CreateNewPlayListView.swift in Sources */,
 				A897490F28BEC129000EB6BC /* LoginView.swift in Sources */,
+				A8A269142942CA99006F2469 /* AudioBooksFromPlayList.swift in Sources */,
 				A832DC0E293176680006022B /* PlayListViewModel.swift in Sources */,
 				A8937C0F28C7957F0019A6A8 /* NavigationStackView.swift in Sources */,
 				A8937BFE28C262BC0019A6A8 /* Review.swift in Sources */,
@@ -516,8 +522,10 @@
 				A897491A28BF151E000EB6BC /* ForgotPasswordView.swift in Sources */,
 				A82FB45C28CFCD1A0079980E /* ReviewViewModel.swift in Sources */,
 				A8A725A128CEE5A500F1EC3B /* ForgotPasswordViewModel.swift in Sources */,
+				A854132C29429335005C4201 /* PlaylistInformationView.swift in Sources */,
 				A8937C0E28C7957F0019A6A8 /* NeutralRouter.swift in Sources */,
 				A87651DB28B423AC00AFC95D /* ActionBarMenuView.swift in Sources */,
+				A854132E2942B0C3005C4201 /* IdAudioBooks.swift in Sources */,
 				A88DCB8428B5EDA000E9CD8A /* PlayListView.swift in Sources */,
 				A8A7259F28CEE3B500F1EC3B /* ForgotPasswordService.swift in Sources */,
 				A8A7259C28CECF4600F1EC3B /* LoginViewModel.swift in Sources */,
@@ -542,7 +550,6 @@
 				A897489E28B9257E000EB6BC /* LibraryView.swift in Sources */,
 				A88DCB7B28B5E30400E9CD8A /* StarsView.swift in Sources */,
 				A8937C0028C660FC0019A6A8 /* AudioBookInformationView.swift in Sources */,
-				A89748A428B92B64000EB6BC /* SearchPlayListView.swift in Sources */,
 				A87651C328B3D29E00AFC95D /* AudityAppMobileApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -568,7 +575,6 @@
 				A88DCB8228B5E84900E9CD8A /* AddToPlayListView.swift in Sources */,
 				A897489F28B9257E000EB6BC /* LibraryView.swift in Sources */,
 				A88DCB7C28B5E30400E9CD8A /* StarsView.swift in Sources */,
-				A89748A528B92B64000EB6BC /* SearchPlayListView.swift in Sources */,
 				A87651C428B3D29E00AFC95D /* AudityAppMobileApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

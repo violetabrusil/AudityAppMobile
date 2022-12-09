@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+struct IdAudioBooks: Hashable, Codable {
+    
+    var idAudioBookPlayList: Int = 0
+    var idAudioBook: String = ""
+
+}

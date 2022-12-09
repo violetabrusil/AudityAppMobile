@@ -32,6 +32,7 @@ public extension NeutralScreenBuilder {
             
 //        case NeutralScreenType.AddToPlayListView:
 //            return getAddToPlayListView()
+            
 //        case NeutralScreenType.MerchantConfirmRegistrationView:
 //            return getMerchantConfirmRegistrationView(extras: extras)
  

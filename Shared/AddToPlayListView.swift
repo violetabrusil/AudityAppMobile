@@ -11,9 +11,13 @@ struct AddToPlayListView: View {
     
     @State private var showNewPlayList = false
     @Environment(\.dismiss) var dismiss
+    @StateObject var playListViewModel = PlayListViewModel()
+    @EnvironmentObject var user : UserViewModel
     let audioBook: AudioBook
-    
-    
+    @State var success = false
+    @State var showToast = false
+    @State var existingAudiobook = false
+   
     public init(audioBook: AudioBook) {
         self.audioBook = audioBook
     }
@@ -64,16 +68,61 @@ struct AddToPlayListView: View {
                     .foregroundColor(Color.white)
                     .cornerRadius(20)
             }
-            .padding(.bottom,700)
+
+            VStack{
+                ScrollView (.vertical, showsIndicators: false) {
+                    
+                    HStack(spacing: 13){
+                        
+                        ForEach(playListViewModel.playList, id:\.self) { playList in
+                            Button(action: {
+                                let idAudioBooks = playList.idAudioBooks
+                                for idAudioBook in idAudioBooks ?? [] {
+                                    if Int(idAudioBook.idAudioBook) == audioBook.idAudioBook {
+                                        self.existingAudiobook = true
+                                        success = false
+                                        showToast = true
+                                        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2){
+                                            showToast = false
+                                            dismiss()
+                                        }
+                                    } else {
+                                        let parameters: [String: Any] = ["idAudioBook": audioBook.idAudioBook]
+                                        playListViewModel.addAudioBookToPlayList(idPlayList: String(playList.idPlayList), parameters: parameters)
+                                        success = true
+                                        showToast = true
+                                        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2){
+                                            showToast = false
+                                            dismiss()
+                                        }
+                                        
+                                    }
+                                }
+                                
+                            }, label: {
+                                PlayListView(playList: playList)
+                            })
+                           
+                        }
+                    }
+                }
+                .onAppear{
+                    playListViewModel.searchPlayListPerUser(wordToSearch: user.uuid ?? "")
+                    
+                }
+                
+            }.padding(.top,20)
+            
+            
         
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color("fullBackground"))
         .opacity(30.0)
-        
         .fullScreenCover(isPresented: $showNewPlayList) {
             CreateNewPlayListView()
         }
+        .toast(isPresenting: $showToast, message: existingAudiobook ?  "El audiolibro ya se encuentra agregado" : "Audiolibro agregado.", icon: existingAudiobook ? .error : .success)
     }
 }
 
