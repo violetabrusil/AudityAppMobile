@@ -18,6 +18,7 @@ class PlayListViewModel: ObservableObject {
     
     @Published var playList: [PlayList] = []
     let prefixUrl = "http://localhost:9090/api/playList"
+    @Published var idAudioBooksStringArray = ""
     
     func createPlayList(parameters: [String: Any]){
         guard let url = URL(string: "\(prefixUrl)/createPlayList") else {
@@ -120,6 +121,33 @@ class PlayListViewModel: ObservableObject {
             }
         }.resume()
   
+    }
+    
+     func searchAudioBooks(wordToSearch: String) {
+
+        let endpoint = "/searchAudioBooks/\(wordToSearch)"
+        guard let url = URL(string: prefixUrl + endpoint) else {
+            print("no hay respuesta")
+            return
+        }
+        
+        let task = URLSession.shared.dataTask(with: url) {
+            data, _, error in
+            guard let data = data, error == nil else {
+                return
+            }
+                        
+            do {
+                self.idAudioBooksStringArray = String(data: data, encoding: .utf8) ?? ""
+
+            }
+            catch {
+                print(error)
+            }
+            
+        }
+        task.resume()
+        
     }
     
     

@@ -151,4 +151,38 @@ class AudioBookViewModel: ObservableObject {
         
     }
     
+    func getAudioBooksFromPlayList(wordToSearch: String) {
+        
+        let endpoint = "api/audioBook/getAudioBooksFromPlayList/\(wordToSearch)"
+        guard let url = URL(string: BASEURL + endpoint) else {
+            print("no hay respuesta")
+            return
+        }
+        
+        let task = URLSession.shared.dataTask(with: url) {
+            data, _, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            
+            //            Convert to JSON
+            
+            do {
+                let audioBooks = try JSONDecoder().decode([AudioBook].self, from: data)
+                
+                DispatchQueue.main.async {
+                    self.audioBookList = audioBooks
+                }
+                
+            }
+            catch {
+                print(error)
+            }
+        }
+        
+        task.resume()
+    }
+    
+    
+    
 }

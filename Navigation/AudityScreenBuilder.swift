@@ -29,6 +29,9 @@ public extension NeutralScreenBuilder {
  
         case NeutralScreenType.MoreInformationView:
             return getMoreInformationView(extras: extras)
+        
+        case NeutralScreenType.PlaylistInformationView:
+            return getPlaylistInformationView(extras: extras)
             
 //        case NeutralScreenType.AddToPlayListView:
 //            return getAddToPlayListView()
@@ -70,6 +73,12 @@ public extension NeutralScreenBuilder {
         return AnyView(MoreInformationView(audioBook: audioBook))
     }
     
+    func getPlaylistInformationView(extras: UIExtras?) -> AnyView {
+        let playList = (extras?.getValue(with: "playList") as PlayList?) ?? PlayList()
+        return AnyView(PlaylistInformationView(playList: playList))
+    }
+    
+    
 //    func getAddToPlayListView() -> AnyView {
 //        return AnyView(AddToPlayListView())
 //    }
@@ -89,6 +98,7 @@ public extension NeutralScreenType {
     static let SplashScreenView = NeutralScreenType(rawValue: "SplashScreenView")
     static let AudioBookInformationView = NeutralScreenType(rawValue: "AudioBookInformationView")
     static let MoreInformationView = NeutralScreenType(rawValue: "MoreInformationView")
+    static let PlaylistInformationView = NeutralScreenType(rawValue: "PlaylistInformationView")
 //    static let AddToPlayListView = NeutralScreenType(rawValue: "AddToPlayListView")
 //    static let ReviewView = NeutralScreenType(rawValue: "ReviewView")
 }

@@ -255,10 +255,10 @@
 				A8937BFF28C660FC0019A6A8 /* AudioBookInformationView.swift */,
 				A8937C0128C690FF0019A6A8 /* PlaybackControlButton.swift */,
 				A8937C0328C6995F0019A6A8 /* Extensions.swift */,
+				A854132B29429335005C4201 /* PlaylistInformationView.swift */,
 				A8937C0528C69B460019A6A8 /* AudioManager.swift */,
 				A815AC14292ED8FC000AAC98 /* ImagePickerController.swift */,
 				A815AC16292EDBCC000AAC98 /* FirebaseImageView.swift */,
-				A854132B29429335005C4201 /* PlaylistInformationView.swift */,
 				A8A269132942CA99006F2469 /* AudioBooksFromPlayList.swift */,
 			);
 			path = Shared;

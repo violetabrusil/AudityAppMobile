@@ -13,6 +13,7 @@ struct LibraryView: View {
     @State var showCreateNewPlayListView = false
     @StateObject var playListViewModel = PlayListViewModel()
     @EnvironmentObject var user : UserViewModel
+    let audityViewModel = AudityBaseViewModel()
     
     var body: some View {
         
@@ -82,22 +83,37 @@ struct LibraryView: View {
                         
                         HStack(spacing: 13){
                             ForEach(playListViewModel.playList, id:\.self) { playList in
-                                PlayListView(playList: playList)
+                                Button(action: {
+                                    _ = audityViewModel.extras.set(key: "playList", value: playList)
+                                    audityViewModel.nextScreenType = NeutralScreenType.PlaylistInformationView.rawValue
+                                    audityViewModel.goToNextScreen = true
+                                    
+                                } ,label:{
+                                    PlayListView(playList: playList)
+                                    
+                                })
+                                
                             }
                         }
                     }
+                    
                     .onAppear{
                         playListViewModel.searchPlayListPerUser(wordToSearch: user.uuid ?? "")
                         
                     }
                     
                     
-                }.padding(.top,20)
+                }
+                .padding(.top,20)
+                .frame(maxWidth: .infinity,maxHeight: .infinity)
                 
                 
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color("fullBackground"))
+            
+            
+            
             
             //            if showSearchLibaryView {
             //                SearchPlayListView(showSearchPlayListView: $showSearchLibaryView)
