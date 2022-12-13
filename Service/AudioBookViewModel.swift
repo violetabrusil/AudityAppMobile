@@ -18,7 +18,6 @@ let BASEURL = "http://localhost:8080/"
 class AudioBookViewModel: ObservableObject {
     
     @Published var audioBookList: [AudioBook] = []
-    @Published var audioBookSearchList: [AudioBook] = []
     
     func fetch() {
         let endpoint = "api/audioBook/getAllAudioBooks"
@@ -55,7 +54,7 @@ class AudioBookViewModel: ObservableObject {
         task.resume()
     }
     
-    func searchAudioBooks(wordToSearch: String) async throws -> [AudioBook] {
+    func searchAudioBookPerTitle(wordToSearch: String) async throws -> [AudioBook] {
         
         let searchType: String = "SEARCH_PER_TITLE"
         let endpoint = "api/audioBook/searchByAuthor/\(searchType)/\(wordToSearch)"
@@ -123,32 +122,32 @@ class AudioBookViewModel: ObservableObject {
     
     func searchPerTitle(title: String) async {
         do {
-            let audioBooks = try await searchAudioBooks(wordToSearch: title)
-            self.audioBookSearchList = audioBooks
+            let audioBooks = try await searchAudioBookPerTitle(wordToSearch: title)
+            self.audioBookList = audioBooks
         } catch {
             print(error)
         }
-        
+
     }
-    
+
     func searchPerAuhor(author: String) async {
         do {
             let audioBooks = try await searchAudioBookPerAuthor(wordToSearch: author)
-            self.audioBookSearchList = audioBooks
+            self.audioBookList = audioBooks
         } catch {
             print(error)
         }
-        
+
     }
-    
+
     func searchPerGender(gender: String) async {
         do {
             let audioBooks = try await searchAudioBookPerGender(wordToSearch: gender)
-            self.audioBookSearchList = audioBooks
+            self.audioBookList = audioBooks
         } catch {
             print(error)
         }
-        
+
     }
     
     func getAudioBooksFromPlayList(wordToSearch: String) {

@@ -66,7 +66,6 @@
 		A8937C1B28C796030019A6A8 /* AudityBaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8937C1A28C796030019A6A8 /* AudityBaseViewModel.swift */; };
 		A8937C1D28C796080019A6A8 /* NeutralUIFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8937C1C28C796080019A6A8 /* NeutralUIFactory.swift */; };
 		A8937C1F28C7960D0019A6A8 /* CoreAudityApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8937C1E28C7960D0019A6A8 /* CoreAudityApp.swift */; };
-		A8937C2128C7AA870019A6A8 /* AudioBookListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8937C2028C7AA870019A6A8 /* AudioBookListViewModel.swift */; };
 		A897489E28B9257E000EB6BC /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A897489D28B9257E000EB6BC /* LibraryView.swift */; };
 		A897489F28B9257E000EB6BC /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A897489D28B9257E000EB6BC /* LibraryView.swift */; };
 		A89748A728B92F58000EB6BC /* SplashScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89748A628B92F58000EB6BC /* SplashScreenViewModel.swift */; };
@@ -149,7 +148,6 @@
 		A8937C1A28C796030019A6A8 /* AudityBaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudityBaseViewModel.swift; sourceTree = "<group>"; };
 		A8937C1C28C796080019A6A8 /* NeutralUIFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeutralUIFactory.swift; sourceTree = "<group>"; };
 		A8937C1E28C7960D0019A6A8 /* CoreAudityApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreAudityApp.swift; sourceTree = "<group>"; };
-		A8937C2028C7AA870019A6A8 /* AudioBookListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioBookListViewModel.swift; sourceTree = "<group>"; };
 		A897489D28B9257E000EB6BC /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
 		A89748A628B92F58000EB6BC /* SplashScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewModel.swift; sourceTree = "<group>"; };
 		A89748B628BAEF41000EB6BC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -284,7 +282,6 @@
 		A8937BF628C25F200019A6A8 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				A8937C2028C7AA870019A6A8 /* AudioBookListViewModel.swift */,
 				A8A725A028CEE5A500F1EC3B /* ForgotPasswordViewModel.swift */,
 			);
 			path = ViewModel;
@@ -508,7 +505,6 @@
 				A897492028BF2B0E000EB6BC /* User.swift in Sources */,
 				A8937BF828C25F3C0019A6A8 /* AudioBookViewModel.swift in Sources */,
 				A87651DE28B42E1E00AFC95D /* SplashScreenView.swift in Sources */,
-				A8937C2128C7AA870019A6A8 /* AudioBookListViewModel.swift in Sources */,
 				A8937C1128C7957F0019A6A8 /* PushView.swift in Sources */,
 				A88DCB8728B5F2BE00E9CD8A /* CreateNewPlayListView.swift in Sources */,
 				A897490F28BEC129000EB6BC /* LoginView.swift in Sources */,

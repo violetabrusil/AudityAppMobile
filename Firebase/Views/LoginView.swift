@@ -133,6 +133,7 @@ struct LoginView: View {
                             
                             if validation.isLogInComplete{
                                 successLogin =  user.loginUser(email: validation.email, password: validation.password)
+                                
                                 showToast = true
                                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2){
                                     showToast = false
