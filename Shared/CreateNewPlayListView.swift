@@ -7,12 +7,30 @@
 
 import SwiftUI
 
+class TextFieldManager: ObservableObject {
+    
+    let characterLimit = 15
+    @Published var limitExceeded: Bool = false
+    
+    @Published var namePlayList = "" {
+        
+        didSet {
+            if namePlayList.count > characterLimit {
+                namePlayList = String(namePlayList.prefix(characterLimit))
+                limitExceeded = true
+            } else {
+                limitExceeded = false
+            }
+        }
+    }
+}
+
 struct CreateNewPlayListView: View {
  
     @ObservedObject var playlistModel = PlayListViewModel()
     @ObservedObject var user = UserViewModel()
     @Environment(\.dismiss) var dismiss
-    @State var namePlaylist: String = ""
+    @ObservedObject var textFieldManager = TextFieldManager()
     @State var success = false
     @State var showToast = false
  
@@ -40,15 +58,26 @@ struct CreateNewPlayListView: View {
                     .font(.system(size: 25, weight: .heavy, design: .default))
                     .padding(.top, 80)
                 
-                TextField("Nombre lista", text: $namePlaylist)
+                TextField("Nombre lista", text: $textFieldManager.namePlayList)
                     .frame(width: 380,height:50)
                     .multilineTextAlignment(.center)
                     .foregroundColor(Color.white)
                     .padding(.top, 20)
+  
+                if textFieldManager.limitExceeded {
+                    HStack{
+                        Spacer()
+                        Text("Límite de caracteres alcanzado.")
+                            .foregroundColor(Color(.red))
+                            .font(.system(size: 11, weight: .heavy, design: .default))
+                            .multilineTextAlignment(.center)
+                        Spacer()
+                    }
+                }
                 
                 Button(action: {
-                    if user.uuid != "" && namePlaylist != "" {
-                        let parameters: [String: Any] = ["namePlayList": namePlaylist, "userId": user.uuid!]
+                    if user.uuid != "" && textFieldManager.namePlayList != "" {
+                        let parameters: [String: Any] = ["namePlayList": textFieldManager.namePlayList, "userId": user.uuid!]
                         playlistModel.createPlayList(parameters: parameters)
                         success = true
                         showToast = true

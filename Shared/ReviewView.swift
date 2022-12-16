@@ -7,12 +7,30 @@
 
 import SwiftUI
 
+class TextFieldValidation: ObservableObject {
+    
+    let characterLimit = 200
+    @Published var limitExceeded: Bool = false
+    
+    @Published var comment = "" {
+        
+        didSet {
+            if comment.count > characterLimit {
+                comment = String(comment.prefix(characterLimit))
+                limitExceeded = true
+            } else {
+                limitExceeded = false
+            }
+        }
+    }
+}
+
 struct ReviewView: View {
     
     @ObservedObject var reviewModel = ReviewViewModel()
     @Environment(\.dismiss) var dismiss
     @ObservedObject var user = UserViewModel()
-    @State var comment: String = ""
+    @ObservedObject var textFieldValidation = TextFieldValidation()
     @State var rating: String = "0"
     @State var success = false
     
@@ -46,15 +64,7 @@ struct ReviewView: View {
                     Spacer()
                     VStack(spacing: 5){
                         
-                        AsyncImage(url: URL(string: audioBook.urlImage)) { image in
-                            image.resizable()
-                                .aspectRatio(contentMode: .fill)
-                            
-                        } placeholder: {
-                            ProgressView()
-                        }
-                        .frame(width: 180, height: 180)
-                        
+                        Spacer()
                         
                         Text("¿Cómo califica este título?")
                             .foregroundColor(Color.white)
@@ -65,16 +75,30 @@ struct ReviewView: View {
                     }
                     Spacer()
                     VStack(spacing: 30){
-                        TextField("Escriba aqui su comentario", text: $comment)
+                        
+                        TextField("Escriba aqui su comentario", text: $textFieldValidation.comment, axis: .vertical)
                             .frame(width: 370,height:300)
                             .overlay( RoundedRectangle(cornerRadius: 20) .stroke(Color.green) )
                             .foregroundColor(Color.white)
 //                            .textFieldStyle(.roundedBorder)
                             .background(Color.clear)
                         
+                        if textFieldValidation.limitExceeded {
+                            HStack{
+                                Spacer()
+                                Text("Límite de caracteres alcanzado.")
+                                    .foregroundColor(Color(.red))
+                                    .font(.system(size: 11, weight: .heavy, design: .default))
+                                    .multilineTextAlignment(.center)
+                                Spacer()
+                            }
+                        }
+                        
                         Button(action: {
-                            if audioBook.idAudioBook != 0 && user.uuid != "" && comment != "" && rating != "" {
-                                let parameters: [String: Any] = ["userId": user.uuid!, "comment": comment, "rating":rating]
+                            if audioBook.idAudioBook != 0 && user.uuid != "" && textFieldValidation.comment != ""
+                                && rating != "" {
+                                let parameters: [String: Any] = ["userId": user.uuid!, "comment": textFieldValidation.comment,
+                                                                 "rating":rating]
                                 reviewModel.addReview(idAudioBook: String(audioBook.idAudioBook), parameters: parameters)
                                 success = true
                             } else {

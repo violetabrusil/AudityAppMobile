@@ -13,14 +13,14 @@ enum Network: Error {
     case badID
 }
 
-let BASEURL = "http://localhost:8080/"
+let BASEURL = "http://localhost:8080"
 
 class AudioBookViewModel: ObservableObject {
     
     @Published var audioBookList: [AudioBook] = []
     
     func fetch() {
-        let endpoint = "api/audioBook/getAllAudioBooks"
+        let endpoint = "/api/audioBook/getAllAudioBooks"
         guard let url = URL(string: BASEURL + endpoint) else {
             print("no hay respuesta")
             return
@@ -57,9 +57,13 @@ class AudioBookViewModel: ObservableObject {
     func searchAudioBookPerTitle(wordToSearch: String) async throws -> [AudioBook] {
         
         let searchType: String = "SEARCH_PER_TITLE"
-        let endpoint = "api/audioBook/searchByAuthor/\(searchType)/\(wordToSearch)"
+        var components = URLComponents()
+        components.scheme = "http"
+        components.host = "localhost"
+        components.port = 8080
+        components.path = "/api/audioBook/searchByAuthor/\(searchType)/\(wordToSearch)"
         
-        guard let url = URL(string: BASEURL + endpoint) else {
+        guard let url = components.url else {
             print("no hay respuesta")
             throw Network.badURL
         }
@@ -79,9 +83,13 @@ class AudioBookViewModel: ObservableObject {
     func searchAudioBookPerAuthor(wordToSearch: String) async throws -> [AudioBook] {
         
         let searchType: String = "SEARCH_PER_AUTHOR"
-        let endpoint = "api/audioBook/searchByAuthor/\(searchType)/\(wordToSearch)"
+        var components = URLComponents()
+        components.scheme = "http"
+        components.host = "localhost"
+        components.port = 8080
+        components.path = "/api/audioBook/searchByAuthor/\(searchType)/\(wordToSearch)"
         
-        guard let url = URL(string: BASEURL + endpoint) else {
+        guard let url = components.url else {
             print("no hay respuesta")
             throw Network.badURL
         }
@@ -101,9 +109,13 @@ class AudioBookViewModel: ObservableObject {
     func searchAudioBookPerGender(wordToSearch: String) async throws -> [AudioBook] {
         
         let searchType: String = "SEARCH_PER_GENDER"
-        let endpoint = "api/audioBook/searchByAuthor/\(searchType)/\(wordToSearch)"
+        var components = URLComponents()
+        components.scheme = "http"
+        components.host = "localhost"
+        components.port = 8080
+        components.path = "/api/audioBook/searchByAuthor/\(searchType)/\(wordToSearch)"
         
-        guard let url = URL(string: BASEURL + endpoint) else {
+        guard let url = components.url else {
             print("no hay respuesta")
             throw Network.badURL
         }
@@ -125,6 +137,7 @@ class AudioBookViewModel: ObservableObject {
             let audioBooks = try await searchAudioBookPerTitle(wordToSearch: title)
             self.audioBookList = audioBooks
         } catch {
+            self.audioBookList = []
             print(error)
         }
 
@@ -132,9 +145,10 @@ class AudioBookViewModel: ObservableObject {
 
     func searchPerAuhor(author: String) async {
         do {
-            let audioBooks = try await searchAudioBookPerAuthor(wordToSearch: author)
+             let audioBooks = try await searchAudioBookPerAuthor(wordToSearch: author)
             self.audioBookList = audioBooks
         } catch {
+            self.audioBookList = []
             print(error)
         }
 
@@ -145,6 +159,7 @@ class AudioBookViewModel: ObservableObject {
             let audioBooks = try await searchAudioBookPerGender(wordToSearch: gender)
             self.audioBookList = audioBooks
         } catch {
+            self.audioBookList = []
             print(error)
         }
 

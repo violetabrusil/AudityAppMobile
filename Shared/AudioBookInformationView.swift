@@ -29,17 +29,19 @@ struct AudioBookInformationView: View {
                     //Image
                     AsyncImage(url: URL(string: audioBook.urlImage)) { image in
                         image.resizable()
-//                            .aspectRatio(contentMode: .fit)
+                            .aspectRatio(contentMode: .fill)
                         
                     } placeholder: {
                         ProgressView()
                     }
                     .scaledToFill()
-                    .frame(height: UIScreen.main.bounds.height / 3)
+                    .frame(height: UIScreen.main.bounds.height / 4)
+                    .opacity(0.5)
+//                    .padding(.top,20)
                     
                     VStack(alignment: .leading, spacing: 10) {
                         
-                        //Gender and Duration
+                        //Gender and yearOfPublication
                         VStack(alignment: .leading, spacing: 8) {
                             Text(audioBook.gender)
                             Text(audioBook.yearOfPublication)
@@ -51,8 +53,10 @@ struct AudioBookInformationView: View {
                         
                         //Title
                         Text(audioBook.titleAudioBook)
+                            .frame(height: 80)
                             .font(.title)
-                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .multilineTextAlignment(.leading)
+                            .lineLimit(2)
                         
                         VStack(spacing: 0){
                             //Play Button
@@ -67,12 +71,18 @@ struct AudioBookInformationView: View {
                                     .background(.white)
                                     .cornerRadius(20)
                             }
+                            .padding(.bottom, 10)
                 
                             //Sipnosis
-                            Text(audioBook.sipnosis)
-                                .frame(height: 100)
-                                .multilineTextAlignment(.leading)
-                            
+                            ScrollView{
+                                VStack{
+                                    Text(audioBook.sipnosis)
+                                        .multilineTextAlignment(.leading)
+
+                                }
+                                
+                            }
+                            .frame(height: 130)
                         }
                         
                         if ((audioBook.reviews?.count) != 0){
@@ -100,7 +110,7 @@ struct AudioBookInformationView: View {
                         Spacer()
                         
                     }
-                    .frame(height: UIScreen.main.bounds.height * 1 / 3)
+                    .frame(height: UIScreen.main.bounds.height * 1 / 5)
                     .foregroundColor(.white)
                     .padding(20)
                     .padding(.top, 280)

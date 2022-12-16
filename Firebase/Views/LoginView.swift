@@ -18,6 +18,7 @@ struct LoginView: View {
     @State var buttonLoginPressed = false
     @State var showToast = false
     @State var successLogin = false
+    @State var showspinner = false
     
     var body: some View {
         
@@ -83,6 +84,7 @@ struct LoginView: View {
                         }
                         
                         
+                        
                         HStack(spacing:5){
                             Image(systemName: "key.fill")
                                 .resizable()
@@ -132,19 +134,30 @@ struct LoginView: View {
                             self.buttonLoginPressed = true
                             
                             if validation.isLogInComplete{
-                                successLogin =  user.loginUser(email: validation.email, password: validation.password)
-                                
-                                showToast = true
+                                user.loginUser(email: validation.email, password: validation.password)
+                                showspinner = true
                                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2){
-                                    showToast = false
+                                    if user.userIsAuthenicatedAndSynced{
+                                        successLogin = true
+                                    }
+                                    showspinner = false
+                                    showToast = true
+                                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2){
+                                        showToast = false
+                                    }
                                 }
                             }
                            
                             
                         }, label: {
                             HStack{
-                                Text("Ingresar")
-                                    .font(.system(size: 15, weight: .heavy, design: .default))
+                                if showspinner{
+                                    ProgressView()
+                                }
+                                else{
+                                    Text("Ingresar")
+                                        .font(.system(size: 15, weight: .heavy, design: .default))
+                                }
                                 
                             }
                             .padding()

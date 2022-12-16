@@ -56,7 +56,7 @@ struct PlaylistInformationView: View {
                 if playList.idAudioBooks != nil {
                     ScrollView (.vertical, showsIndicators: false) {
                         
-                        HStack(spacing: 13){
+                        VStack(spacing: 13){
                             ForEach(audioBookViewModel.audioBookList, id:\.self) { audioBook in
                                 AudioBooksFromPlayList(audioBook: audioBook)
                             }

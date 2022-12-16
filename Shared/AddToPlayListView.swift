@@ -14,10 +14,10 @@ struct AddToPlayListView: View {
     @StateObject var playListViewModel = PlayListViewModel()
     @EnvironmentObject var user : UserViewModel
     let audioBook: AudioBook
-    @State var success = false
+    @State var success = true
     @State var showToast = false
     @State var existingAudiobook = false
-   
+    
     public init(audioBook: AudioBook) {
         self.audioBook = audioBook
     }
@@ -28,47 +28,47 @@ struct AddToPlayListView: View {
             HStack(spacing: 5){
                 Button(action: {
                     dismiss()
-                   }, label: {
-                       HStack{
-                           Image(systemName: "arrow.left")
-                               .resizable()
-                               .frame(width: 20, height: 20)
-                               .padding()
-                               .foregroundColor(Color.white)
-                       }
-                   })
-                    .padding(.trailing, 20.0)
+                }, label: {
+                    HStack{
+                        Image(systemName: "arrow.left")
+                            .resizable()
+                            .frame(width: 20, height: 20)
+                            .padding()
+                            .foregroundColor(Color.white)
+                    }
+                })
+                .padding(.trailing, 20.0)
                 
                 Text("Añadir a la Lista de Reproducción")
                     .frame(width: 300)
                     .multilineTextAlignment(.center)
                     .foregroundColor(Color.white)
                     .font(.system(size: 18, weight: .heavy, design: .default))
-                    
+                
             }
             .padding(.top,20)
-          
+            
             Spacer()
             
             
             VStack{
-            
+                
                 Button(action: {
-                       showNewPlayList = true
-                   }, label: {
-                       HStack{
-                           Text("Nueva lista")
-                               .font(.system(size: 15, weight: .heavy, design: .default))
-                       }
-                       .padding()
-                      
-                   })
-                    .frame(width: 150)
-                    .background(Color("GreenColor"))
-                    .foregroundColor(Color.white)
-                    .cornerRadius(20)
+                    showNewPlayList = true
+                }, label: {
+                    HStack{
+                        Text("Nueva lista")
+                            .font(.system(size: 15, weight: .heavy, design: .default))
+                    }
+                    .padding()
+                    
+                })
+                .frame(width: 150)
+                .background(Color("GreenColor"))
+                .foregroundColor(Color.white)
+                .cornerRadius(20)
             }
-
+            
             VStack{
                 ScrollView (.vertical, showsIndicators: false) {
                     
@@ -86,23 +86,25 @@ struct AddToPlayListView: View {
                                             showToast = false
                                             dismiss()
                                         }
-                                    } else {
-                                        let parameters: [String: Any] = ["idAudioBook": audioBook.idAudioBook]
-                                        playListViewModel.addAudioBookToPlayList(idPlayList: String(playList.idPlayList), parameters: parameters)
-                                        success = true
-                                        showToast = true
-                                        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2){
-                                            showToast = false
-                                            dismiss()
-                                        }
-                                        
                                     }
+                                }
+                                if success {
+                                    
+                                    let parameters: [String: Any] = ["idAudioBook": audioBook.idAudioBook]
+                                    playListViewModel.addAudioBookToPlayList(idPlayList: String(playList.idPlayList), parameters: parameters)
+                                    showToast = true
+                                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2){
+                                        showToast = false
+                                        dismiss()
+                                    }
+                                    
+                                    
                                 }
                                 
                             }, label: {
                                 PlayListView(playList: playList)
                             })
-                           
+                            
                         }
                     }
                 }
@@ -114,7 +116,7 @@ struct AddToPlayListView: View {
             }.padding(.top,20)
             
             
-        
+            
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color("fullBackground"))

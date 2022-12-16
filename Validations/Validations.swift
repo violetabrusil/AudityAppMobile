@@ -14,7 +14,7 @@ struct Validations {
     var userName: String = ""
     
     func isEmpty(_field:String) -> Bool {
-        return _field.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+        return _field.isEmpty
     }
     
     func isEmailValid(_email: String) -> Bool {
@@ -39,8 +39,7 @@ struct Validations {
     }
     
     var isLogInComplete: Bool {
-        if isEmpty(_field: email) &&
-            isEmpty(_field: password) {
+        if isEmpty(_field: email) || isEmpty(_field: password) {
             return false
         }
         return true

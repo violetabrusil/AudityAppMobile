@@ -14,7 +14,7 @@ struct SearchView: View {
     @State private var searchPerAuthor: Bool = false
     @State private var searchPerGender: Bool = false
     let audityViewModel = AudityBaseViewModel()
-    let audioBookViewModel = AudioBookViewModel()
+    @ObservedObject var audioBookViewModel = AudioBookViewModel()
 
     init() {
         let navBarAppearance = UINavigationBarAppearance()
@@ -118,41 +118,43 @@ struct SearchView: View {
 
                             ZStack{
                                 
-                                Color("fullBackground")
-                                    .ignoresSafeArea(.all)
-                                
-                                VStack{
-                                    List(audioBookViewModel.audioBookList, id: \.idAudioBook) { audioBook in
+                                List {
+                                    
+                                    VStack{
                                         
                                         ScrollView{
                                             ForEach(audioBookViewModel.audioBookList, id:\.self) { audioBook in
                                                 VStack{
                                                     AudioBooksFromPlayList(audioBook: audioBook)
+                                                        .frame(height: 133)
+                                                        .padding(.bottom,20)
                                                 }
-                                                .frame(maxWidth: .infinity,maxHeight: .infinity)
-                                             
                                             }
                                         }
-                                        .listRowBackground( Color("fullBackground"))
-                                      
                                     }
-                                    .frame(maxWidth: .infinity,maxHeight: .infinity)
-                                    .listStyle(.plain)
-                                    .searchable(text: $searchText)
-                                    .padding(.top, 20)
-                                    .foregroundColor(.white)
-                                    .onChange(of: searchText) { value in
-                                        Task.init {
-                                            if !value.isEmpty && value.count > 3 {
-                                                await audioBookViewModel.searchPerTitle(title: searchText)
-                                            } else {
-                                                audioBookViewModel.audioBookList.removeAll()
-                                            }
-                                        }
-
-                                    }
-                                    .navigationTitle("Buscar por título")
+                                    .background(Color("fullBackground"))
+                                    .frame(height: 800)
+                                    .listRowBackground( Color("fullBackground"))
+                                  
                                 }
+                                .frame(maxWidth: .infinity,maxHeight: .infinity)
+                                .listStyle(.plain)
+                                .searchable(text: $searchText)
+                                .padding(.top, 20)
+                                .foregroundColor(.white)
+                                .onChange(of: searchText) { value in
+                                    Task.init {
+                                        if !value.isEmpty && value.count >= 3{
+                                          await audioBookViewModel.searchPerTitle(title: searchText)
+                                        } else {
+                                            audioBookViewModel.audioBookList.removeAll()
+                                        }
+                                    }
+
+                                }
+                                .navigationTitle("Buscar por título")
+                                
+                               
                                 
                                
                          
@@ -172,31 +174,35 @@ struct SearchView: View {
 
                             ZStack{
                                 
-                                List(audioBookViewModel.audioBookList, id: \.idAudioBook) { audioBook in
+                                List {
 
                                     VStack{
+                                        
                                         ScrollView (.vertical, showsIndicators: false) {
 
-                                            HStack(spacing: 13){
+                                            VStack(spacing: 13){
                                                 ForEach(audioBookViewModel.audioBookList, id:\.self) { audioBook in
                                                     AudioBooksFromPlayList(audioBook: audioBook)
+                                                        .frame(height: 133)
+                                                        .padding(.bottom,20)
                                                 }
                                             }
                                         }
         
                                     }
-                                    .frame(maxWidth: .infinity,maxHeight: .infinity)
+                                    .background(Color("fullBackground"))
+                                    .frame(height: 800)
                                     .listRowBackground(Color("fullBackground"))
 
                                 }
-                                .frame(maxWidth: .infinity,maxHeight: .infinity)
+                                .background(Color("fullBackground"))
                                 .listStyle(.plain)
                                 .searchable(text: $searchText)
                                 .padding(.top, 20)
                                 .foregroundColor(.white)
                                 .onChange(of: searchText) { value in
                                     Task.init {
-                                        if !value.isEmpty && value.count > 3 {
+                                        if !value.isEmpty && value.count >= 3 {
                                             await audioBookViewModel.searchPerAuhor(author: searchText)
                                         } else {
                                             audioBookViewModel.audioBookList.removeAll()
@@ -222,20 +228,23 @@ struct SearchView: View {
 
                             ZStack{
                                 
-                                List(audioBookViewModel.audioBookList, id: \.idAudioBook) { audioBook in
+                                List {
 
                                     VStack{
                                         ScrollView (.vertical, showsIndicators: false) {
 
-                                            HStack{
+                                            VStack{
                                                 ForEach(audioBookViewModel.audioBookList, id:\.self) { audioBook in
                                                     AudioBooksFromPlayList(audioBook: audioBook)
+                                                        .frame(height: 133)
+                                                        .padding(.bottom,20)
                                                 }
                                             }
                                         }
         
                                     }
-                                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                    .background(Color("fullBackground"))
+                                    .frame(height: 800)
                                     .listRowBackground(Color("fullBackground"))
                                 }
                                 .listStyle(.plain)
@@ -244,7 +253,7 @@ struct SearchView: View {
                                 .foregroundColor(.white)
                                 .onChange(of: searchText) { value in
                                     Task.init {
-                                        if !value.isEmpty && value.count > 3 {
+                                        if !value.isEmpty && value.count >= 3 {
                                             await audioBookViewModel.searchPerGender(gender: searchText)
                                         } else {
                                             audioBookViewModel.audioBookList.removeAll()
