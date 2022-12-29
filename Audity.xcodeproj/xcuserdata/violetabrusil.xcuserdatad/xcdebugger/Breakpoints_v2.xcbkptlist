@@ -990,8 +990,8 @@
             filePath = "Shared/AudioBookInformationView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -1496,7 +1496,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "FB3088C8-CB1C-42C0-A7E1-7FFCECBB36CF"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Shared/PlaylistInformationView.swift"
@@ -1544,7 +1544,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "19ECA84B-78D3-4653-B914-0DD301C3C72C"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Shared/PlaylistInformationView.swift"
@@ -2116,7 +2116,7 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Audity.PlayList) -&gt; SwiftUI.Button&lt;Audity.PlayListView&gt; in closure #1 () -&gt; SwiftUI.ForEach&lt;Swift.Array&lt;Audity.PlayList&gt;, Audity.PlayList, SwiftUI.Button&lt;Audity.PlayListView&gt;&gt; in closure #1 () -&gt; SwiftUI.HStack&lt;SwiftUI.ForEach&lt;Swift.Array&lt;Audity.PlayList&gt;, Audity.PlayList, SwiftUI.Button&lt;Audity.PlayListView&gt;&gt;&gt; in closure #3 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.onAppear(perform: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; some&gt;&gt;.0 in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, SwiftUI.Spacer, SwiftUI.VStack&lt;&lt;&lt;opaque return type of SwiftUI.View.cornerRadius(_: CoreGraphics.CGFloat, antialiased: Swift.Bool) -&gt; some&gt;&gt;.0&gt;, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0)&gt; in Audity.AddToPlayListView.body.getter : some"
+                  symbolName = "closure #1 (Audity.PlayList) -&gt; SwiftUI.Button&lt;Audity.PlayListView&gt; in closure #1 () -&gt; SwiftUI.ForEach&lt;Swift.Array&lt;Audity.PlayList&gt;, Audity.PlayList, SwiftUI.Button&lt;Audity.PlayListView&gt;&gt; in closure #1 () -&gt; SwiftUI.VStack&lt;SwiftUI.ForEach&lt;Swift.Array&lt;Audity.PlayList&gt;, Audity.PlayList, SwiftUI.Button&lt;Audity.PlayListView&gt;&gt;&gt; in closure #3 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.onAppear(perform: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; some&gt;&gt;.0 in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, SwiftUI.Spacer, SwiftUI.VStack&lt;&lt;&lt;opaque return type of SwiftUI.View.cornerRadius(_: CoreGraphics.CGFloat, antialiased: Swift.Bool) -&gt; some&gt;&gt;.0&gt;, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0)&gt; in Audity.AddToPlayListView.body.getter : some"
                   moduleName = "Audity"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/violetabrusil/ThesisAppMobile/AudityAppMobile/Shared/AddToPlayListView.swift"
@@ -2131,7 +2131,7 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in closure #1 (Audity.PlayList) -&gt; SwiftUI.Button&lt;Audity.PlayListView&gt; in closure #1 () -&gt; SwiftUI.ForEach&lt;Swift.Array&lt;Audity.PlayList&gt;, Audity.PlayList, SwiftUI.Button&lt;Audity.PlayListView&gt;&gt; in closure #1 () -&gt; SwiftUI.HStack&lt;SwiftUI.ForEach&lt;Swift.Array&lt;Audity.PlayList&gt;, Audity.PlayList, SwiftUI.Button&lt;Audity.PlayListView&gt;&gt;&gt; in closure #3 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.onAppear(perform: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; some&gt;&gt;.0 in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, SwiftUI.Spacer, SwiftUI.VStack&lt;&lt;&lt;opaque return type of SwiftUI.View.cornerRadius(_: CoreGraphics.CGFloat, antialiased: Swift.Bool) -&gt; some&gt;&gt;.0&gt;, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0)&gt; in Audity.AddToPlayListView.body.getter : some"
+                  symbolName = "closure #1 () -&gt; () in closure #1 (Audity.PlayList) -&gt; SwiftUI.Button&lt;Audity.PlayListView&gt; in closure #1 () -&gt; SwiftUI.ForEach&lt;Swift.Array&lt;Audity.PlayList&gt;, Audity.PlayList, SwiftUI.Button&lt;Audity.PlayListView&gt;&gt; in closure #1 () -&gt; SwiftUI.VStack&lt;SwiftUI.ForEach&lt;Swift.Array&lt;Audity.PlayList&gt;, Audity.PlayList, SwiftUI.Button&lt;Audity.PlayListView&gt;&gt;&gt; in closure #3 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.onAppear(perform: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; some&gt;&gt;.0 in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, SwiftUI.Spacer, SwiftUI.VStack&lt;&lt;&lt;opaque return type of SwiftUI.View.cornerRadius(_: CoreGraphics.CGFloat, antialiased: Swift.Bool) -&gt; some&gt;&gt;.0&gt;, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0)&gt; in Audity.AddToPlayListView.body.getter : some"
                   moduleName = "Audity"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/violetabrusil/ThesisAppMobile/AudityAppMobile/Shared/AddToPlayListView.swift"
@@ -2244,7 +2244,7 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in closure #1 (Audity.PlayList) -&gt; SwiftUI.Button&lt;Audity.PlayListView&gt; in closure #1 () -&gt; SwiftUI.ForEach&lt;Swift.Array&lt;Audity.PlayList&gt;, Audity.PlayList, SwiftUI.Button&lt;Audity.PlayListView&gt;&gt; in closure #1 () -&gt; SwiftUI.HStack&lt;SwiftUI.ForEach&lt;Swift.Array&lt;Audity.PlayList&gt;, Audity.PlayList, SwiftUI.Button&lt;Audity.PlayListView&gt;&gt;&gt; in closure #3 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.onAppear(perform: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; some&gt;&gt;.0 in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, SwiftUI.Spacer, SwiftUI.VStack&lt;&lt;&lt;opaque return type of SwiftUI.View.cornerRadius(_: CoreGraphics.CGFloat, antialiased: Swift.Bool) -&gt; some&gt;&gt;.0&gt;, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0)&gt; in Audity.AddToPlayListView.body.getter : some"
+                  symbolName = "closure #1 () -&gt; () in closure #1 (Audity.PlayList) -&gt; SwiftUI.Button&lt;Audity.PlayListView&gt; in closure #1 () -&gt; SwiftUI.ForEach&lt;Swift.Array&lt;Audity.PlayList&gt;, Audity.PlayList, SwiftUI.Button&lt;Audity.PlayListView&gt;&gt; in closure #1 () -&gt; SwiftUI.VStack&lt;SwiftUI.ForEach&lt;Swift.Array&lt;Audity.PlayList&gt;, Audity.PlayList, SwiftUI.Button&lt;Audity.PlayListView&gt;&gt;&gt; in closure #3 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.onAppear(perform: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; some&gt;&gt;.0 in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, SwiftUI.Spacer, SwiftUI.VStack&lt;&lt;&lt;opaque return type of SwiftUI.View.cornerRadius(_: CoreGraphics.CGFloat, antialiased: Swift.Bool) -&gt; some&gt;&gt;.0&gt;, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0)&gt; in Audity.AddToPlayListView.body.getter : some"
                   moduleName = "Audity"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/violetabrusil/ThesisAppMobile/AudityAppMobile/Shared/AddToPlayListView.swift"
@@ -2259,7 +2259,7 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 () -&gt; () in closure #1 (Audity.PlayList) -&gt; SwiftUI.Button&lt;Audity.PlayListView&gt; in closure #1 () -&gt; SwiftUI.ForEach&lt;Swift.Array&lt;Audity.PlayList&gt;, Audity.PlayList, SwiftUI.Button&lt;Audity.PlayListView&gt;&gt; in closure #1 () -&gt; SwiftUI.HStack&lt;SwiftUI.ForEach&lt;Swift.Array&lt;Audity.PlayList&gt;, Audity.PlayList, SwiftUI.Button&lt;Audity.PlayListView&gt;&gt;&gt; in closure #3 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.onAppear(perform: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; some&gt;&gt;.0 in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, SwiftUI.Spacer, SwiftUI.VStack&lt;&lt;&lt;opaque return type of SwiftUI.View.cornerRadius(_: CoreGraphics.CGFloat, antialiased: Swift.Bool) -&gt; some&gt;&gt;.0&gt;, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0)&gt; in Audity.AddToPlayListView.body.getter : some"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 () -&gt; () in closure #1 (Audity.PlayList) -&gt; SwiftUI.Button&lt;Audity.PlayListView&gt; in closure #1 () -&gt; SwiftUI.ForEach&lt;Swift.Array&lt;Audity.PlayList&gt;, Audity.PlayList, SwiftUI.Button&lt;Audity.PlayListView&gt;&gt; in closure #1 () -&gt; SwiftUI.VStack&lt;SwiftUI.ForEach&lt;Swift.Array&lt;Audity.PlayList&gt;, Audity.PlayList, SwiftUI.Button&lt;Audity.PlayListView&gt;&gt;&gt; in closure #3 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.onAppear(perform: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; some&gt;&gt;.0 in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, SwiftUI.Spacer, SwiftUI.VStack&lt;&lt;&lt;opaque return type of SwiftUI.View.cornerRadius(_: CoreGraphics.CGFloat, antialiased: Swift.Bool) -&gt; some&gt;&gt;.0&gt;, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0)&gt; in Audity.AddToPlayListView.body.getter : some"
                   moduleName = "Audity"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/violetabrusil/ThesisAppMobile/AudityAppMobile/Shared/AddToPlayListView.swift"
@@ -2747,6 +2747,22 @@
             startingLineNumber = "44"
             endingLineNumber = "44"
             landmarkName = "isLogInComplete"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AB462E37-6C9C-454F-A255-F261DA2B2A12"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shared/PlaylistInformationView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>

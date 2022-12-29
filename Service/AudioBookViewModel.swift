@@ -167,7 +167,7 @@ class AudioBookViewModel: ObservableObject {
     
     func getAudioBooksFromPlayList(wordToSearch: String) {
         
-        let endpoint = "api/audioBook/getAudioBooksFromPlayList/\(wordToSearch)"
+        let endpoint = "/api/audioBook/getAudioBooksFromPlayList/\(wordToSearch)"
         guard let url = URL(string: BASEURL + endpoint) else {
             print("no hay respuesta")
             return

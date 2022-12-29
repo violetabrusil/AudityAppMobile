@@ -24,16 +24,43 @@ struct LibraryView: View {
                     HStack(spacing: 10){
                         
                         VStack{
-                            AsyncImage(url: URL(string: user.user?.photo ?? "")) { image in
-                                image.resizable()
-                                    .aspectRatio(contentMode: .fill)
+                            
+                            if user.user?.photo != "" {
+                                AsyncImage(url: URL(string: user.user?.photo ?? "")) { image in
+                                    image.resizable()
+                                        .aspectRatio(contentMode: .fill)
+                                    
+                                } placeholder: {
+                                    ProgressView()
+                                }
+                                .frame(width: 50, height:50)
+                                .clipShape(Circle())
+                                .shadow(radius: 10)
+                            } else {
+                                if user.user?.photo != "" {
+                                    AsyncImage(url: URL(string: user.user?.photo ?? "")) { image in
+                                        image.resizable()
+                                            .aspectRatio(contentMode: .fill)
+                                        
+                                    } placeholder: {
+                                        ProgressView()
+                                    }
+                                    .frame(width: 50, height:50)
+                                    .clipShape(Circle())
+                                    .shadow(radius: 10)
+                                } else {
+                                    Image(systemName: "person.circle.fill")
+                                        .resizable()
+                                        .frame(width: 50, height:50)
+                                        .clipShape(Circle())
+                                        .shadow(radius: 10)
+                                        .foregroundColor(Color(.gray))
+                                }
+                           
                                 
-                            } placeholder: {
-                                ProgressView()
                             }
-                            .frame(width: 50, height:50)
-                            .clipShape(Circle())
-                            .shadow(radius: 10)
+
+                           
                             
                         }
                         .padding(.leading, 20)
@@ -81,7 +108,7 @@ struct LibraryView: View {
                     
                     ScrollView (.vertical, showsIndicators: false) {
                         
-                        HStack(spacing: 13){
+                        VStack(spacing: 13){
                             ForEach(playListViewModel.playList, id:\.self) { playList in
                                 Button(action: {
                                     _ = audityViewModel.extras.set(key: "playList", value: playList)

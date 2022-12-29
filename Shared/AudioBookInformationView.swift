@@ -82,7 +82,7 @@ struct AudioBookInformationView: View {
                                 }
                                 
                             }
-                            .frame(height: 130)
+                            .frame(height: 110)
                         }
                         
                         if ((audioBook.reviews?.count) != 0){
@@ -97,7 +97,8 @@ struct AudioBookInformationView: View {
                                         }
                                     }
                                 }
-                            }.frame(height: 300)
+                            }
+                            .frame(height: 100)
                         }
                         else{
                             HStack{

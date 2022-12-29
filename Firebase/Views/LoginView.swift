@@ -136,7 +136,7 @@ struct LoginView: View {
                             if validation.isLogInComplete{
                                 user.loginUser(email: validation.email, password: validation.password)
                                 showspinner = true
-                                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2){
+                                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3){
                                     if user.userIsAuthenicatedAndSynced{
                                         successLogin = true
                                     }

@@ -72,7 +72,7 @@ struct AddToPlayListView: View {
             VStack{
                 ScrollView (.vertical, showsIndicators: false) {
                     
-                    HStack(spacing: 13){
+                    VStack(spacing: 13){
                         
                         ForEach(playListViewModel.playList, id:\.self) { playList in
                             Button(action: {
